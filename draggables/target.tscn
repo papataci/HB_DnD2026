@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://c28b1dc3jdl2c"]
+
+[ext_resource type="Texture2D" uid="uid://cmhqricvik7gl" path="res://assets/symbols/square.png" id="1_1awp6"]
+[ext_resource type="Script" uid="uid://d2p7tksegklys" path="res://draggables/target.gd" id="1_8nxip"]
+[ext_resource type="Script" uid="uid://crmnw3ldr3xev" path="res://addons/drag_and_drop/scripts/draggable.gd" id="1_b5a2r"]
+[ext_resource type="Script" uid="uid://djdmnemxrx7bg" path="res://addons/drag_and_drop/resources/draggable_types/draggable_type.gd" id="2_nlbrr"]
+[ext_resource type="Texture2D" uid="uid://dxyxskywe5kwi" path="res://draggables/targets/texture/toshiro.jpg" id="5_ydlx7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4nqyb"]
+radius = 71.70077
+
+[sub_resource type="Resource" id="Resource_tsf7w"]
+script = ExtResource("2_nlbrr")
+id = "target"
+
+[node name="Target" type="Area2D" unique_id=1376955046]
+script = ExtResource("1_8nxip")
+metadata/draggable = ExtResource("1_1awp6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2067604183]
+shape = SubResource("CircleShape2D_4nqyb")
+
+[node name="Draggable" type="Node" parent="." unique_id=1104669140]
+script = ExtResource("1_b5a2r")
+type = SubResource("Resource_tsf7w")
+metadata/_custom_type_script = "uid://crmnw3ldr3xev"
+
+[node name="Label" type="Label" parent="." unique_id=978837273]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = 61.0
+offset_right = 37.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+text = "Toshiro"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Texture" type="Sprite2D" parent="." unique_id=498793028]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_ydlx7")

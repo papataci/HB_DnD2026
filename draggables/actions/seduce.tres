@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ActionData" format=3 uid="uid://bgodbjvf25xs6"]
+
+[ext_resource type="Script" uid="uid://q3ca6ohkvg0x" path="res://draggables/action_data.gd" id="1_seduce"]
+[ext_resource type="Texture2D" uid="uid://2hc87aakrlj6" path="res://draggables/actions/texture/seduce_s.png" id="2_c4ji0"]
+
+[resource]
+script = ExtResource("1_seduce")
+id = 1
+action_name = "Seduce"
+texture = ExtResource("2_c4ji0")

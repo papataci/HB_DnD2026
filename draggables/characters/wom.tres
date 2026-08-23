@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://b5e0c5eldtevy"]
+
+[ext_resource type="Script" uid="uid://csavhka3g4p5" path="res://draggables/character_data.gd" id="1_wom"]
+[ext_resource type="Texture2D" uid="uid://bwidqybbxxm3r" path="res://draggables/characters/texture/WOM_OBJ.png" id="2_hcg6h"]
+
+[resource]
+script = ExtResource("1_wom")
+id = 1
+character_name = "Wom"
+texture = ExtResource("2_hcg6h")

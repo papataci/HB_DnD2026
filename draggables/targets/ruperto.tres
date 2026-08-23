@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TargetData" format=3 uid="uid://dl7hjsxtte8ms"]
+
+[ext_resource type="Script" uid="uid://7c7jfyymn6g2" path="res://draggables/target_data.gd" id="1_ruperto"]
+[ext_resource type="Texture2D" uid="uid://dnt7ibm02tpoy" path="res://draggables/targets/texture/ruperto.jpg" id="2_pr2aq"]
+
+[resource]
+script = ExtResource("1_ruperto")
+id = 1
+target_name = "Ruperto"
+texture = ExtResource("2_pr2aq")

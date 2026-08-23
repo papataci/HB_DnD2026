@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ActionData" format=3 uid="uid://h5dd815riiap"]
+
+[ext_resource type="Script" uid="uid://q3ca6ohkvg0x" path="res://draggables/action_data.gd" id="1_attack"]
+[ext_resource type="Texture2D" uid="uid://brutwbnsnostl" path="res://draggables/actions/texture/punch.png" id="2_8u4gx"]
+
+[resource]
+script = ExtResource("1_attack")
+action_name = "Attack"
+texture = ExtResource("2_8u4gx")

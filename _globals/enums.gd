@@ -1,0 +1,20 @@
+class_name ENUMS
+
+enum CHARACTERS {
+	HOLLY,
+	WOM,
+	SANDRA,
+}
+
+enum ACTIONS {
+	ATTACK,
+	SEDUCE,
+	GIVE,
+}
+
+enum TARGETS {
+	TOSHIRO,
+	RUPERTO,
+	MISTERX,
+	TWINS,
+}
