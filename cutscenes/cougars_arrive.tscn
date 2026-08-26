@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://btxsuqtcf77xy"]
+
+[ext_resource type="Script" uid="uid://cvik8antdmqqt" path="res://cutscenes/cougars_arrive.gd" id="1_a6yl7"]
+[ext_resource type="Theme" uid="uid://dbxkt34305lhi" path="res://styles/HollyDefault.tres" id="2_07qve"]
+[ext_resource type="Texture2D" uid="uid://clg1plj77he4d" path="res://assets/cutscenes/holly_wakes/Vigna00empty.png" id="3_seloo"]
+[ext_resource type="Texture2D" uid="uid://jt276pvsuyr5" path="res://Characters/FullFigure/caloura_cougars.png" id="4_7toss"]
+[ext_resource type="Theme" uid="uid://7mdqj0pbw8l0" path="res://styles/Toon_theme.tres" id="16_opuff"]
+
+[sub_resource type="Animation" id="Animation_mn3y6"]
+resource_name = "CougarsArrive"
+length = 6.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page1/MarginContainer/Frame:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.03333, 1.63333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page1/MarginContainer/Cougars:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.03333, 1.63333)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page1:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3.2, 3.7)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.933333, 3.7, 3.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ToBlack:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4.46667, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ToBlack:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4.5, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6x8ji"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ToBlack:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ToBlack:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ef7g"]
+_data = {
+&"CougarsArrive": SubResource("Animation_mn3y6"),
+&"RESET": SubResource("Animation_6x8ji")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_geu4r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehxxo"]
+
+[node name="CougarsArrive" type="CanvasLayer" unique_id=339894814]
+layer = 50
+script = ExtResource("1_a6yl7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1641407018]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.95, 0.9405, 0.94525, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=418999193]
+libraries/ = SubResource("AnimationLibrary_5ef7g")
+
+[node name="VignetteContainer(Liner Filtering)" type="PanelContainer" parent="." unique_id=1069865786]
+texture_filter = 2
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -35.0
+offset_top = 52.0
+offset_right = 731.0
+offset_bottom = 2486.0
+grow_horizontal = 2
+scale = Vector2(0.667839, 0.667839)
+mouse_filter = 2
+theme = ExtResource("2_07qve")
+theme_type_variation = &"PaperPanelContainer"
+theme_override_styles/panel = SubResource("StyleBoxEmpty_geu4r")
+
+[node name="MarginContainer" type="MarginContainer" parent="VignetteContainer(Liner Filtering)" unique_id=2123574844]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 42
+theme_override_constants/margin_top = 42
+theme_override_constants/margin_right = 42
+theme_override_constants/margin_bottom = 42
+
+[node name="Page1" type="HBoxContainer" parent="VignetteContainer(Liner Filtering)/MarginContainer" unique_id=546741302]
+visible = false
+modulate = Color(1, 1, 1, 0.877534)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page1" unique_id=1241411538]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Frame" type="TextureRect" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page1/MarginContainer" unique_id=1388338852]
+layout_mode = 2
+texture = ExtResource("3_seloo")
+
+[node name="Cougars" type="TextureRect" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page1/MarginContainer" unique_id=906947714]
+layout_mode = 2
+texture = ExtResource("4_7toss")
+
+[node name="ToBlack" type="ColorRect" parent="." unique_id=826321990]
+visible = false
+modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SkipButton" type="Button" parent="." unique_id=607724216]
+offset_left = 1210.0
+offset_top = 675.0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme = ExtResource("16_opuff")
+theme_override_colors/font_color = Color(0.314316, 0.314316, 0.314316, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ehxxo")
+text = "skip"
+
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]

@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -sS -m 10 -o /dev/null -w \"HTTP %{http_code}\\\\n\" https://api.github.com/repos/paulloz/godot-ink/releases/latest)",
+      "Bash(echo \"curl failed: $?\")",
+      "Bash(curl *)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(d.get\\('default_branch'\\), d.get\\('archived'\\), d.get\\('description'\\)\\)\")",
+      "Bash(python3 -c \"import json,sys; [print\\(b['name']\\) for b in json.load\\(sys.stdin\\)]\")",
+      "Bash(python3 -c \"import json,sys; [print\\(t['name']\\) for t in json.load\\(sys.stdin\\)]\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(d['commit']['author']['date'], d['sha'][:8], d['commit']['message'][:200]\\)\")",
+      "Bash(python3 -c ' *)",
+      "Read(//tmp/tmp.nVsO0hPgh3/extracted/inkgd-godot4/addons/inkgd/**)",
+      "Bash(echo \"---\")",
+      "Bash(rsync -a --exclude mono/ /tmp/tmp.nVsO0hPgh3/extracted/inkgd-godot4/addons/inkgd/ /home/papalagi/GitHub/HB_DnD2026/addons/inkgd/)",
+      "Bash(find /home/papalagi/GitHub/HB_DnD2026/addons/inkgd -maxdepth 1)",
+      "Bash(echo \"---LICENSE first lines---\")",
+      "Bash(head -5 /home/papalagi/GitHub/HB_DnD2026/addons/inkgd/LICENSE)",
+      "Bash(dotnet --version)",
+      "Bash(npm --version)",
+      "Read(//tmp/tmp.dMAAq97lNR/inklecate/**)",
+      "Bash(cd /home/papalagi/GitHub/HB_DnD2026/ink)",
+      "Bash(/tmp/tmp.dMAAq97lNR/inklecate/inklecate -o example.ink.json example.ink)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(ls -la)",
+      "Bash(git -C /home/papalagi/GitHub/HB_DnD2026 status --short)",
+      "Bash(xargs ls)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}

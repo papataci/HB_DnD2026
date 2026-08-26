@@ -1,0 +1,136 @@
+[gd_scene load_steps=10 format=3 uid="uid://c4k7aaxhx11x"]
+
+[ext_resource type="Script" uid="uid://dcwqhimwa0f7k" path="res://Locations/SublocZoom.gd" id="1_i16mx"]
+[ext_resource type="Texture2D" uid="uid://xt1ytjecrbuc" path="res://Locations/bitmaps/_templ_Room.png" id="2_kd5ac"]
+[ext_resource type="Texture2D" uid="uid://drwghfelov3gx" path="res://Characters/FullFigure/Trafficante_figura_intera.png" id="4_nqlk2"]
+[ext_resource type="PackedScene" uid="uid://brjaet4f7dboh" path="res://item/RoomItem.tscn" id="5_aryoy"]
+[ext_resource type="Texture2D" uid="uid://c36lc3e8ff0e" path="res://Inventory/bitmaps/RosarioBudd.png" id="6_7t08s"]
+[ext_resource type="Texture2D" uid="uid://knowontl448w" path="res://Locations/bitmaps/Shack_Ext_Day.png" id="7_54tfr"]
+[ext_resource type="PackedScene" uid="uid://bq8hcw2ecc66g" path="res://Characters/holly_full.tscn" id="7_oaw1u"]
+[ext_resource type="PackedScene" uid="uid://bl56dmxkxrt7f" path="res://Characters/wom_full.tscn" id="8_7k7l4"]
+[ext_resource type="PackedScene" uid="uid://cmqn2md0mn0lk" path="res://Utils/passepartout.tscn" id="9_3ng08"]
+
+[node name="Shack" type="CanvasLayer"]
+layer = 45
+script = ExtResource("1_i16mx")
+
+[node name="Control" type="Control" parent="."]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Open" type="Control" parent="Control"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Room BG Int" type="TextureRect" parent="Control/Open"]
+visible = false
+layout_mode = 2
+offset_left = -110.0
+offset_top = -40.0
+offset_right = 1324.0
+offset_bottom = 743.0
+texture = ExtResource("2_kd5ac")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Guest" type="TextureRect" parent="Control/Open"]
+layout_mode = 2
+offset_left = 493.0
+offset_top = 264.0
+offset_right = 660.0
+offset_bottom = 498.0
+texture = ExtResource("4_nqlk2")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Items" type="Control" parent="Control/Open"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Gun" parent="Control/Open/Items" instance=ExtResource("5_aryoy")]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 448.0
+offset_right = 909.0
+offset_bottom = 569.0
+
+[node name="Rosario" parent="Control/Open/Items" instance=ExtResource("5_aryoy")]
+layout_mode = 0
+offset_left = 705.0
+offset_top = 450.0
+offset_right = 846.0
+offset_bottom = 617.0
+texture = ExtResource("6_7t08s")
+Item_ID = 6
+
+[node name="Closed" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Room BG Ext" type="TextureRect" parent="Control/Closed"]
+layout_mode = 2
+offset_left = -19.0
+offset_top = -96.0
+offset_right = 1446.0
+offset_bottom = 744.0
+texture = ExtResource("7_54tfr")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="Control/Closed"]
+visible = false
+layout_mode = 0
+offset_left = 236.0
+offset_top = 406.0
+offset_right = 339.0
+offset_bottom = 491.0
+
+[node name="ColorRect2" type="ColorRect" parent="Control/Closed"]
+visible = false
+layout_mode = 0
+offset_left = 938.0
+offset_top = 422.0
+offset_right = 1039.0
+offset_bottom = 509.0
+
+[node name="Holly" parent="Control/Closed" instance=ExtResource("7_oaw1u")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 187.0
+offset_top = 207.0
+offset_right = 385.0
+offset_bottom = 641.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.860635, 0.860635)
+
+[node name="WOM" parent="Control/Closed" instance=ExtResource("8_7k7l4")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 126.0
+offset_top = 199.0
+offset_right = 285.0
+offset_bottom = 586.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1.07411, 1.07411)
+
+[node name="Passepartout" parent="." instance=ExtResource("9_3ng08")]

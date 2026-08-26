@@ -1,0 +1,25 @@
+[gd_resource type="Theme" format=3 uid="uid://dbxkt34305lhi"]
+
+[ext_resource type="FontFile" uid="uid://4hl7jdljhetn" path="res://assets/fonts/SF Pixelate.ttf" id="1_6potf"]
+[ext_resource type="Texture2D" uid="uid://cyhupt0a3nc83" path="res://assets/cutscenes/smooth-white-plaster-wall.jpg" id="1_eni33"]
+[ext_resource type="FontFile" uid="uid://bgljtoqsov2pk" path="res://assets/fonts/SF Pixelate Bold.ttf" id="1_hx3gb"]
+[ext_resource type="FontFile" uid="uid://bdkgskkmdjkdv" path="res://assets/fonts/SF Pixelate Oblique.ttf" id="2_nw24x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2dqk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6nbpr"]
+texture = ExtResource("1_eni33")
+modulate_color = Color(1, 1, 1, 0.768627)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssg1n"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[resource]
+default_font = ExtResource("1_6potf")
+default_font_size = 10
+Panel/styles/panel = SubResource("StyleBoxEmpty_d2dqk")
+PaperPanelContainer/base_type = &"PanelContainer"
+PaperPanelContainer/styles/panel = SubResource("StyleBoxTexture_6nbpr")
+RichTextLabel/fonts/bold_font = ExtResource("1_hx3gb")
+RichTextLabel/fonts/italics_font = ExtResource("2_nw24x")
+TranspPanelContainer/styles/panel = SubResource("StyleBoxFlat_ssg1n")

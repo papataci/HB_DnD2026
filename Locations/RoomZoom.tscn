@@ -1,0 +1,293 @@
+[gd_scene load_steps=19 format=3 uid="uid://dqju0sl1w0ndk"]
+
+[ext_resource type="Script" uid="uid://dcwqhimwa0f7k" path="res://Locations/SublocZoom.gd" id="1_60ag7"]
+[ext_resource type="Texture2D" uid="uid://xt1ytjecrbuc" path="res://Locations/bitmaps/_templ_Room.png" id="2_munqs"]
+[ext_resource type="PackedScene" uid="uid://bq8hcw2ecc66g" path="res://Characters/holly_full.tscn" id="5_1cn4x"]
+[ext_resource type="PackedScene" uid="uid://brjaet4f7dboh" path="res://item/RoomItem.tscn" id="5_od488"]
+[ext_resource type="PackedScene" uid="uid://bl56dmxkxrt7f" path="res://Characters/wom_full.tscn" id="6_pr2nw"]
+[ext_resource type="PackedScene" uid="uid://d2lfhk7rw3fm3" path="res://Characters/toshiro_full.tscn" id="7_c7jac"]
+[ext_resource type="Texture2D" uid="uid://c36lc3e8ff0e" path="res://Inventory/bitmaps/RosarioBudd.png" id="7_cypp4"]
+[ext_resource type="PackedScene" uid="uid://dmgh05kt1igeh" path="res://Characters/traficante_full.tscn" id="8_2dw5e"]
+[ext_resource type="PackedScene" uid="uid://cmqn2md0mn0lk" path="res://Utils/passepartout.tscn" id="8_3fa45"]
+[ext_resource type="PackedScene" uid="uid://cguicreqiv72q" path="res://Characters/ruperto_full.tscn" id="9_3sint"]
+[ext_resource type="Texture2D" uid="uid://b8bg48wbadk0l" path="res://Locations/bitmaps/Room_Ext_Day.png" id="10_vp22n"]
+[ext_resource type="FontFile" uid="uid://b32w3ccxtpric" path="res://00_trash/AdamWarrenPro/adamwarrenpro-bold.ttf" id="11_08w67"]
+[ext_resource type="Script" uid="uid://b8fe0nsi3wix6" path="res://Locations/7_8.gd" id="11_e7xtb"]
+[ext_resource type="Script" uid="uid://c4w88yg7r2gw5" path="res://Locations/5_6.gd" id="13_au3o8"]
+[ext_resource type="Script" uid="uid://bbu4fr7bvjr5a" path="res://Locations/1_2.gd" id="14_7bi6t"]
+[ext_resource type="FontFile" uid="uid://clw1bl4jc1kgs" path="res://Assets/UI/Fonts/komikah/KOMIKAHB.ttf" id="14_hkj7y"]
+[ext_resource type="PackedScene" uid="uid://dmi1ghw72wkr4" path="res://Scenes/black_and_white_screen.tscn" id="17_xsh4y"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xd3m5"]
+blend_mode = 3
+light_mode = 1
+
+[node name="RoomZoom" type="CanvasLayer"]
+layer = 45
+script = ExtResource("1_60ag7")
+
+[node name="Control" type="Control" parent="."]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Open" type="Control" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Room BG Int" type="TextureRect" parent="Control/Open"]
+layout_mode = 2
+offset_left = -110.0
+offset_top = -40.0
+offset_right = 1324.0
+offset_bottom = 743.0
+texture = ExtResource("2_munqs")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PPFilter" type="ColorRect" parent="Control/Open"]
+modulate = Color(0.882353, 1, 1, 1)
+material = SubResource("CanvasItemMaterial_xd3m5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Items" type="Control" parent="Control/Open"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Gun" parent="Control/Open/Items" instance=ExtResource("5_od488")]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 448.0
+offset_right = 909.0
+offset_bottom = 569.0
+
+[node name="Rosario" parent="Control/Open/Items" instance=ExtResource("5_od488")]
+layout_mode = 0
+offset_left = 705.0
+offset_top = 450.0
+offset_right = 846.0
+offset_bottom = 617.0
+texture = ExtResource("7_cypp4")
+Item_ID = 6
+
+[node name="Holly" parent="Control/Open" instance=ExtResource("5_1cn4x")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 125.0
+offset_top = 186.0
+offset_right = 323.0
+offset_bottom = 620.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="WOM" parent="Control/Open" instance=ExtResource("6_pr2nw")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 149.0
+offset_top = 228.0
+offset_right = 308.0
+offset_bottom = 615.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Toshiro" parent="Control/Open" instance=ExtResource("7_c7jac")]
+layout_mode = 0
+offset_left = 749.0
+offset_top = 417.0
+offset_right = 919.0
+offset_bottom = 665.0
+
+[node name="Traficante" parent="Control/Open" instance=ExtResource("8_2dw5e")]
+visible = false
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 225.0
+offset_bottom = 284.0
+
+[node name="Ruperto" parent="Control/Open" instance=ExtResource("9_3sint")]
+visible = false
+layout_mode = 0
+offset_left = 759.0
+offset_top = 248.0
+offset_right = 916.0
+offset_bottom = 506.0
+scale = Vector2(0.86978, 0.86978)
+
+[node name="Closed" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Room BG Ext" type="TextureRect" parent="Control/Closed"]
+layout_mode = 2
+offset_left = -81.0
+offset_top = -108.0
+offset_right = 1384.0
+offset_bottom = 732.0
+texture = ExtResource("10_vp22n")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Holly" parent="Control/Closed" instance=ExtResource("5_1cn4x")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 108.0
+offset_top = 276.0
+offset_right = 306.0
+offset_bottom = 710.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.759317, 0.759317)
+
+[node name="WOM" parent="Control/Closed" instance=ExtResource("6_pr2nw")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 99.0
+offset_top = 279.0
+offset_right = 258.0
+offset_bottom = 666.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="7-8" type="Control" parent="Control/Closed"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("11_e7xtb")
+
+[node name="NumberLeft" type="Label" parent="Control/Closed/7-8"]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 408.0
+offset_right = 333.0
+offset_bottom = 494.0
+theme_override_colors/font_color = Color(0.244776, 0.244776, 0.244776, 1)
+theme_override_fonts/font = ExtResource("11_08w67")
+theme_override_font_sizes/font_size = 70
+text = "7
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberRight" type="Label" parent="Control/Closed/7-8"]
+layout_mode = 0
+offset_left = 764.0
+offset_top = 427.0
+offset_right = 871.0
+offset_bottom = 513.0
+theme_override_colors/font_color = Color(0.244776, 0.244776, 0.244776, 1)
+theme_override_fonts/font = ExtResource("11_08w67")
+theme_override_font_sizes/font_size = 70
+text = "8
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="5-6" type="Control" parent="Control/Closed"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_au3o8")
+
+[node name="NumberLeft" type="Label" parent="Control/Closed/5-6"]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 408.0
+offset_right = 333.0
+offset_bottom = 494.0
+theme_override_colors/font_color = Color(0.244776, 0.244776, 0.244776, 1)
+theme_override_fonts/font = ExtResource("11_08w67")
+theme_override_font_sizes/font_size = 70
+text = "5
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberRight" type="Label" parent="Control/Closed/5-6"]
+layout_mode = 0
+offset_left = 767.0
+offset_top = 424.0
+offset_right = 874.0
+offset_bottom = 510.0
+theme_override_colors/font_color = Color(0.244776, 0.244776, 0.244776, 1)
+theme_override_fonts/font = ExtResource("11_08w67")
+theme_override_font_sizes/font_size = 70
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="1-2" type="Control" parent="Control/Closed"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("14_7bi6t")
+
+[node name="NumberLeft" type="Label" parent="Control/Closed/1-2"]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 398.0
+offset_right = 332.0
+offset_bottom = 493.0
+theme_override_colors/font_color = Color(0.244776, 0.244776, 0.244776, 1)
+theme_override_fonts/font = ExtResource("14_hkj7y")
+theme_override_font_sizes/font_size = 70
+text = "1
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberRight" type="Label" parent="Control/Closed/1-2"]
+layout_mode = 0
+offset_left = 762.0
+offset_top = 412.0
+offset_right = 869.0
+offset_bottom = 507.0
+theme_override_colors/font_color = Color(0.244776, 0.244776, 0.244776, 1)
+theme_override_fonts/font = ExtResource("14_hkj7y")
+theme_override_font_sizes/font_size = 70
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Passepartout" parent="." instance=ExtResource("8_3fa45")]
+
+[node name="Black And White Screen" parent="." instance=ExtResource("17_xsh4y")]

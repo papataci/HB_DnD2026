@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://brjaet4f7dboh"]
+
+[ext_resource type="Texture2D" uid="uid://d2tity8kansle" path="res://Inventory/bitmaps/Handgun.png" id="1_ptkf6"]
+[ext_resource type="Script" uid="uid://yjiyasgtxps4" path="res://item/RoomItemVisibility.gd" id="2_dv6h3"]
+
+[node name="RoomItem" type="TextureRect"]
+offset_left = 688.0
+offset_top = 455.0
+offset_right = 921.0
+offset_bottom = 576.0
+texture = ExtResource("1_ptkf6")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("2_dv6h3")

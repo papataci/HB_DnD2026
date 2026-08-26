@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://dfsgnj8e17gww"]
+
+[ext_resource type="Texture2D" uid="uid://jdwwgckm0i15" path="res://assets/ui/9rect_Balloon_Alone.png" id="1_0kiet"]
+
+[resource]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
+texture = ExtResource("1_0kiet")
+texture_margin_left = 86.0
+texture_margin_top = 86.0
+texture_margin_right = 128.0
+texture_margin_bottom = 120.0

@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://bfgqkuv1uyw61"]
+
+[ext_resource type="Script" uid="uid://cqq3g5arw4rsl" path="res://ui/main_menu.gd" id="1_nhij2"]
+[ext_resource type="Texture2D" uid="uid://c1qqowjbc0jf7" path="res://assets/ui/Holly_jump.png" id="4_6oouy"]
+[ext_resource type="Theme" uid="uid://dbxkt34305lhi" path="res://styles/HollyDefault.tres" id="5_tysk1"]
+[ext_resource type="Theme" uid="uid://7mdqj0pbw8l0" path="res://styles/Toon_theme.tres" id="6_hnayn"]
+[ext_resource type="PackedScene" uid="uid://cufcprkhhmj41" path="res://ui/soundtrack.tscn" id="6_v7klq"]
+[ext_resource type="Texture2D" uid="uid://d1fl036ok22ib" path="res://assets/ui/HollywppdBauTitle_4k.png" id="7_1xd16"]
+[ext_resource type="Texture2D" uid="uid://cdx2uut64m40j" path="res://assets/ui/TTNK_Logo_64.png" id="8_18ngn"]
+
+[node name="Main Menu" type="Node2D" unique_id=168090584]
+position = Vector2(-6, 4)
+script = ExtResource("1_nhij2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=976694638]
+
+[node name="BG Azul" type="ColorRect" parent="CanvasLayer" unique_id=1479245025]
+show_behind_parent = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("5_tysk1")
+color = Color(0.180392, 0.388235, 0.694118, 1)
+
+[node name="BG white" type="ColorRect" parent="CanvasLayer" unique_id=877450984]
+visible = false
+show_behind_parent = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("5_tysk1")
+color = Color(0.8272, 0.84832, 0.88, 1)
+
+[node name="BG Yello" type="ColorRect" parent="CanvasLayer" unique_id=1719580258]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -599.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.886275, 0.623529, 0.317647, 1)
+
+[node name="Control2" type="Control" parent="CanvasLayer" unique_id=1652817439]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1280.0
+offset_bottom = -720.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control2" unique_id=887353528]
+texture_filter = 2
+layout_mode = 0
+offset_left = -2.0
+offset_top = 49.0
+offset_right = 587.0
+offset_bottom = 724.0
+mouse_filter = 2
+texture = ExtResource("4_6oouy")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TtnkLogo64" type="TextureRect" parent="CanvasLayer" unique_id=1260019079]
+offset_left = 1144.0
+offset_top = 582.0
+offset_right = 1258.0
+offset_bottom = 697.0
+texture = ExtResource("8_18ngn")
+stretch_mode = 4
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=325778041]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = 11.0
+offset_right = -1292.0
+offset_bottom = -709.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_hnayn")
+
+[node name="HollywoodBauTitle" type="TextureRect" parent="CanvasLayer/Control" unique_id=1417774487]
+texture_filter = 2
+layout_mode = 0
+offset_left = 772.0
+offset_top = 55.0
+offset_right = 1219.0
+offset_bottom = 137.0
+texture = ExtResource("7_1xd16")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=395941905]
+texture_filter = 2
+layout_mode = 0
+offset_left = 823.0
+offset_top = 218.0
+offset_right = 1163.0
+offset_bottom = 328.0
+
+[node name="Continue" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=235389223]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+focus_mode = 0
+disabled = true
+text = "Continue"
+
+[node name="NewGame" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=1763586221]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+focus_mode = 0
+text = "New Game"
+
+[node name="Quit" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=1656625249]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+focus_mode = 0
+text = "Quit
+"
+
+[node name="Credits" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=327895830]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+focus_mode = 0
+text = "Credits
+"
+
+[node name="Soundtrack" parent="." unique_id=519951396 instance=ExtResource("6_v7klq")]
+
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

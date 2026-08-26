@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmgh05kt1igeh"]
+
+[ext_resource type="Texture2D" uid="uid://drwghfelov3gx" path="res://Characters/FullFigure/Trafficante_figura_intera.png" id="1_arfk3"]
+[ext_resource type="Script" uid="uid://decyxkq57tqrl" path="res://Locations/FullFigureView.gd" id="2_uxyvs"]
+
+[node name="Traficante" type="TextureRect"]
+offset_left = 484.0
+offset_top = 253.0
+offset_right = 709.0
+offset_bottom = 537.0
+texture = ExtResource("1_arfk3")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("2_uxyvs")
+my_char_name = "Traficante"
+
+[node name="Traficante_Balloon_Pos" type="Marker2D" parent="."]

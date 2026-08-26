@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://c1w86cy61ewef"]
+
+[ext_resource type="Script" uid="uid://ijalgk86tc07" path="res://cutscenes/char_intro.gd" id="1_yjt6y"]
+[ext_resource type="Texture2D" uid="uid://dckqkrtv7ps2e" path="res://assets/ui/9rect_IntroBalloon.png" id="2_pd1xf"]
+[ext_resource type="Texture2D" uid="uid://64iius5jjm8d" path="res://Characters/Portraits/Ruperto.png" id="3_6f2r8"]
+[ext_resource type="Theme" uid="uid://7mdqj0pbw8l0" path="res://styles/Toon_theme.tres" id="4_xk0vt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_geu4r"]
+
+[sub_resource type="Animation" id="Animation_8m6ri"]
+resource_name = "Fade In Out"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ck11h"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ye4xa"]
+_data = {
+&"Fade In Out": SubResource("Animation_8m6ri"),
+&"RESET": SubResource("Animation_ck11h")
+}
+
+[node name="CharIntro" type="CanvasLayer" unique_id=753092189]
+layer = 100
+script = ExtResource("1_yjt6y")
+
+[node name="FadeContainer" type="Panel" parent="." unique_id=203021523]
+modulate = Color(1, 1, 1, 0)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="FadeContainer" unique_id=224647461]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = 104.0
+offset_right = 1192.0
+offset_bottom = 560.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pd1xf")
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 128
+patch_margin_bottom = 64
+
+[node name="VignetteCountainer" type="PanelContainer" parent="FadeContainer" unique_id=2071929474]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 128.0
+offset_right = 1390.0
+offset_bottom = 536.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme = ExtResource("4_xk0vt")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_geu4r")
+
+[node name="MarginContainer" type="MarginContainer" parent="FadeContainer/VignetteCountainer" unique_id=365743203]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Page1" type="HBoxContainer" parent="FadeContainer/VignetteCountainer/MarginContainer" unique_id=1174975490]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="FadeContainer/VignetteCountainer/MarginContainer/Page1" unique_id=1178413393]
+layout_mode = 2
+theme_override_constants/margin_right = 18
+
+[node name="Portrait" type="TextureRect" parent="FadeContainer/VignetteCountainer/MarginContainer/Page1/MarginContainer" unique_id=670203122]
+custom_minimum_size = Vector2(360, 360)
+layout_mode = 2
+texture = ExtResource("3_6f2r8")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="MarginContainer2" type="MarginContainer" parent="FadeContainer/VignetteCountainer/MarginContainer/Page1" unique_id=1221210531]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FadeContainer/VignetteCountainer/MarginContainer/Page1/MarginContainer2" unique_id=424752114]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Character" type="Label" parent="FadeContainer/VignetteCountainer/MarginContainer/Page1/MarginContainer2/VBoxContainer" unique_id=701512664]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Character Name"
+
+[node name="MarginContainer" type="MarginContainer" parent="FadeContainer/VignetteCountainer/MarginContainer/Page1/MarginContainer2/VBoxContainer" unique_id=628887143]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+
+[node name="Description" type="RichTextLabel" parent="FadeContainer/VignetteCountainer/MarginContainer/Page1/MarginContainer2/VBoxContainer" unique_id=975049409]
+custom_minimum_size = Vector2(560, 0)
+layout_mode = 2
+theme_override_constants/line_separation = 15
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+fit_content = true
+scroll_active = false
+
+[node name="SkipButton" type="Button" parent="FadeContainer" unique_id=634305058]
+layout_mode = 0
+offset_left = 1080.0
+offset_top = 520.0
+offset_right = 1150.0
+offset_bottom = 551.0
+theme = ExtResource("4_xk0vt")
+theme_override_font_sizes/font_size = 25
+text = "skip"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=810590937]
+libraries/ = SubResource("AnimationLibrary_ye4xa")
+
+[connection signal="pressed" from="FadeContainer/SkipButton" to="." method="_on_skip_button_pressed"]

@@ -1,0 +1,174 @@
+[gd_scene load_steps=10 format=3 uid="uid://bba60310o2865"]
+
+[ext_resource type="Script" uid="uid://dcwqhimwa0f7k" path="res://Locations/SublocZoom.gd" id="1_67dev"]
+[ext_resource type="Texture2D" uid="uid://xt1ytjecrbuc" path="res://Locations/bitmaps/_templ_Room.png" id="2_m3ygq"]
+[ext_resource type="PackedScene" uid="uid://brjaet4f7dboh" path="res://item/RoomItem.tscn" id="5_btbex"]
+[ext_resource type="PackedScene" uid="uid://bq8hcw2ecc66g" path="res://Characters/holly_full.tscn" id="5_xoqoy"]
+[ext_resource type="Texture2D" uid="uid://c36lc3e8ff0e" path="res://Inventory/bitmaps/RosarioBudd.png" id="6_1fdj4"]
+[ext_resource type="PackedScene" uid="uid://bl56dmxkxrt7f" path="res://Characters/wom_full.tscn" id="6_ilyph"]
+[ext_resource type="Texture2D" uid="uid://pb210l8ftnsl" path="res://Locations/bitmaps/Room_X_Ext_Day.png" id="7_eqws0"]
+[ext_resource type="FontFile" uid="uid://b32w3ccxtpric" path="res://00_trash/AdamWarrenPro/adamwarrenpro-bold.ttf" id="8_t6fwj"]
+[ext_resource type="PackedScene" uid="uid://cmqn2md0mn0lk" path="res://Utils/passepartout.tscn" id="9_28p6k"]
+
+[node name="MorlakoRoomX" type="CanvasLayer"]
+layer = 45
+script = ExtResource("1_67dev")
+
+[node name="Control" type="Control" parent="."]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Open" type="Control" parent="Control"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Room BG Int" type="TextureRect" parent="Control/Open"]
+layout_mode = 2
+offset_left = -110.0
+offset_top = -40.0
+offset_right = 1324.0
+offset_bottom = 743.0
+texture = ExtResource("2_m3ygq")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Items" type="Control" parent="Control/Open"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Gun" parent="Control/Open/Items" instance=ExtResource("5_btbex")]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 448.0
+offset_right = 909.0
+offset_bottom = 569.0
+
+[node name="Rosario" parent="Control/Open/Items" instance=ExtResource("5_btbex")]
+layout_mode = 0
+offset_left = 705.0
+offset_top = 450.0
+offset_right = 846.0
+offset_bottom = 617.0
+texture = ExtResource("6_1fdj4")
+Item_ID = 6
+
+[node name="Holly" parent="Control/Open" instance=ExtResource("5_xoqoy")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 235.0
+offset_top = 216.0
+offset_right = 433.0
+offset_bottom = 650.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.759317, 0.759317)
+
+[node name="WOM" parent="Control/Open" instance=ExtResource("6_ilyph")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 226.0
+offset_top = 219.0
+offset_right = 385.0
+offset_bottom = 606.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Closed" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Room BG Ext" type="TextureRect" parent="Control/Closed"]
+layout_mode = 2
+offset_left = -80.0
+offset_top = -96.0
+offset_right = 1385.0
+offset_bottom = 744.0
+texture = ExtResource("7_eqws0")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="Control/Closed"]
+visible = false
+layout_mode = 0
+offset_left = 236.0
+offset_top = 406.0
+offset_right = 339.0
+offset_bottom = 491.0
+
+[node name="ColorRect2" type="ColorRect" parent="Control/Closed"]
+visible = false
+layout_mode = 0
+offset_left = 938.0
+offset_top = 422.0
+offset_right = 1039.0
+offset_bottom = 509.0
+
+[node name="Holly" parent="Control/Closed" instance=ExtResource("5_xoqoy")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 91.0
+offset_top = 246.0
+offset_right = 289.0
+offset_bottom = 680.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.759317, 0.759317)
+
+[node name="WOM" parent="Control/Closed" instance=ExtResource("6_ilyph")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 82.0
+offset_top = 249.0
+offset_right = 241.0
+offset_bottom = 636.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="9-x" type="Control" parent="Control/Closed"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NumberLeft" type="Label" parent="Control/Closed/9-x"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 437.0
+offset_right = 307.0
+offset_bottom = 523.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_t6fwj")
+theme_override_font_sizes/font_size = 70
+text = "9
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Passepartout" parent="." instance=ExtResource("9_28p6k")]

@@ -1,0 +1,481 @@
+[gd_scene format=3 uid="uid://c40hu4ta6l7r2"]
+
+[ext_resource type="Script" uid="uid://c71w8j262gav0" path="res://cutscenes/holly_awakes.gd" id="1_3yf1u"]
+[ext_resource type="Theme" uid="uid://dbxkt34305lhi" path="res://styles/HollyDefault.tres" id="2_128hv"]
+[ext_resource type="Texture2D" uid="uid://clg1plj77he4d" path="res://assets/cutscenes/holly_wakes/Vigna00empty.png" id="3_3yf1u"]
+[ext_resource type="Texture2D" uid="uid://b1qumhpdqxiu5" path="res://assets/cutscenes/holly_wakes/Vigna00a.png" id="4_128hv"]
+[ext_resource type="Texture2D" uid="uid://ct7jkjy75705y" path="res://assets/cutscenes/holly_wakes/Vigna00c.png" id="5_osuss"]
+[ext_resource type="Texture2D" uid="uid://b0ctyhtnfohu6" path="res://assets/cutscenes/holly_wakes/Vigna00b.png" id="6_53wf6"]
+[ext_resource type="Texture2D" uid="uid://dhoylx44q6sk" path="res://assets/cutscenes/holly_wakes/Vigna_10.jpg" id="7_kf52f"]
+[ext_resource type="Texture2D" uid="uid://1sylve4kevrp" path="res://assets/cutscenes/holly_wakes/Vigna_11.jpg" id="8_y61jk"]
+[ext_resource type="Texture2D" uid="uid://dwu6fktmme1cb" path="res://assets/cutscenes/holly_wakes/Vigna_12.jpg" id="9_qp44o"]
+[ext_resource type="Texture2D" uid="uid://bjdw5gfoo0koa" path="res://assets/cutscenes/holly_wakes/Vigna_13.jpg" id="10_rm1y5"]
+[ext_resource type="Texture2D" uid="uid://b8jcqyris3cny" path="res://assets/cutscenes/holly_wakes/Vigna_14.jpg" id="11_jlaho"]
+[ext_resource type="Texture2D" uid="uid://dass8coly06n5" path="res://assets/cutscenes/holly_wakes/Vigna_15.jpg" id="12_1woby"]
+[ext_resource type="Texture2D" uid="uid://b2m0a6womixe1" path="res://assets/cutscenes/holly_wakes/Vigna_16.jpg" id="13_lx17i"]
+[ext_resource type="Texture2D" uid="uid://d1fl036ok22ib" path="res://assets/ui/HollywppdBauTitle_4k.png" id="14_yy81e"]
+[ext_resource type="Texture2D" uid="uid://1jqhi61rkqwd" path="res://Characters/FullFigure/Holly_leaning.png" id="15_c0t0p"]
+[ext_resource type="Theme" uid="uid://7mdqj0pbw8l0" path="res://styles/Toon_theme.tres" id="16_2faks"]
+
+[sub_resource type="Animation" id="Animation_mn3y6"]
+resource_name = "HollyAwakes"
+length = 34.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page1/MarginContainer/Frame:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(2, 2.6)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page1/MarginContainer/Radio:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(2, 2.6)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page1/MarginContainer/Baloon:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(3, 3.6)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page1/MarginContainer/Full:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(4.4, 6.6)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page1:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 7.6, 8.1)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page1:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.9, 8.1, 8.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 8.4, 8.5, 13.5, 13.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false]
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page2:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(8.5, 12.4, 13.1)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page2/MarginContainer/PuttanaEva:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(9, 9.6)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page2/MarginContainer2/Click:modulate:a")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(10.3, 10.9)
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page3:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 13.8, 13.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page3/MarginContainer/Yawn:modulate:a")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(14, 14.7, 15.8, 16.3)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page3/MarginContainer/Sput:modulate:a")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(19.1, 19.8, 20.5, 21)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page3/MarginContainer/Specchio:modulate:a")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(21.5, 22.2, 22.9, 23.4)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page3/MarginContainer/PlinPlin:modulate:a")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(16.8, 17.5, 18.1, 18.6)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("VignetteContainer(Liner Filtering)/MarginContainer/Page3/MarginContainer/Frigo:modulate:a")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(23.9, 24.6, 25.6, 26.1)
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Cover:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(27.5, 28.1, 30.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Cover:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(27.5, 33),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("ToBlack:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(30.3, 33.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("ToBlack:modulate")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(30.3, 33.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ef7g"]
+_data = {
+&"HollyAwakes": SubResource("Animation_mn3y6")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_geu4r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehxxo"]
+
+[node name="HollyAwakes" type="CanvasLayer" unique_id=840419613]
+layer = 50
+script = ExtResource("1_3yf1u")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=914176513]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.95, 0.9405, 0.94525, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=641495122]
+libraries/ = SubResource("AnimationLibrary_5ef7g")
+
+[node name="VignetteContainer(Liner Filtering)" type="PanelContainer" parent="." unique_id=1318831286]
+texture_filter = 2
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -35.0
+offset_top = 52.0
+offset_right = 731.0
+offset_bottom = 2486.0
+grow_horizontal = 2
+scale = Vector2(0.667839, 0.667839)
+mouse_filter = 2
+theme = ExtResource("2_128hv")
+theme_type_variation = &"PaperPanelContainer"
+theme_override_styles/panel = SubResource("StyleBoxEmpty_geu4r")
+
+[node name="MarginContainer" type="MarginContainer" parent="VignetteContainer(Liner Filtering)" unique_id=1938970170]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 42
+theme_override_constants/margin_top = 42
+theme_override_constants/margin_right = 42
+theme_override_constants/margin_bottom = 42
+
+[node name="Page1" type="HBoxContainer" parent="VignetteContainer(Liner Filtering)/MarginContainer" unique_id=1273327895]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page1" unique_id=1238558814]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Frame" type="TextureRect" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page1/MarginContainer" unique_id=2080539792]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("3_3yf1u")
+
+[node name="Radio" type="TextureRect" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page1/MarginContainer" unique_id=96122586]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("4_128hv")
+
+[node name="Full" type="TextureRect" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page1/MarginContainer" unique_id=944630305]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("5_osuss")
+
+[node name="Baloon" type="TextureRect" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page1/MarginContainer" unique_id=121707061]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("6_53wf6")
+
+[node name="Page2" type="HBoxContainer" parent="VignetteContainer(Liner Filtering)/MarginContainer" unique_id=1877172322]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page2" unique_id=1160954177]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="PuttanaEva" type="TextureRect" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page2/MarginContainer" unique_id=1780850601]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("7_kf52f")
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page2" unique_id=907194489]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Click" type="TextureRect" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page2/MarginContainer2" unique_id=1455457320]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("8_y61jk")
+
+[node name="Page3" type="VBoxContainer" parent="VignetteContainer(Liner Filtering)/MarginContainer" unique_id=1366923914]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page3" unique_id=359380608]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Yawn" type="TextureRect" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page3/MarginContainer" unique_id=704249039]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("9_qp44o")
+stretch_mode = 5
+
+[node name="PlinPlin" type="TextureRect" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page3/MarginContainer" unique_id=785135995]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("10_rm1y5")
+stretch_mode = 5
+
+[node name="Sput" type="TextureRect" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page3/MarginContainer" unique_id=1205118563]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_jlaho")
+stretch_mode = 5
+
+[node name="Specchio" type="TextureRect" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page3/MarginContainer" unique_id=436453845]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("12_1woby")
+stretch_mode = 5
+
+[node name="Frigo" type="TextureRect" parent="VignetteContainer(Liner Filtering)/MarginContainer/Page3/MarginContainer" unique_id=1908834294]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("13_lx17i")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Cover" type="Control" parent="." unique_id=466489098]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BG Yello" type="ColorRect" parent="Cover" unique_id=102839433]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.886275, 0.623529, 0.317647, 1)
+
+[node name="BG Azur" type="ColorRect" parent="Cover" unique_id=1479358453]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -162.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.180392, 0.388235, 0.694118, 1)
+
+[node name="Title" type="TextureRect" parent="Cover" unique_id=714570210]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 159.0
+offset_top = 496.0
+offset_right = -177.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_yy81e")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Cover" type="TextureRect" parent="Cover" unique_id=33647288]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 354.0
+offset_top = 127.0
+offset_right = -471.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_c0t0p")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ToBlack" type="ColorRect" parent="." unique_id=1785521455]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SkipButton" type="Button" parent="." unique_id=80615647]
+offset_left = 1210.0
+offset_top = 675.0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme = ExtResource("16_2faks")
+theme_override_colors/font_color = Color(0.314316, 0.314316, 0.314316, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ehxxo")
+text = "skip"
+
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]

@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://emg1f2ejx08t"]
+
+[ext_resource type="Shader" uid="uid://boxy4iv8scmmy" path="res://_tests/CRT.gdshader" id="1_3yn40"]
+
+[resource]
+shader = ExtResource("1_3yn40")
+shader_parameter/crt_curve = 0.02
+shader_parameter/crt_scan_line_color = 0.074
+shader_parameter/aperture_grille_rate = 0.25
+shader_parameter/rf_switch_esque_blur = 0.835
+shader_parameter/white_noise_rate = 0.109

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cut0aed6giqko"]
+
+[ext_resource type="Script" uid="uid://17wxu74k04q5" path="res://Locations/PostLayer.gd" id="1_w6f27"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k74o1"]
+blend_mode = 3
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8w61l"]
+blend_mode = 3
+light_mode = 1
+
+[node name="Post" type="CanvasLayer" unique_id=49485562 groups=["PostLayer"]]
+layer = 20
+script = ExtResource("1_w6f27")
+
+[node name="NightFilter" type="ColorRect" parent="." unique_id=1735778779]
+modulate = Color(0.3871, 0.41396, 0.79, 1)
+material = SubResource("CanvasItemMaterial_k74o1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MorningFilter" type="ColorRect" parent="." unique_id=1505900787]
+modulate = Color(1, 0.833333, 0.75, 1)
+material = SubResource("CanvasItemMaterial_8w61l")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

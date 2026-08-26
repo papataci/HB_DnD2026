@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cufcprkhhmj41"]
+
+[ext_resource type="Script" uid="uid://os6xbejkrbv" path="res://ui/soundtrack.gd" id="1_kniv8"]
+[ext_resource type="AudioStream" uid="uid://dymyxjp31vjvx" path="res://assets/music/4 - Village.ogg" id="1_xo1lo"]
+
+[node name="Soundtrack" type="Node" unique_id=1253323443]
+script = ExtResource("1_kniv8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=905481975]
+stream = ExtResource("1_xo1lo")
+volume_db = -22.0
