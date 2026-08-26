@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b1p7gyl1oa25e"]
+
+[ext_resource type="Script" uid="uid://curmfia76q0kx" path="res://ink/ink_example.gd" id="1_script"]
+
+[node name="InkExample" type="Node2D" unique_id=1895972505]
+script = ExtResource("1_script")
+
+[node name="StoryLabel" type="Label" parent="." unique_id=891119113]
+custom_maximum_size = Vector2(400, -1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 1.0
+offset_right = 440.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+autowrap_mode = 2
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="." unique_id=1427936835]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = 78.0
+offset_right = 199.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1

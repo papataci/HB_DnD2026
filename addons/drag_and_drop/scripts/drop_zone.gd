@@ -40,6 +40,10 @@ enum SNAP_STYLE {
 var snapping_points: Array[SnappingSpot] = []
 var a: Area2D = null
 
+## Every DropZone adds itself to this group at runtime, so callers can
+## e.g. `get_tree().call_group(DropZone.GROUP_NAME, "release_all")`.
+const GROUP_NAME := &"drop_zones"
+
 #region Lifecycle
 
 func _ready():
@@ -56,6 +60,7 @@ func _ready():
 	assert(a != null, "DropZone node '%s' must be linked to an Area2D (export, parent, or owner)" % name)
 	if a != null and not Engine.is_editor_hint():
 		a.set_meta("dropzone", self)
+		add_to_group(GROUP_NAME)
 	if not attach_spot:
 		attach_spot = a
 	if accepted_draggable_types.size() == 0:
@@ -65,6 +70,13 @@ func _ready():
 #endregion
 
 #region Exposed Functions
+
+## Clears every occupied snapping spot on this zone (does not move the
+## occupants; pair with Draggable.return_home() to send them somewhere).
+func release_all() -> void:
+	for spot in snapping_points.duplicate():
+		if spot.occupant:
+			_detach(spot.occupant)
 
 func try_dropping(area: Area2D):
 	var plan := drop_behavior.evaluate(self, area)

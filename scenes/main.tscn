@@ -1,81 +1,22 @@
-[gd_scene format=3 uid="uid://c4lx3rs78ydj3"]
+[gd_scene format=3 uid="uid://bt03wc68r6oqe"]
 
-[ext_resource type="PackedScene" uid="uid://bgiklnq8d72tj" path="res://draggables/action.tscn" id="3_tipki"]
-[ext_resource type="PackedScene" uid="uid://c4hr8cgov3e3t" path="res://draggables/character.tscn" id="4_85g3d"]
-[ext_resource type="PackedScene" uid="uid://c28b1dc3jdl2c" path="res://draggables/target.tscn" id="5_choun"]
-[ext_resource type="PackedScene" uid="uid://dkxvg4o1q573t" path="res://drop_zones/drop_action.tscn" id="6_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://vhn044swdggb" path="res://drop_zones/drop_char.tscn" id="7_eb6dy"]
-[ext_resource type="PackedScene" uid="uid://c0rj4subcde83" path="res://sentence/execute.tscn" id="7_tipki"]
-[ext_resource type="PackedScene" uid="uid://cn0fqqh410uyc" path="res://sentence/reset.tscn" id="8_85g3d"]
-[ext_resource type="PackedScene" uid="uid://bvkko5ufcaddr" path="res://drop_zones/drop_target.tscn" id="8_trceg"]
+[ext_resource type="PackedScene" uid="uid://dh3kk42ilne5e" path="res://scenes/location.tscn" id="1_o5qli"]
+[ext_resource type="Script" path="res://scenes/fader.gd" id="2_fader"]
+[ext_resource type="Script" path="res://scenes/location_manager.gd" id="3_locmgr"]
 
-[node name="Main" type="Node2D" unique_id=2051591900]
+[node name="main" type="Node2D" unique_id=757197430]
 
-[node name="Actions" type="Node2D" parent="." unique_id=181223487]
-position = Vector2(256, 64)
+[node name="Location" parent="." unique_id=77529473 instance=ExtResource("1_o5qli")]
 
-[node name="Attack" parent="Actions" unique_id=1376955046 instance=ExtResource("3_tipki")]
-metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
+[node name="Fader" type="ColorRect" parent="." unique_id=1273769965]
+z_index = 999
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("2_fader")
 
-
-[node name="Give" parent="Actions" unique_id=1703121677 instance=ExtResource("3_tipki")]
-position = Vector2(112, 0)
-action = 2
-metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
-
-
-[node name="Seduce" parent="Actions" unique_id=81946573 instance=ExtResource("3_tipki")]
-position = Vector2(224, 0)
-action = 1
-metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
-
-
-[node name="Chars" type="Node2D" parent="." unique_id=163802434]
-position = Vector2(72, 216)
-
-[node name="Holly" parent="Chars" unique_id=1595162550 instance=ExtResource("4_85g3d")]
-position = Vector2(0, -144)
-metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
-
-
-[node name="WOM" parent="Chars" unique_id=1544671705 instance=ExtResource("4_85g3d")]
-position = Vector2(0, 144)
-character = 1
-metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
-
-
-[node name="Sandra" parent="Chars" unique_id=2021093503 instance=ExtResource("4_85g3d")]
-character = 2
-metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
-
-
-[node name="Targets" type="Node2D" parent="." unique_id=2006234227]
-position = Vector2(360, 528)
-
-[node name="Toshiro" parent="Targets" unique_id=988653311 instance=ExtResource("5_choun")]
-
-[node name="Ruperto" parent="Targets" unique_id=1050099855 instance=ExtResource("5_choun")]
-position = Vector2(160, 0)
-target = 1
-
-[node name="Twins" parent="Targets" unique_id=1255007473 instance=ExtResource("5_choun")]
-position = Vector2(320, 0)
-target = 3
-
-[node name="Sentence" type="Node2D" parent="." unique_id=198818047]
-position = Vector2(336, 272)
-
-[node name="DropChar" parent="Sentence" unique_id=309577 instance=ExtResource("7_eb6dy")]
-position = Vector2(-24, 0)
-
-[node name="DropAction" parent="Sentence" unique_id=1877650445 instance=ExtResource("6_ya4ey")]
-position = Vector2(88, 0)
-
-[node name="DropTarget" parent="Sentence" unique_id=1998646149 instance=ExtResource("8_trceg")]
-position = Vector2(200, 0)
-
-[node name="Execute" parent="Sentence" unique_id=1866462750 instance=ExtResource("7_tipki")]
-position = Vector2(336, 0)
-
-[node name="Reset" parent="Sentence" unique_id=1676063891 instance=ExtResource("8_85g3d")]
-position = Vector2(416, 0)
+[node name="LocationManager" type="Node" parent="." unique_id=1273769966 node_paths=PackedStringArray("fader", "container")]
+script = ExtResource("3_locmgr")
+fader = NodePath("../Fader")
+container = NodePath("..")

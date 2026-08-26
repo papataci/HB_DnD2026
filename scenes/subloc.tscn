@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://c4lx3rs78ydj3"]
+
+[ext_resource type="PackedScene" uid="uid://bgiklnq8d72tj" path="res://draggables/action.tscn" id="3_tipki"]
+[ext_resource type="PackedScene" uid="uid://c4hr8cgov3e3t" path="res://draggables/character.tscn" id="4_85g3d"]
+[ext_resource type="PackedScene" uid="uid://c28b1dc3jdl2c" path="res://draggables/target.tscn" id="5_choun"]
+[ext_resource type="PackedScene" uid="uid://dkxvg4o1q573t" path="res://drop_zones/drop_action.tscn" id="6_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://vhn044swdggb" path="res://drop_zones/drop_char.tscn" id="7_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://c0rj4subcde83" path="res://sentence/execute.tscn" id="7_tipki"]
+[ext_resource type="PackedScene" uid="uid://cn0fqqh410uyc" path="res://sentence/reset.tscn" id="8_85g3d"]
+[ext_resource type="PackedScene" uid="uid://bvkko5ufcaddr" path="res://drop_zones/drop_target.tscn" id="8_trceg"]
+[ext_resource type="PackedScene" uid="uid://b1p7gyl1oa25e" path="res://ink/ink_example.tscn" id="9_85g3d"]
+[ext_resource type="Script" uid="uid://l1pq6okv2iij" path="res://scenes/subloc.gd" id="10_subloc"]
+[ext_resource type="PackedScene" uid="uid://dqvnxg1c8b6t2" path="res://drop_zones/drop_return.tscn" id="11_return"]
+
+[node name="Subloc" type="Node2D" unique_id=2051591900]
+script = ExtResource("10_subloc")
+
+[node name="Title" type="Label" parent="." unique_id=2051591901]
+offset_right = 200.0
+offset_bottom = 26.0
+
+[node name="QuestLabel" type="Label" parent="." unique_id=2051591902]
+offset_top = 28.0
+offset_right = 300.0
+offset_bottom = 54.0
+
+[node name="DropReturn" parent="." unique_id=2051591903 instance=ExtResource("11_return")]
+position = Vector2(16, 464)
+
+[node name="Actions" type="Node2D" parent="." unique_id=181223487]
+position = Vector2(256, 64)
+
+[node name="Attack" parent="Actions" unique_id=1376955046 instance=ExtResource("3_tipki")]
+metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
+
+
+[node name="Give" parent="Actions" unique_id=1703121677 instance=ExtResource("3_tipki")]
+position = Vector2(112, 0)
+action = 2
+metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
+
+
+[node name="Seduce" parent="Actions" unique_id=81946573 instance=ExtResource("3_tipki")]
+position = Vector2(224, 0)
+action = 1
+metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
+
+
+[node name="Chars" type="Node2D" parent="." unique_id=163802434]
+position = Vector2(72, 216)
+
+[node name="Holly" parent="Chars" unique_id=1595162550 instance=ExtResource("4_85g3d")]
+position = Vector2(0, -144)
+metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
+
+
+[node name="WOM" parent="Chars" unique_id=1544671705 instance=ExtResource("4_85g3d")]
+position = Vector2(0, 144)
+character = 1
+metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
+
+
+[node name="Sandra" parent="Chars" unique_id=2021093503 instance=ExtResource("4_85g3d")]
+character = 2
+metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
+
+
+[node name="Targets" type="Node2D" parent="." unique_id=2006234227]
+position = Vector2(360, 528)
+
+[node name="Toshiro" parent="Targets" unique_id=988653311 instance=ExtResource("5_choun")]
+
+[node name="Ruperto" parent="Targets" unique_id=1050099855 instance=ExtResource("5_choun")]
+position = Vector2(160, 0)
+target = 1
+
+[node name="Twins" parent="Targets" unique_id=1255007473 instance=ExtResource("5_choun")]
+position = Vector2(320, 0)
+target = 3
+
+[node name="Sentence" type="Node2D" parent="." unique_id=198818047]
+position = Vector2(336, 272)
+
+[node name="DropChar" parent="Sentence" unique_id=309577 instance=ExtResource("7_eb6dy")]
+position = Vector2(-24, 0)
+
+[node name="DropAction" parent="Sentence" unique_id=1877650445 instance=ExtResource("6_ya4ey")]
+position = Vector2(88, 0)
+
+[node name="DropTarget" parent="Sentence" unique_id=1998646149 instance=ExtResource("8_trceg")]
+position = Vector2(200, 0)
+
+[node name="Execute" parent="Sentence" unique_id=1866462750 node_paths=PackedStringArray("char_zone", "action_zone", "target_zone", "output_label", "story_manager") instance=ExtResource("7_tipki")]
+position = Vector2(336, 0)
+char_zone = NodePath("../DropChar/DropZone")
+action_zone = NodePath("../DropAction/DropZone")
+target_zone = NodePath("../DropTarget/DropZone")
+output_label = NodePath("../../ActionManager/ActionString")
+story_manager = NodePath("../../InkExample")
+
+[node name="Reset" parent="Sentence" unique_id=1676063891 instance=ExtResource("8_85g3d")]
+position = Vector2(416, 0)
+
+[node name="ActionManager" type="Node2D" parent="." unique_id=1825268441]
+
+[node name="ActionString" type="Label" parent="ActionManager" unique_id=1552198112]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="InkExample" parent="." unique_id=1895972505 instance=ExtResource("9_85g3d")]
+position = Vector2(566, 14)

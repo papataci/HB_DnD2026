@@ -1,0 +1,14 @@
+[remap]
+
+importer="inkgd.ink"
+type="Resource"
+uid="uid://ch236isq3xq4i"
+path="res://.godot/imported/example.ink-7bfed261a34c075279cb2849f9da2797.res"
+
+[deps]
+
+source_file="res://ink/example.ink"
+dest_files=["res://.godot/imported/example.ink-7bfed261a34c075279cb2849f9da2797.res"]
+
+[params]
+

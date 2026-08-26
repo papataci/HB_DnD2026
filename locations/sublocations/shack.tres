@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SublocationData" format=3]
+
+[ext_resource type="Script" path="res://locations/sublocation_data.gd" id="1_shack"]
+
+[resource]
+script = ExtResource("1_shack")
+id = 9
+sublocation_name = "Shack"

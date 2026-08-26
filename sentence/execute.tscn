@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://c0rj4subcde83"]
 
+[ext_resource type="Script" path="res://sentence/execute.gd" id="1_execute"]
+
 [node name="Execute" type="Node2D" unique_id=1866462750]
+script = ExtResource("1_execute")
 
 [node name="Button" type="Button" parent="." unique_id=734564714]
 anchors_preset = 8

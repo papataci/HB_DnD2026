@@ -29,6 +29,10 @@ func _update_display() -> void:
 	if texture_node and "texture" in texture_node:
 		texture_node.texture = data.texture
 
+func get_display_name() -> String:
+	var data := _get_data()
+	return data.character_name if data else ""
+
 func _get_data() -> CharacterData:
 	for data in DATA:
 		if data.id == character:

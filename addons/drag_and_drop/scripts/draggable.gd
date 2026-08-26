@@ -51,7 +51,15 @@ var next_position := Vector2.ZERO
 
 var a: Area2D = null
 
+## Position/parent captured once in _ready(), unlike previous_position/previous_parent
+## which are overwritten every time the draggable comes to rest somewhere new.
+var home_position := Vector2.ZERO
+var home_parent: Node = null
+
 const CLOSE_ENOUGH_THRESHOLD = .5;
+## Every Draggable adds itself to this group at runtime, so callers can
+## e.g. `get_tree().call_group(Draggable.GROUP_NAME, "return_home")`.
+const GROUP_NAME := &"draggables"
 
 signal drag_started(area: Area2D)
 signal drag_ended(area: Area2D, drop_spot: SnappingSpot)
@@ -74,10 +82,13 @@ func _ready():
 	assert(a != null, "Draggable node '%s' must be linked to an Area2D (export, parent, or owner)" % name)
 	if a != null and not Engine.is_editor_hint():
 		a.set_meta("draggable", self)
+		add_to_group(GROUP_NAME)
 
 	initial_z_index = a.z_index
 	previous_position = a.global_position
 	next_position = a.global_position
+	home_position = a.global_position
+	home_parent = a.get_parent()
 	a.input_event.connect(_on_input_event)
 
 func _process(delta):
@@ -172,6 +183,13 @@ func move_to(pos: Vector2, reason := DRAGGABLE_STATE.AUTO_MOVING) -> void:
 	if state != DRAGGABLE_STATE.RETURNING:
 		next_position = pos
 	_change_state_to(reason)
+
+## Sends the draggable back to its home position/parent (captured once in _ready()),
+## regardless of where it has since come to rest.
+func return_home() -> void:
+	previous_position = home_position
+	previous_parent = home_parent
+	move_to(home_position, DRAGGABLE_STATE.RETURNING)
 
 #endregion
 

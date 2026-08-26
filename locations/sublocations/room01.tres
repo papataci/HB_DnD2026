@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SublocationData" format=3 uid="uid://c4vvroj7wf6mp"]
+
+[ext_resource type="Script" uid="uid://6q5t07fqbll5" path="res://locations/sublocation_data.gd" id="1_room01"]
+[ext_resource type="Script" uid="uid://bi82raww2n2kb" path="res://locations/quest_data.gd" id="2_quest"]
+
+[sub_resource type="Resource" id="Resource_quest1"]
+script = ExtResource("2_quest")
+id = "room01_intro"
+quest_name = "Find the spare key"
+ink_knot = "room01_intro"
+
+[sub_resource type="Resource" id="Resource_quest2"]
+script = ExtResource("2_quest")
+id = "room01_followup"
+quest_name = "Return the key to Reception"
+ink_knot = "room01_followup"
+
+[resource]
+script = ExtResource("1_room01")
+id = 1
+sublocation_name = "Room 01"
+quests = Array[ExtResource("2_quest")]([SubResource("Resource_quest1"), SubResource("Resource_quest2")])
