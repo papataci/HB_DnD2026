@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bt03wc68r6oqe"]
 
 [ext_resource type="PackedScene" uid="uid://dh3kk42ilne5e" path="res://scenes/location.tscn" id="1_o5qli"]
-[ext_resource type="Script" path="res://scenes/fader.gd" id="2_fader"]
-[ext_resource type="Script" path="res://scenes/location_manager.gd" id="3_locmgr"]
+[ext_resource type="Script" uid="uid://diq3apsd3y8c3" path="res://scenes/fader.gd" id="2_fader"]
+[ext_resource type="Script" uid="uid://c7erehovvdvps" path="res://scenes/location_manager.gd" id="3_locmgr"]
 
 [node name="main" type="Node2D" unique_id=757197430]
 
@@ -20,3 +20,7 @@ script = ExtResource("2_fader")
 script = ExtResource("3_locmgr")
 fader = NodePath("../Fader")
 container = NodePath("..")
+
+[node name="Background" type="Node2D" parent="." unique_id=1818855024]
+
+[node name="Interaction" type="Node2D" parent="." unique_id=1481333865]

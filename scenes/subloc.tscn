@@ -15,6 +15,8 @@
 [node name="Subloc" type="Node2D" unique_id=2051591900]
 script = ExtResource("10_subloc")
 
+[node name="Background" type="Node2D" parent="." unique_id=2051591904]
+
 [node name="Title" type="Label" parent="." unique_id=2051591901]
 offset_right = 200.0
 offset_bottom = 26.0
@@ -25,9 +27,11 @@ offset_right = 300.0
 offset_bottom = 54.0
 
 [node name="DropReturn" parent="." unique_id=2051591903 instance=ExtResource("11_return")]
+visible = false
 position = Vector2(16, 464)
 
 [node name="Actions" type="Node2D" parent="." unique_id=181223487]
+visible = false
 position = Vector2(256, 64)
 
 [node name="Attack" parent="Actions" unique_id=1376955046 instance=ExtResource("3_tipki")]
@@ -47,25 +51,27 @@ metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"
 
 
 [node name="Chars" type="Node2D" parent="." unique_id=163802434]
-position = Vector2(72, 216)
+position = Vector2(120, 440)
 
 [node name="Holly" parent="Chars" unique_id=1595162550 instance=ExtResource("4_85g3d")]
-position = Vector2(0, -144)
+position = Vector2(8, 512)
 metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
 
 
 [node name="WOM" parent="Chars" unique_id=1544671705 instance=ExtResource("4_85g3d")]
-position = Vector2(0, 144)
+position = Vector2(8, 288)
 character = 1
 metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
 
 
 [node name="Sandra" parent="Chars" unique_id=2021093503 instance=ExtResource("4_85g3d")]
+position = Vector2(8, 64)
 character = 2
 metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
 
 
 [node name="Targets" type="Node2D" parent="." unique_id=2006234227]
+visible = false
 position = Vector2(360, 528)
 
 [node name="Toshiro" parent="Targets" unique_id=988653311 instance=ExtResource("5_choun")]
@@ -79,7 +85,7 @@ position = Vector2(320, 0)
 target = 3
 
 [node name="Sentence" type="Node2D" parent="." unique_id=198818047]
-position = Vector2(336, 272)
+position = Vector2(784, 1000)
 
 [node name="DropChar" parent="Sentence" unique_id=309577 instance=ExtResource("7_eb6dy")]
 position = Vector2(-24, 0)
@@ -102,10 +108,23 @@ story_manager = NodePath("../../InkExample")
 position = Vector2(416, 0)
 
 [node name="ActionManager" type="Node2D" parent="." unique_id=1825268441]
+visible = false
 
 [node name="ActionString" type="Label" parent="ActionManager" unique_id=1552198112]
 offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="InkExample" parent="." unique_id=1895972505 instance=ExtResource("9_85g3d")]
+visible = false
 position = Vector2(566, 14)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=868496671]
+custom_minimum_size = Vector2(2020, 1180)
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 2020.0
+offset_bottom = 1180.0
+mouse_filter = 2
+border_color = Color(0.2231029, 0.2231029, 0.22310284, 1)
+border_width = 200.0
+metadata/_edit_lock_ = true

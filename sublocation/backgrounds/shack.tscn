@@ -1,20 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4k7aaxhx11x"]
+[gd_scene format=3 uid="uid://c4k7aaxhx11x"]
 
-[ext_resource type="Script" uid="uid://dcwqhimwa0f7k" path="res://Locations/SublocZoom.gd" id="1_i16mx"]
-[ext_resource type="Texture2D" uid="uid://xt1ytjecrbuc" path="res://Locations/bitmaps/_templ_Room.png" id="2_kd5ac"]
-[ext_resource type="Texture2D" uid="uid://drwghfelov3gx" path="res://Characters/FullFigure/Trafficante_figura_intera.png" id="4_nqlk2"]
+[ext_resource type="Texture2D" uid="uid://bcxvjeg8wl0rv" path="res://Locations/bitmaps/_templ_Room.png" id="2_kd5ac"]
+[ext_resource type="Texture2D" uid="uid://dgv144eoxr5m" path="res://Characters/FullFigure/Trafficante_figura_intera.png" id="4_nqlk2"]
 [ext_resource type="PackedScene" uid="uid://brjaet4f7dboh" path="res://item/RoomItem.tscn" id="5_aryoy"]
-[ext_resource type="Texture2D" uid="uid://c36lc3e8ff0e" path="res://Inventory/bitmaps/RosarioBudd.png" id="6_7t08s"]
-[ext_resource type="Texture2D" uid="uid://knowontl448w" path="res://Locations/bitmaps/Shack_Ext_Day.png" id="7_54tfr"]
+[ext_resource type="Texture2D" uid="uid://k26sl5rjheqi" path="res://Inventory/bitmaps/RosarioBudd.png" id="6_7t08s"]
+[ext_resource type="Texture2D" uid="uid://bwy51lu26vegr" path="res://Locations/bitmaps/Shack_Ext_Day.png" id="7_54tfr"]
 [ext_resource type="PackedScene" uid="uid://bq8hcw2ecc66g" path="res://Characters/holly_full.tscn" id="7_oaw1u"]
 [ext_resource type="PackedScene" uid="uid://bl56dmxkxrt7f" path="res://Characters/wom_full.tscn" id="8_7k7l4"]
-[ext_resource type="PackedScene" uid="uid://cmqn2md0mn0lk" path="res://Utils/passepartout.tscn" id="9_3ng08"]
 
-[node name="Shack" type="CanvasLayer"]
+[node name="Shack" type="CanvasLayer" unique_id=2133739928]
 layer = 45
-script = ExtResource("1_i16mx")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1336856311]
 texture_filter = 2
 layout_mode = 3
 anchors_preset = 15
@@ -23,15 +20,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Open" type="Control" parent="Control"]
+[node name="Open" type="Control" parent="Control" unique_id=2039353800]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Room BG Int" type="TextureRect" parent="Control/Open"]
+[node name="Room BG Int" type="TextureRect" parent="Control/Open" unique_id=72601996]
 visible = false
-layout_mode = 2
+layout_mode = 0
 offset_left = -110.0
 offset_top = -40.0
 offset_right = 1324.0
@@ -40,8 +37,8 @@ texture = ExtResource("2_kd5ac")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Guest" type="TextureRect" parent="Control/Open"]
-layout_mode = 2
+[node name="Guest" type="TextureRect" parent="Control/Open" unique_id=1890163617]
+layout_mode = 0
 offset_left = 493.0
 offset_top = 264.0
 offset_right = 660.0
@@ -50,34 +47,33 @@ texture = ExtResource("4_nqlk2")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Items" type="Control" parent="Control/Open"]
+[node name="Items" type="Control" parent="Control/Open" unique_id=381430585]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Gun" parent="Control/Open/Items" instance=ExtResource("5_aryoy")]
+[node name="Gun" parent="Control/Open/Items" unique_id=659206782 instance=ExtResource("5_aryoy")]
 layout_mode = 0
 offset_left = 676.0
 offset_top = 448.0
 offset_right = 909.0
 offset_bottom = 569.0
 
-[node name="Rosario" parent="Control/Open/Items" instance=ExtResource("5_aryoy")]
+[node name="Rosario" parent="Control/Open/Items" unique_id=339019808 instance=ExtResource("5_aryoy")]
 layout_mode = 0
 offset_left = 705.0
 offset_top = 450.0
 offset_right = 846.0
 offset_bottom = 617.0
 texture = ExtResource("6_7t08s")
-Item_ID = 6
 
-[node name="Closed" type="Control" parent="Control"]
+[node name="Closed" type="Control" parent="Control" unique_id=371213212]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Room BG Ext" type="TextureRect" parent="Control/Closed"]
-layout_mode = 2
+[node name="Room BG Ext" type="TextureRect" parent="Control/Closed" unique_id=97916875]
+layout_mode = 0
 offset_left = -19.0
 offset_top = -96.0
 offset_right = 1446.0
@@ -86,7 +82,7 @@ texture = ExtResource("7_54tfr")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="ColorRect" type="ColorRect" parent="Control/Closed"]
+[node name="ColorRect" type="ColorRect" parent="Control/Closed" unique_id=413487828]
 visible = false
 layout_mode = 0
 offset_left = 236.0
@@ -94,7 +90,7 @@ offset_top = 406.0
 offset_right = 339.0
 offset_bottom = 491.0
 
-[node name="ColorRect2" type="ColorRect" parent="Control/Closed"]
+[node name="ColorRect2" type="ColorRect" parent="Control/Closed" unique_id=1563626659]
 visible = false
 layout_mode = 0
 offset_left = 938.0
@@ -102,7 +98,7 @@ offset_top = 422.0
 offset_right = 1039.0
 offset_bottom = 509.0
 
-[node name="Holly" parent="Control/Closed" instance=ExtResource("7_oaw1u")]
+[node name="Holly" parent="Control/Closed" unique_id=1791574050 instance=ExtResource("7_oaw1u")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -117,7 +113,7 @@ grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.860635, 0.860635)
 
-[node name="WOM" parent="Control/Closed" instance=ExtResource("8_7k7l4")]
+[node name="WOM" parent="Control/Closed" unique_id=1592668069 instance=ExtResource("8_7k7l4")]
 visible = false
 layout_mode = 0
 anchors_preset = 0
@@ -132,5 +128,3 @@ offset_bottom = 586.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(1.07411, 1.07411)
-
-[node name="Passepartout" parent="." instance=ExtResource("9_3ng08")]

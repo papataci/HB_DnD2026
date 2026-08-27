@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://vhn044swdggb"]
 
 [ext_resource type="Script" uid="uid://nj1hdjl1vob2" path="res://addons/drag_and_drop/scripts/drop_zone.gd" id="1_i80wb"]
-[ext_resource type="Script" path="res://addons/drag_and_drop/resources/drop_behaviors/drop_behavior_return.gd" id="2_rfg1b"]
+[ext_resource type="Script" uid="uid://cygmgyn5mv0vk" path="res://addons/drag_and_drop/resources/drop_behaviors/drop_behavior_return.gd" id="2_rfg1b"]
 [ext_resource type="Script" uid="uid://djdmnemxrx7bg" path="res://addons/drag_and_drop/resources/draggable_types/draggable_type.gd" id="3_y5r8j"]
 [ext_resource type="Texture2D" uid="uid://bm61tcehi0yn3" path="res://assets/symbols/circle.png" id="4_rfg1b"]
 

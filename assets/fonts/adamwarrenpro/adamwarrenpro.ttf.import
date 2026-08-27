@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bgljtoqsov2pk"
-path="res://.godot/imported/SF Pixelate Bold.ttf-7a799c2d9c80ceacdf2cda380d230cc3.fontdata"
+uid="uid://bqtns2hb34263"
+path="res://.godot/imported/adamwarrenpro.ttf-c3ddcbfac49ae1f1f2daedcd73f510f5.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/SF Pixelate Bold.ttf"
-dest_files=["res://.godot/imported/SF Pixelate Bold.ttf-7a799c2d9c80ceacdf2cda380d230cc3.fontdata"]
+source_file="res://assets/fonts/adamwarrenpro/adamwarrenpro.ttf"
+dest_files=["res://.godot/imported/adamwarrenpro.ttf-c3ddcbfac49ae1f1f2daedcd73f510f5.fontdata"]
 
 [params]
 

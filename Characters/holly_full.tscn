@@ -1,25 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bq8hcw2ecc66g"]
+[gd_scene format=3 uid="uid://bq8hcw2ecc66g"]
 
-[ext_resource type="Texture2D" uid="uid://chlf1pwttvbar" path="res://Characters/FullFigure/holly_figura_intera.png" id="1_u1j2u"]
-[ext_resource type="Script" uid="uid://decyxkq57tqrl" path="res://Locations/FullFigureView.gd" id="2_cgvrq"]
+[ext_resource type="Texture2D" uid="uid://2v4e4h4o2i3h" path="res://Characters/FullFigure/holly_figura_intera.png" id="1_u1j2u"]
 
-[node name="Holly" type="TextureRect"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -513.0
-offset_top = -181.0
-offset_right = -315.0
-offset_bottom = 253.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Holly" type="Sprite2D" unique_id=1177097150]
 texture = ExtResource("1_u1j2u")
-expand_mode = 1
-stretch_mode = 4
-script = ExtResource("2_cgvrq")
-my_char_name = "Holly"
 
-[node name="Holly_Balloon_Pos" type="Marker2D" parent="."]
-position = Vector2(180, 99)
+[node name="Holly_Balloon_Pos" type="Marker2D" parent="." unique_id=2118874781]
+position = Vector2(134, -149)

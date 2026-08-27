@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SublocationData" format=3 uid="uid://c4vvroj7wf6mp"]
+
+[ext_resource type="PackedScene" uid="uid://dqju0sl1w0ndk" path="res://sublocation/backgrounds/room_closed.tscn" id="1_v0xj3"]
+[ext_resource type="Script" uid="uid://bi82raww2n2kb" path="res://Locations/quest_data.gd" id="2_gkq5q"]
+[ext_resource type="Script" uid="uid://6q5t07fqbll5" path="res://Locations/sublocation_data.gd" id="3_xlt2n"]
+
+[sub_resource type="Resource" id="Resource_quest1"]
+script = ExtResource("2_gkq5q")
+id = "room01_intro"
+quest_name = "Find the spare key"
+ink_knot = "room01_intro"
+
+[sub_resource type="Resource" id="Resource_quest2"]
+script = ExtResource("2_gkq5q")
+id = "room01_followup"
+quest_name = "Return the key to Reception"
+ink_knot = "room01_followup"
+
+[resource]
+script = ExtResource("3_xlt2n")
+id = 1
+sublocation_name = "Room 01"
+background_scene = ExtResource("1_v0xj3")
+quests = Array[ExtResource("2_gkq5q")]([SubResource("Resource_quest1"), SubResource("Resource_quest2")])

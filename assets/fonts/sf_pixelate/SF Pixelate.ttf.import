@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bdkgskkmdjkdv"
-path="res://.godot/imported/SF Pixelate Oblique.ttf-7bc9f0763ffc7dd9823f0fe611bcfb86.fontdata"
+uid="uid://4hl7jdljhetn"
+path="res://.godot/imported/SF Pixelate.ttf-33a4077bfec78d2586d86e83066bb671.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/SF Pixelate Oblique.ttf"
-dest_files=["res://.godot/imported/SF Pixelate Oblique.ttf-7bc9f0763ffc7dd9823f0fe611bcfb86.fontdata"]
+source_file="res://assets/fonts/sf_pixelate/SF Pixelate.ttf"
+dest_files=["res://.godot/imported/SF Pixelate.ttf-33a4077bfec78d2586d86e83066bb671.fontdata"]
 
 [params]
 

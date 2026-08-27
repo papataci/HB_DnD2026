@@ -5,20 +5,17 @@
 [ext_resource type="Script" uid="uid://djdmnemxrx7bg" path="res://addons/drag_and_drop/resources/draggable_types/draggable_type.gd" id="3_dp8ca"]
 [ext_resource type="Texture2D" uid="uid://cyafxq61qedjc" path="res://draggables/characters/texture/holly_OBJ.png" id="4_i8brh"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4nqyb"]
-radius = 32.140316
-
 [sub_resource type="Resource" id="Resource_tsf7w"]
 script = ExtResource("3_dp8ca")
 id = "character"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4nqyb"]
+radius = 135.90211
 
 [node name="Character" type="Area2D" unique_id=1376955046]
 script = ExtResource("1_i8brh")
 metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":ExtResource("2_my7n2"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":SubResource("Resource_tsf7w"),"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
 
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2067604183]
-shape = SubResource("CircleShape2D_4nqyb")
 
 [node name="Draggable" type="Node" parent="." unique_id=1104669140]
 script = ExtResource("2_my7n2")
@@ -44,5 +41,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=302458425]
-scale = Vector2(0.32, 0.32)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_i8brh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2067604183]
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CircleShape2D_4nqyb")

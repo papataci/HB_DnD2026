@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://4hl7jdljhetn"
-path="res://.godot/imported/SF Pixelate.ttf-deba85492edb15fb6505a4171dd1a882.fontdata"
+uid="uid://bgljtoqsov2pk"
+path="res://.godot/imported/SF Pixelate Bold.ttf-64b0cc7ac6b302ac2b2f59e733d6d82d.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/SF Pixelate.ttf"
-dest_files=["res://.godot/imported/SF Pixelate.ttf-deba85492edb15fb6505a4171dd1a882.fontdata"]
+source_file="res://assets/fonts/sf_pixelate/SF Pixelate Bold.ttf"
+dest_files=["res://.godot/imported/SF Pixelate Bold.ttf-64b0cc7ac6b302ac2b2f59e733d6d82d.fontdata"]
 
 [params]
 

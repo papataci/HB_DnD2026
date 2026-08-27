@@ -1,9 +1,9 @@
 [gd_resource type="Theme" format=3 uid="uid://dbxkt34305lhi"]
 
-[ext_resource type="FontFile" uid="uid://4hl7jdljhetn" path="res://assets/fonts/SF Pixelate.ttf" id="1_6potf"]
+[ext_resource type="FontFile" uid="uid://4hl7jdljhetn" path="res://assets/fonts/sf_pixelate/SF Pixelate.ttf" id="1_6potf"]
 [ext_resource type="Texture2D" uid="uid://cyhupt0a3nc83" path="res://assets/cutscenes/smooth-white-plaster-wall.jpg" id="1_eni33"]
-[ext_resource type="FontFile" uid="uid://bgljtoqsov2pk" path="res://assets/fonts/SF Pixelate Bold.ttf" id="1_hx3gb"]
-[ext_resource type="FontFile" uid="uid://bdkgskkmdjkdv" path="res://assets/fonts/SF Pixelate Oblique.ttf" id="2_nw24x"]
+[ext_resource type="FontFile" uid="uid://bgljtoqsov2pk" path="res://assets/fonts/sf_pixelate/SF Pixelate Bold.ttf" id="1_hx3gb"]
+[ext_resource type="FontFile" uid="uid://bdkgskkmdjkdv" path="res://assets/fonts/sf_pixelate/SF Pixelate Oblique.ttf" id="2_nw24x"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2dqk"]
 

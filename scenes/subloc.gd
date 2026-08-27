@@ -16,3 +16,16 @@ func configure(data: SublocationData) -> void:
 	var quest_label := get_node_or_null("QuestLabel") as Label
 	if quest_label:
 		quest_label.text = quest.quest_name if quest else ""
+
+	_load_background(data.background_scene)
+
+func _load_background(scene: PackedScene) -> void:
+	var background := get_node_or_null("Background") as Node2D
+	if not background:
+		return
+
+	for child in background.get_children():
+		child.queue_free()
+
+	if scene:
+		background.add_child(scene.instantiate())

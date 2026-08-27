@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bl56dmxkxrt7f"]
+[gd_scene format=3 uid="uid://bl56dmxkxrt7f"]
 
-[ext_resource type="Texture2D" uid="uid://twpcqp8uhh3m" path="res://Characters/FullFigure/w-o-m_figura_intera_BIIIG.png" id="1_yb0cv"]
-[ext_resource type="Script" uid="uid://decyxkq57tqrl" path="res://Locations/FullFigureView.gd" id="2_qlqg5"]
+[ext_resource type="Texture2D" uid="uid://du0a5ovxf62eb" path="res://Characters/FullFigure/w-o-m_figura_intera_BIIIG.png" id="1_yb0cv"]
 
-[node name="WOM" type="TextureRect"]
+[node name="WOM" type="TextureRect" unique_id=2048212932]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -18,8 +17,6 @@ grow_vertical = 2
 texture = ExtResource("1_yb0cv")
 expand_mode = 1
 stretch_mode = 4
-script = ExtResource("2_qlqg5")
-my_char_name = "W.O.M."
 
-[node name="WOM_Balloon_Pos" type="Marker2D" parent="."]
+[node name="WOM_Balloon_Pos" type="Marker2D" parent="." unique_id=1795445909]
 position = Vector2(155, 64)
