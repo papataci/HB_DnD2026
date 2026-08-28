@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://h5dd815riiap"]
+
+[ext_resource type="Script" uid="uid://q3ca6ohkvg0x" path="res://draggables/card_data.gd" id="1_attack"]
+[ext_resource type="Texture2D" uid="uid://baimhqc30xjnf" path="res://assets/cards/punch.png" id="2_8u4gx"]
+
+[resource]
+script = ExtResource("1_attack")
+card_name = "Attack"
+texture = ExtResource("2_8u4gx")

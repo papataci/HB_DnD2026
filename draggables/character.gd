@@ -6,15 +6,25 @@ const DATA: Array[CharacterData] = [
 	preload("res://draggables/characters/holly.tres"),
 	preload("res://draggables/characters/wom.tres"),
 	preload("res://draggables/characters/sandra.tres"),
+	preload("res://draggables/characters/god.tres"),
 ]
+
+const CARD_SCENE := preload("res://draggables/card.tscn")
+const CARD_SPACING := 100.0
 
 @export var character: ENUMS.CHARACTERS = ENUMS.CHARACTERS.HOLLY:
 	set(value):
 		character = value
 		_update_display()
 
+@export var cards: Array[CardData] = []:
+	set(value):
+		cards = value
+		_update_cards()
+
 func _ready() -> void:
 	_update_display()
+	_update_cards()
 
 func _update_display() -> void:
 	var data := _get_data()
@@ -28,6 +38,24 @@ func _update_display() -> void:
 	var texture_node := get_node_or_null("Texture")
 	if texture_node and "texture" in texture_node:
 		texture_node.texture = data.texture
+
+func _update_cards() -> void:
+	var container := get_node_or_null("Cards") as Node2D
+	if not container:
+		return
+
+	for child in container.get_children():
+		child.queue_free()
+
+	for i in cards.size():
+		var card_data := cards[i]
+		if not card_data:
+			continue
+
+		var card := CARD_SCENE.instantiate()
+		card.position = Vector2(i * CARD_SPACING, 0)
+		container.add_child(card)
+		card.action = card_data.id
 
 func get_display_name() -> String:
 	var data := _get_data()

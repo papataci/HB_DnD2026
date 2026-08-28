@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://c4lx3rs78ydj3"]
 
-[ext_resource type="PackedScene" uid="uid://bgiklnq8d72tj" path="res://draggables/action.tscn" id="3_tipki"]
 [ext_resource type="PackedScene" uid="uid://c4hr8cgov3e3t" path="res://draggables/character.tscn" id="4_85g3d"]
 [ext_resource type="PackedScene" uid="uid://c28b1dc3jdl2c" path="res://draggables/target.tscn" id="5_choun"]
 [ext_resource type="PackedScene" uid="uid://dkxvg4o1q573t" path="res://drop_zones/drop_action.tscn" id="6_ya4ey"]
@@ -11,6 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://b1p7gyl1oa25e" path="res://ink/ink_example.tscn" id="9_85g3d"]
 [ext_resource type="Script" uid="uid://l1pq6okv2iij" path="res://scenes/subloc.gd" id="10_subloc"]
 [ext_resource type="PackedScene" uid="uid://dqvnxg1c8b6t2" path="res://drop_zones/drop_return.tscn" id="11_return"]
+[ext_resource type="Script" uid="uid://q3ca6ohkvg0x" path="res://draggables/card_data.gd" id="12_carddata"]
+[ext_resource type="Resource" uid="uid://h5dd815riiap" path="res://draggables/cards/attack.tres" id="13_attack"]
+[ext_resource type="Resource" uid="uid://bgodbjvf25xs6" path="res://draggables/cards/seduce.tres" id="14_seduce"]
+[ext_resource type="Resource" uid="uid://cnbdftov3s1aq" path="res://draggables/cards/give.tres" id="15_give"]
+[ext_resource type="Resource" path="res://draggables/cards/heal.tres" id="16_heal"]
+[ext_resource type="Resource" path="res://draggables/cards/hit.tres" id="17_hit"]
+[ext_resource type="Resource" path="res://draggables/cards/shoot.tres" id="18_shoot"]
+[ext_resource type="Resource" path="res://draggables/cards/talk.tres" id="19_talk"]
+[ext_resource type="Resource" path="res://draggables/cards/turn.tres" id="20_turn"]
 
 [node name="Subloc" type="Node2D" unique_id=2051591900]
 script = ExtResource("10_subloc")
@@ -30,26 +38,6 @@ offset_bottom = 54.0
 visible = false
 position = Vector2(16, 464)
 
-[node name="Actions" type="Node2D" parent="." unique_id=181223487]
-visible = false
-position = Vector2(256, 64)
-
-[node name="Attack" parent="Actions" unique_id=1376955046 instance=ExtResource("3_tipki")]
-metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
-
-
-[node name="Give" parent="Actions" unique_id=1703121677 instance=ExtResource("3_tipki")]
-position = Vector2(112, 0)
-action = 2
-metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
-
-
-[node name="Seduce" parent="Actions" unique_id=81946573 instance=ExtResource("3_tipki")]
-position = Vector2(224, 0)
-action = 1
-metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
-
-
 [node name="Chars" type="Node2D" parent="." unique_id=163802434]
 position = Vector2(120, 440)
 
@@ -67,6 +55,13 @@ metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"
 [node name="Sandra" parent="Chars" unique_id=2021093503 instance=ExtResource("4_85g3d")]
 position = Vector2(8, 64)
 character = 2
+metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
+
+
+[node name="GOD" parent="Chars" unique_id=1778384912 instance=ExtResource("4_85g3d")]
+position = Vector2(368, -80)
+character = 3
+cards = Array[ExtResource("12_carddata")]([ExtResource("13_attack"), ExtResource("14_seduce"), ExtResource("15_give"), ExtResource("16_heal"), ExtResource("17_hit"), ExtResource("18_shoot"), ExtResource("19_talk"), ExtResource("20_turn")])
 metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
 
 

@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://d2lfhk7rw3fm3" path="res://Characters/toshiro_full.tscn" id="6_7d31a"]
 [ext_resource type="PackedScene" uid="uid://dmgh05kt1igeh" path="res://Characters/traficante_full.tscn" id="7_tk6tr"]
 [ext_resource type="PackedScene" uid="uid://cguicreqiv72q" path="res://Characters/ruperto_full.tscn" id="8_q12fb"]
-[ext_resource type="Texture2D" uid="uid://ch50myj6j5n2h" path="res://Locations/bitmaps/Room_Ext_Day.png" id="9_j42p4"]
 [ext_resource type="FontFile" uid="uid://b3xhdaglj7135" path="res://assets/fonts/komikah/KOMIKASK.ttf" id="10_oouf4"]
 [ext_resource type="PackedScene" uid="uid://dmi1ghw72wkr4" path="res://vfx/black_and_white_screen.tscn" id="11_tgy01"]
 
@@ -80,18 +79,6 @@ texture = ExtResource("3_i0vi2")
 
 [node name="Holly" parent="Control/Open" unique_id=1033452730 instance=ExtResource("4_01fs5")]
 visible = false
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 125.0
-offset_top = 186.0
-offset_right = 323.0
-offset_bottom = 620.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="WOM" parent="Control/Open" unique_id=1954141539 instance=ExtResource("5_i1mlv")]
 visible = false
@@ -143,24 +130,11 @@ offset_left = -81.0
 offset_top = -108.0
 offset_right = 1384.0
 offset_bottom = 732.0
-texture = ExtResource("9_j42p4")
 expand_mode = 1
 stretch_mode = 4
 
 [node name="Holly" parent="Control/Closed" unique_id=1045302843 instance=ExtResource("4_01fs5")]
 visible = false
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 108.0
-offset_top = 276.0
-offset_right = 306.0
-offset_bottom = 710.0
-grow_horizontal = 1
-grow_vertical = 1
 scale = Vector2(0.759317, 0.759317)
 
 [node name="WOM" parent="Control/Closed" unique_id=708462190 instance=ExtResource("5_i1mlv")]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" format=3]
+
+[ext_resource type="Script" uid="uid://q3ca6ohkvg0x" path="res://draggables/card_data.gd" id="1_talk"]
+[ext_resource type="Texture2D" uid="uid://bdciihj4js1kt" path="res://assets/cards/talk.png" id="2_talk"]
+
+[resource]
+script = ExtResource("1_talk")
+id = 6
+card_name = "Talk"
+texture = ExtResource("2_talk")

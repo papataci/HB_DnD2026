@@ -4,12 +4,18 @@ enum CHARACTERS {
 	HOLLY,
 	WOM,
 	SANDRA,
+	GOD,
 }
 
-enum ACTIONS {
+enum CARDS {
 	ATTACK,
 	SEDUCE,
 	GIVE,
+	HEAL,
+	HIT,
+	SHOOT,
+	TALK,
+	TURN,
 }
 
 enum TARGETS {

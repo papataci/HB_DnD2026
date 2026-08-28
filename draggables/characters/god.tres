@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://2jg14ynjig3m"]
+
+[ext_resource type="Script" uid="uid://csavhka3g4p5" path="res://draggables/character_data.gd" id="1_god"]
+[ext_resource type="Texture2D" uid="uid://bsybs0q2btdbb" path="res://assets/char/_noChar.png" id="2_god"]
+
+[resource]
+script = ExtResource("1_god")
+id = 3
+character_name = "God"
+texture = ExtResource("2_god")
