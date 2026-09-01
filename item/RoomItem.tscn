@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://brjaet4f7dboh"]
 
-[ext_resource type="Texture2D" uid="uid://c01bnsconu65k" path="res://Inventory/bitmaps/Handgun.png" id="1_ptkf6"]
+[ext_resource type="Texture2D" uid="uid://c01bnsconu65k" path="res://assets/items/Handgun.png" id="1_ptkf6"]
 
 [node name="RoomItem" type="TextureRect" unique_id=505491531]
 offset_left = 688.0

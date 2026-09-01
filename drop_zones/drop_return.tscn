@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://dqvnxg1c8b6t2"]
 
 [ext_resource type="Script" uid="uid://nj1hdjl1vob2" path="res://addons/drag_and_drop/scripts/drop_zone.gd" id="1_i80wb"]
-[ext_resource type="Script" path="res://addons/drag_and_drop/resources/drop_behaviors/drop_behavior_return.gd" id="2_rfg1b"]
+[ext_resource type="Script" uid="uid://cygmgyn5mv0vk" path="res://addons/drag_and_drop/resources/drop_behaviors/drop_behavior_return.gd" id="2_rfg1b"]
 [ext_resource type="Script" uid="uid://djdmnemxrx7bg" path="res://addons/drag_and_drop/resources/draggable_types/draggable_type.gd" id="3_y5r8j"]
-[ext_resource type="Script" path="res://drop_zones/drop_return.gd" id="4_return"]
+[ext_resource type="Script" uid="uid://c1id1smgwgkrx" path="res://drop_zones/drop_return.gd" id="4_return"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yt0rf"]
-size = Vector2(64, 64)
+custom_solver_bias = 1.0
+size = Vector2(50, 400)
 
 [sub_resource type="Resource" id="Resource_qd6xs"]
 script = ExtResource("2_rfg1b")
@@ -21,6 +22,21 @@ script = ExtResource("4_return")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=970754231]
 shape = SubResource("RectangleShape2D_yt0rf")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=2120329036]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -200.0
+offset_right = 24.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(1, 0, 1, 0.35686275)
+border_width = 4.0
 
 [node name="DropZone" type="Node2D" parent="." unique_id=459170040 node_paths=PackedStringArray("attach_spot")]
 script = ExtResource("1_i80wb")

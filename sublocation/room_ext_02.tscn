@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b6opcncpy36mq"]
+
+[ext_resource type="PackedScene" uid="uid://beoo2c1g7effm" path="res://sublocation/backgrounds/room_ext_bg.tscn" id="1_8qe0m"]
+[ext_resource type="PackedScene" uid="uid://dmi1ghw72wkr4" path="res://vfx/black_and_white_screen.tscn" id="2_kgqfd"]
+[ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="3_jvep4"]
+[ext_resource type="Texture2D" uid="uid://ddufgxrvdnehj" path="res://assets/subloc/room_door_open.png" id="4_85ohc"]
+
+[node name="RoomExt02" type="Node2D" unique_id=199805946]
+
+[node name="RoomExtBG" parent="." unique_id=1129716900 instance=ExtResource("1_8qe0m")]
+position = Vector2(420, 436)
+
+[node name="Black And White Screen" parent="." unique_id=671695954 instance=ExtResource("2_kgqfd")]
+visible = false
+
+[node name="WOMFull" parent="." unique_id=222462752 instance=ExtResource("3_jvep4")]
+position = Vector2(851, 619)
+scale = Vector2(0.38, 0.38)
+
+[node name="HollyFull" parent="." unique_id=992278168 instance=ExtResource("3_jvep4")]
+position = Vector2(860, 524.00006)
+scale = Vector2(0.73956823, 0.73956823)
+character = 0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=372899777]
+custom_minimum_size = Vector2(2020, 1180)
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 2020.0
+offset_bottom = 1180.0
+mouse_filter = 2
+border_color = Color(0.2231029, 0.2231029, 0.22310284, 1)
+border_width = 200.0
+metadata/_edit_lock_ = true
+
+[node name="RoomDoorOpenEven" type="Sprite2D" parent="." unique_id=887581365]
+visible = false
+position = Vector2(1222.0002, 661.0001)
+scale = Vector2(0.92200005, 0.922)
+texture = ExtResource("4_85ohc")
+
+[node name="RoomDoorOpenOdd" type="Sprite2D" parent="." unique_id=1461124986]
+visible = false
+position = Vector2(74.00003, 661.00006)
+scale = Vector2(0.92200005, 0.922)
+texture = ExtResource("4_85ohc")

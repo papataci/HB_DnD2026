@@ -1,0 +1,15 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+uid="uid://cocov62bkehcv"
+path="res://.godot/imported/toshiro_00.ink.json-cb515a1532e80b976792ae5401f5ea57.res"
+
+[deps]
+
+source_file="res://ink/toshiro_00.ink.json"
+dest_files=["res://.godot/imported/toshiro_00.ink.json-cb515a1532e80b976792ae5401f5ea57.res"]
+
+[params]
+
+compress=true

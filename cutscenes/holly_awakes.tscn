@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dass8coly06n5" path="res://assets/cutscenes/holly_wakes/Vigna_15.jpg" id="12_1woby"]
 [ext_resource type="Texture2D" uid="uid://b2m0a6womixe1" path="res://assets/cutscenes/holly_wakes/Vigna_16.jpg" id="13_lx17i"]
 [ext_resource type="Texture2D" uid="uid://d1fl036ok22ib" path="res://assets/ui/HollywppdBauTitle_4k.png" id="14_yy81e"]
-[ext_resource type="Texture2D" uid="uid://1jqhi61rkqwd" path="res://Characters/FullFigure/Holly_leaning.png" id="15_c0t0p"]
+[ext_resource type="Texture2D" uid="uid://1jqhi61rkqwd" path="res://assets/char/full_figure/Holly_leaning.png" id="15_c0t0p"]
 [ext_resource type="Theme" uid="uid://7mdqj0pbw8l0" path="res://styles/Toon_theme.tres" id="16_2faks"]
 
 [sub_resource type="Animation" id="Animation_mn3y6"]

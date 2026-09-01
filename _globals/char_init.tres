@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="CharacterInitData" format=3 uid="uid://cl22rgs7hc8vn"]
+
+[ext_resource type="Script" uid="uid://dx7lruwdsm7je" path="res://_globals/character_init_data.gd" id="1_init"]
+[ext_resource type="Script" uid="uid://c2oaxgbvch21o" path="res://_globals/character_start.gd" id="2_start"]
+[ext_resource type="Script" uid="uid://q3ca6ohkvg0x" path="res://draggables/card_data.gd" id="3_carddata"]
+[ext_resource type="Resource" uid="uid://h5dd815riiap" path="res://draggables/cards/attack.tres" id="4_attack"]
+[ext_resource type="Resource" uid="uid://bgodbjvf25xs6" path="res://draggables/cards/seduce.tres" id="5_seduce"]
+[ext_resource type="Resource" uid="uid://cnbdftov3s1aq" path="res://draggables/cards/give.tres" id="6_give"]
+[ext_resource type="Resource" uid="uid://c3jg7r5kulw5o" path="res://draggables/cards/heal.tres" id="7_heal"]
+[ext_resource type="Resource" uid="uid://b81fdcjjpioe2" path="res://draggables/cards/hit.tres" id="8_hit"]
+[ext_resource type="Resource" uid="uid://bjualngoudl8v" path="res://draggables/cards/shoot.tres" id="9_shoot"]
+[ext_resource type="Resource" uid="uid://cx0w837xrfsa6" path="res://draggables/cards/talk.tres" id="10_talk"]
+[ext_resource type="Resource" uid="uid://di2elq5xsfpku" path="res://draggables/cards/turn.tres" id="11_turn"]
+[ext_resource type="Resource" uid="uid://cctycip55gr83" path="res://draggables/cards/hack.tres" id="12_hack"]
+[ext_resource type="Resource" uid="uid://cyo2nqkd1sn4p" path="res://draggables/cards/clean.tres" id="13_clean"]
+
+[sub_resource type="Resource" id="Resource_holly"]
+script = ExtResource("2_start")
+cards = Array[ExtResource("3_carddata")]([ExtResource("4_attack"), ExtResource("5_seduce"), ExtResource("6_give")])
+
+[sub_resource type="Resource" id="Resource_wom"]
+script = ExtResource("2_start")
+character = 1
+cards = Array[ExtResource("3_carddata")]([ExtResource("13_clean"), ExtResource("6_give")])
+
+[sub_resource type="Resource" id="Resource_sandra"]
+script = ExtResource("2_start")
+character = 2
+cards = Array[ExtResource("3_carddata")]([ExtResource("4_attack"), ExtResource("5_seduce"), ExtResource("6_give")])
+
+[sub_resource type="Resource" id="Resource_god"]
+script = ExtResource("2_start")
+character = 3
+cards = Array[ExtResource("3_carddata")]([ExtResource("4_attack"), ExtResource("5_seduce"), ExtResource("6_give"), ExtResource("7_heal"), ExtResource("8_hit"), ExtResource("9_shoot"), ExtResource("10_talk"), ExtResource("11_turn"), ExtResource("12_hack"), ExtResource("13_clean")])
+
+[resource]
+script = ExtResource("1_init")
+starting_characters = Array[ExtResource("2_start")]([SubResource("Resource_holly"), SubResource("Resource_wom"), SubResource("Resource_sandra"), SubResource("Resource_god")])

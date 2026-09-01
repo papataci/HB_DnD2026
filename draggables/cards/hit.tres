@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardData" format=3]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b81fdcjjpioe2"]
 
 [ext_resource type="Script" uid="uid://q3ca6ohkvg0x" path="res://draggables/card_data.gd" id="1_hit"]
 [ext_resource type="Texture2D" uid="uid://ws575ygtjyei" path="res://assets/cards/hit.png" id="2_hit"]

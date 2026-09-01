@@ -3,10 +3,28 @@
 [ext_resource type="PackedScene" uid="uid://dh3kk42ilne5e" path="res://scenes/location.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://diq3apsd3y8c3" path="res://scenes/fader.gd" id="2_fader"]
 [ext_resource type="Script" uid="uid://c7erehovvdvps" path="res://scenes/location_manager.gd" id="3_locmgr"]
+[ext_resource type="Script" uid="uid://cig74m40gr0w7" path="res://_globals/init.gd" id="4_gameinit"]
+[ext_resource type="Script" uid="uid://crnm3ff4tms2" path="res://_globals/character_init.gd" id="5_charinit"]
+[ext_resource type="Material" uid="uid://fogfuovalal0" path="res://ui/backdrop_blur.tres" id="6_blur"]
 
 [node name="main" type="Node2D" unique_id=757197430]
 
 [node name="Location" parent="." unique_id=77529473 instance=ExtResource("1_o5qli")]
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=-665548821 groups=["backdrop_blur"]]
+visible = false
+top_level = true
+z_index = 300
+z_as_relative = false
+material = ExtResource("6_blur")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.2627451)
+metadata/_edit_lock_ = true
 
 [node name="Fader" type="ColorRect" parent="." unique_id=1273769965]
 z_index = 999
@@ -15,12 +33,26 @@ offset_bottom = 1080.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 script = ExtResource("2_fader")
+metadata/_edit_lock_ = true
 
-[node name="LocationManager" type="Node" parent="." unique_id=1273769966 node_paths=PackedStringArray("fader", "container")]
+[node name="LocationManager" type="Node" parent="." unique_id=1273769966 node_paths=PackedStringArray("fader", "container", "characters_container")]
 script = ExtResource("3_locmgr")
 fader = NodePath("../Fader")
 container = NodePath("..")
+characters_container = NodePath("../Char")
+
+[node name="GameInit" type="Node" parent="." unique_id=1273769967 node_paths=PackedStringArray("location", "characters_container")]
+script = ExtResource("4_gameinit")
+location = NodePath("../Location")
+characters_container = NodePath("../Char")
+
+[node name="CharacterInit" type="Node" parent="." unique_id=1273769968]
+script = ExtResource("5_charinit")
 
 [node name="Background" type="Node2D" parent="." unique_id=1818855024]
 
 [node name="Interaction" type="Node2D" parent="." unique_id=1481333865]
+
+[node name="Char" type="Node2D" parent="." unique_id=1376955046]
+z_index = 200
+position = Vector2(121, 934)

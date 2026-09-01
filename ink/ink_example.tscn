@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b1p7gyl1oa25e"]
 
-[ext_resource type="Script" uid="uid://curmfia76q0kx" path="res://ink/ink_example.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://curmfia76q0kx" path="res://ink/ink_starter.gd" id="1_script"]
 
-[node name="InkExample" type="Node2D" unique_id=1895972505]
+[node name="Ink" type="Node2D" unique_id=1895972505]
 script = ExtResource("1_script")
 
 [node name="StoryLabel" type="Label" parent="." unique_id=891119113]

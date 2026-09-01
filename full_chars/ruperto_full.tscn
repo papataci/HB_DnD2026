@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cguicreqiv72q"]
+
+[ext_resource type="Texture2D" uid="uid://dsqeimuffwi2l" path="res://assets/char/full_figure/ruperto_figura_intera.png" id="1_dlycq"]
+
+[node name="Ruperto" type="TextureRect" unique_id=502504551]
+offset_left = 518.0
+offset_top = 179.0
+offset_right = 675.0
+offset_bottom = 437.0
+scale = Vector2(1.02877, 1.02877)
+texture = ExtResource("1_dlycq")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Ruperto_Balloon_Pos" type="Marker2D" parent="." unique_id=64334096]
+position = Vector2(10.3475, 74.7315)
+scale = Vector2(1.10145e-05, 0.805545)

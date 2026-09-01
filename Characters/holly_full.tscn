@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://bq8hcw2ecc66g"]
-
-[ext_resource type="Texture2D" uid="uid://2v4e4h4o2i3h" path="res://Characters/FullFigure/holly_figura_intera.png" id="1_u1j2u"]
-
-[node name="Holly" type="Sprite2D" unique_id=1177097150]
-texture = ExtResource("1_u1j2u")
-
-[node name="Holly_Balloon_Pos" type="Marker2D" parent="." unique_id=2118874781]
-position = Vector2(134, -149)

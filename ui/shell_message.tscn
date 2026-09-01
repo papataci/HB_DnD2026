@@ -4,95 +4,90 @@
 [ext_resource type="StyleBox" uid="uid://7c5802860j21" path="res://ui/dialogue_balloon_MCP.tres" id="2_f4y6e"]
 [ext_resource type="Theme" uid="uid://cc2rm0d0g3ec1" path="res://styles/Amiga_theme.tres" id="2_xraeu"]
 
-[node name="ShellMessage" type="CanvasLayer" unique_id=1478215215]
-layer = 100
+[node name="ShellMessage" type="Node2D" unique_id=1478215215]
+z_index = 400
 script = ExtResource("1_gdnu3")
 
-[node name="BlockMouseInteractions" type="MarginContainer" parent="." unique_id=1105410707]
-editor_description = "Prevents interacting with other objects when dialogue starts."
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Scale" type="Node2D" parent="." unique_id=1458581967]
+texture_filter = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=932492410]
+[node name="MarginContainer" type="MarginContainer" parent="Scale" unique_id=932492410]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -421.0
-offset_top = -686.0
-offset_right = 421.0
-offset_bottom = -582.0
+offset_left = -848.0
+offset_right = 848.0
+offset_bottom = 208.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
-size_flags_vertical = 3
+size_flags_vertical = 2
 mouse_filter = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1877465749]
+[node name="PanelContainer" type="PanelContainer" parent="Scale/MarginContainer" unique_id=1877465749]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = ExtResource("2_xraeu")
 theme_override_styles/panel = ExtResource("2_f4y6e")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1316710256]
+[node name="MarginContainer" type="MarginContainer" parent="Scale/MarginContainer/PanelContainer" unique_id=1316710256]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_constants/margin_top = 5
+theme_override_constants/margin_top = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1445780144]
+[node name="VBoxContainer" type="VBoxContainer" parent="Scale/MarginContainer/PanelContainer/MarginContainer" unique_id=1445780144]
 layout_mode = 2
 
-[node name="Speaker" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=895891103]
+[node name="Speaker" type="Label" parent="Scale/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=895891103]
 layout_mode = 2
 text = "Speaker Name"
 horizontal_alignment = 1
 
-[node name="SpeakerText" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1376871824]
-custom_minimum_size = Vector2(700, 0)
+[node name="SpeakerText" type="Label" parent="Scale/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1376871824]
+custom_minimum_size = Vector2(1400, 0)
 layout_mode = 2
 text = "Speaker Text that will be shown."
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="ResponseTemplate" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1937912314]
+[node name="ResponseTemplate" type="Button" parent="Scale/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1937912314]
 visible = false
 layout_mode = 2
 text = "Some Response (If choices are provided)"
 alignment = 0
 
-[node name="NextButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=581044316]
+[node name="NextButton" type="Button" parent="Scale/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=581044316]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Continue"
 alignment = 2
 
-[node name="Control" type="Control" parent="MarginContainer/PanelContainer" unique_id=2018693448]
+[node name="Control" type="Control" parent="Scale/MarginContainer/PanelContainer" unique_id=2018693448]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/PanelContainer/Control" unique_id=1936337937]
+[node name="ColorRect" type="ColorRect" parent="Scale/MarginContainer/PanelContainer/Control" unique_id=1936337937]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -85.0
-offset_top = -19.0
-offset_right = 9.0
+offset_left = -170.0
+offset_top = -38.0
+offset_right = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Control" unique_id=1259703761]
+[node name="Label" type="Label" parent="Scale/MarginContainer/PanelContainer/Control" unique_id=1259703761]
 layout_mode = 0
-offset_left = -84.0
-offset_top = -18.0
-offset_right = 4.0
-offset_bottom = -2.0
+offset_left = -168.0
+offset_top = -36.0
+offset_right = 8.0
+offset_bottom = -4.0
 theme_override_colors/font_color = Color(0, 0.333165, 0.666819, 1)
 text = "MCP Console"

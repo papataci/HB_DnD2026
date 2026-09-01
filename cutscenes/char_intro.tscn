@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ijalgk86tc07" path="res://cutscenes/char_intro.gd" id="1_yjt6y"]
 [ext_resource type="Texture2D" uid="uid://dckqkrtv7ps2e" path="res://assets/ui/9rect_IntroBalloon.png" id="2_pd1xf"]
-[ext_resource type="Texture2D" uid="uid://64iius5jjm8d" path="res://Characters/Portraits/Ruperto.png" id="3_6f2r8"]
+[ext_resource type="Texture2D" uid="uid://64iius5jjm8d" path="res://assets/char/bubbles/ruperto.png" id="3_6f2r8"]
 [ext_resource type="Theme" uid="uid://7mdqj0pbw8l0" path="res://styles/Toon_theme.tres" id="4_xk0vt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_geu4r"]

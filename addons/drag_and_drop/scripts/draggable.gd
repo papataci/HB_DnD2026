@@ -179,6 +179,12 @@ func _input(event):
 
 #region Exposed Functions
 
+## Toggles whether this draggable's Area2D can currently be picked up.
+## Used by UI that needs to block drag-and-drop input while it's on screen,
+## e.g. `get_tree().call_group(Draggable.GROUP_NAME, "set_input_enabled", false)`.
+func set_input_enabled(enabled: bool) -> void:
+	a.input_pickable = enabled
+
 func move_to(pos: Vector2, reason := DRAGGABLE_STATE.AUTO_MOVING) -> void:
 	if state != DRAGGABLE_STATE.RETURNING:
 		next_position = pos

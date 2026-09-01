@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://c4lx3rs78ydj3"]
 
-[ext_resource type="PackedScene" uid="uid://c4hr8cgov3e3t" path="res://draggables/character.tscn" id="4_85g3d"]
 [ext_resource type="PackedScene" uid="uid://c28b1dc3jdl2c" path="res://draggables/target.tscn" id="5_choun"]
 [ext_resource type="PackedScene" uid="uid://dkxvg4o1q573t" path="res://drop_zones/drop_action.tscn" id="6_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://vhn044swdggb" path="res://drop_zones/drop_char.tscn" id="7_eb6dy"]
@@ -9,61 +8,22 @@
 [ext_resource type="PackedScene" uid="uid://bvkko5ufcaddr" path="res://drop_zones/drop_target.tscn" id="8_trceg"]
 [ext_resource type="PackedScene" uid="uid://b1p7gyl1oa25e" path="res://ink/ink_example.tscn" id="9_85g3d"]
 [ext_resource type="Script" uid="uid://l1pq6okv2iij" path="res://scenes/subloc.gd" id="10_subloc"]
+[ext_resource type="Resource" uid="uid://dyfaigiacps61" path="res://ink/morlako/room_default.ink.json" id="10_xnkcn"]
 [ext_resource type="PackedScene" uid="uid://dqvnxg1c8b6t2" path="res://drop_zones/drop_return.tscn" id="11_return"]
-[ext_resource type="Script" uid="uid://q3ca6ohkvg0x" path="res://draggables/card_data.gd" id="12_carddata"]
-[ext_resource type="Resource" uid="uid://h5dd815riiap" path="res://draggables/cards/attack.tres" id="13_attack"]
-[ext_resource type="Resource" uid="uid://bgodbjvf25xs6" path="res://draggables/cards/seduce.tres" id="14_seduce"]
-[ext_resource type="Resource" uid="uid://cnbdftov3s1aq" path="res://draggables/cards/give.tres" id="15_give"]
-[ext_resource type="Resource" path="res://draggables/cards/heal.tres" id="16_heal"]
-[ext_resource type="Resource" path="res://draggables/cards/hit.tres" id="17_hit"]
-[ext_resource type="Resource" path="res://draggables/cards/shoot.tres" id="18_shoot"]
-[ext_resource type="Resource" path="res://draggables/cards/talk.tres" id="19_talk"]
-[ext_resource type="Resource" path="res://draggables/cards/turn.tres" id="20_turn"]
 
 [node name="Subloc" type="Node2D" unique_id=2051591900]
+z_index = 100
 script = ExtResource("10_subloc")
 
-[node name="Background" type="Node2D" parent="." unique_id=2051591904]
+[node name="SublocScene" type="Node2D" parent="." unique_id=2051591904]
 
 [node name="Title" type="Label" parent="." unique_id=2051591901]
 offset_right = 200.0
 offset_bottom = 26.0
 
-[node name="QuestLabel" type="Label" parent="." unique_id=2051591902]
-offset_top = 28.0
-offset_right = 300.0
-offset_bottom = 54.0
-
 [node name="DropReturn" parent="." unique_id=2051591903 instance=ExtResource("11_return")]
-visible = false
 position = Vector2(16, 464)
-
-[node name="Chars" type="Node2D" parent="." unique_id=163802434]
-position = Vector2(120, 440)
-
-[node name="Holly" parent="Chars" unique_id=1595162550 instance=ExtResource("4_85g3d")]
-position = Vector2(8, 512)
-metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
-
-
-[node name="WOM" parent="Chars" unique_id=1544671705 instance=ExtResource("4_85g3d")]
-position = Vector2(8, 288)
-character = 1
-metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
-
-
-[node name="Sandra" parent="Chars" unique_id=2021093503 instance=ExtResource("4_85g3d")]
-position = Vector2(8, 64)
-character = 2
-metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
-
-
-[node name="GOD" parent="Chars" unique_id=1778384912 instance=ExtResource("4_85g3d")]
-position = Vector2(368, -80)
-character = 3
-cards = Array[ExtResource("12_carddata")]([ExtResource("13_attack"), ExtResource("14_seduce"), ExtResource("15_give"), ExtResource("16_heal"), ExtResource("17_hit"), ExtResource("18_shoot"), ExtResource("19_talk"), ExtResource("20_turn")])
-metadata/draggable = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://addons/drag_and_drop/scripts/draggable.gd"),"area_reference":null,"drag_input_name":&"draggable_click","drag_layer_parent":null,"dragging_speed":50.0,"drag_z_index":1000,"relative_dragging":false,"type":null,"state":0,"initial_z_index":0,"drag_offset":Vector2(0, 0),"previous_position":Vector2(0, 0),"previous_parent":null,"next_position":Vector2(0, 0),"a":null,"home_position":Vector2(0, 0),"home_parent":null,"metadata/_custom_type_script":"uid://crmnw3ldr3xev")
-
+scale = Vector2(3, 2)
 
 [node name="Targets" type="Node2D" parent="." unique_id=2006234227]
 visible = false
@@ -80,6 +40,7 @@ position = Vector2(320, 0)
 target = 3
 
 [node name="Sentence" type="Node2D" parent="." unique_id=198818047]
+visible = false
 position = Vector2(784, 1000)
 
 [node name="DropChar" parent="Sentence" unique_id=309577 instance=ExtResource("7_eb6dy")]
@@ -97,7 +58,7 @@ char_zone = NodePath("../DropChar/DropZone")
 action_zone = NodePath("../DropAction/DropZone")
 target_zone = NodePath("../DropTarget/DropZone")
 output_label = NodePath("../../ActionManager/ActionString")
-story_manager = NodePath("../../InkExample")
+story_manager = NodePath("")
 
 [node name="Reset" parent="Sentence" unique_id=1676063891 instance=ExtResource("8_85g3d")]
 position = Vector2(416, 0)
@@ -109,10 +70,6 @@ visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="InkExample" parent="." unique_id=1895972505 instance=ExtResource("9_85g3d")]
-visible = false
-position = Vector2(566, 14)
-
 [node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=868496671]
 custom_minimum_size = Vector2(2020, 1180)
 offset_left = -100.0
@@ -123,3 +80,8 @@ mouse_filter = 2
 border_color = Color(0.2231029, 0.2231029, 0.22310284, 1)
 border_width = 200.0
 metadata/_edit_lock_ = true
+
+[node name="Ink" parent="." unique_id=1895972505 instance=ExtResource("9_85g3d")]
+z_index = 300
+position = Vector2(972, 76)
+ink_file = ExtResource("10_xnkcn")

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://beoo2c1g7effm"]
+
+[ext_resource type="FontFile" uid="uid://dr6cw3buovuch" path="res://assets/fonts/adamwarrenpro/adamwarrenpro-bold.ttf" id="2_jndff"]
+[ext_resource type="Texture2D" uid="uid://bnt6gscnuugec" path="res://assets/subloc/room_ext.png" id="10_jndff"]
+[ext_resource type="Script" uid="uid://lwqut13lskit" path="res://sublocation/backgrounds/room_closed.gd" id="11_room_closed"]
+
+[node name="RoomExtBG" type="Sprite2D" unique_id=1129716900]
+scale = Vector2(0.92151177, 0.93)
+texture = ExtResource("10_jndff")
+
+[node name="NumberLeft" type="Label" parent="." unique_id=935237804]
+offset_left = -890.51843
+offset_top = 238.32574
+offset_right = -783.51843
+offset_bottom = 417.32574
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jndff")
+theme_override_font_sizes/font_size = 160
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberRight" type="Label" parent="." unique_id=1915447492]
+offset_left = 365.17627
+offset_top = 274.2027
+offset_right = 472.17627
+offset_bottom = 453.2027
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jndff")
+theme_override_font_sizes/font_size = 160
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RoomNumberSwitcher" type="Node" parent="." unique_id=1446434674]
+script = ExtResource("11_room_closed")

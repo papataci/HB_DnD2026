@@ -1,0 +1,15 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+uid="uid://dyfaigiacps61"
+path="res://.godot/imported/room_default.ink.json-cbdff94a95c1eacf222783a5ea25e223.res"
+
+[deps]
+
+source_file="res://ink/morlako/room_default.ink.json"
+dest_files=["res://.godot/imported/room_default.ink.json-cbdff94a95c1eacf222783a5ea25e223.res"]
+
+[params]
+
+compress=true

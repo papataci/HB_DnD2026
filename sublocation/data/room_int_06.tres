@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SublocationData" format=3]
+
+[ext_resource type="PackedScene" uid="uid://dqju0sl1w0ndk" path="res://sublocation/room_ext_01.tscn" id="1_roomint06"]
+[ext_resource type="Script" uid="uid://6q5t07fqbll5" path="res://Locations/sublocation_data.gd" id="2_roomint06"]
+
+[resource]
+script = ExtResource("2_roomint06")
+id = 19
+sublocation_name = "Room Int 06"
+sublocation_scene = ExtResource("1_roomint06")

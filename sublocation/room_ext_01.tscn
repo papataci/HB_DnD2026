@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dqju0sl1w0ndk"]
+
+[ext_resource type="PackedScene" uid="uid://beoo2c1g7effm" path="res://sublocation/backgrounds/room_ext_bg.tscn" id="1_drnsl"]
+[ext_resource type="PackedScene" uid="uid://dcwpsrnhfm3ko" path="res://sublocation/room_door_open.tscn" id="4_s3kle"]
+[ext_resource type="PackedScene" uid="uid://cxvrn3hs61m4b" path="res://drop_zones/drop_sublocation.tscn" id="5_wsky2"]
+[ext_resource type="Resource" uid="uid://cw6odov7u40yu" path="res://sublocation/data/room_int_01.tres" id="6_ggk13"]
+[ext_resource type="PackedScene" uid="uid://dmi1ghw72wkr4" path="res://vfx/black_and_white_screen.tscn" id="9_gilbb"]
+[ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="13_88j15"]
+
+[node name="RoomExt01" type="Node2D" unique_id=199805946]
+
+[node name="RoomExtBG" parent="." unique_id=1129716900 instance=ExtResource("1_drnsl")]
+position = Vector2(1500, 436)
+
+[node name="Black And White Screen" parent="." unique_id=671695954 instance=ExtResource("9_gilbb")]
+visible = false
+
+[node name="WOMFull" parent="." unique_id=222462752 instance=ExtResource("13_88j15")]
+position = Vector2(787, 618.99994)
+scale = Vector2(0.38, 0.38)
+
+[node name="HollyFull" parent="." unique_id=992278168 instance=ExtResource("13_88j15")]
+position = Vector2(796, 524.00006)
+scale = Vector2(0.73956823, 0.73956823)
+character = 0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=372899777]
+custom_minimum_size = Vector2(2020, 1180)
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 2020.0
+offset_bottom = 1180.0
+mouse_filter = 2
+border_color = Color(0.2231029, 0.2231029, 0.22310284, 1)
+border_width = 200.0
+metadata/_edit_lock_ = true
+
+[node name="RoomDoorOpen" parent="." unique_id=906322239 instance=ExtResource("4_s3kle")]
+position = Vector2(1154.0002, 656.0001)
+
+[node name="DropSublocation" parent="RoomDoorOpen" unique_id=1877650446 instance=ExtResource("5_wsky2")]
+scale = Vector2(4.29718, 8.765728)
+sublocation_data = ExtResource("6_ggk13")

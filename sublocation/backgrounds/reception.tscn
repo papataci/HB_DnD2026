@@ -1,52 +1,44 @@
 [gd_scene format=3 uid="uid://btqc466kisyto"]
 
-[ext_resource type="PackedScene" uid="uid://bq8hcw2ecc66g" path="res://Characters/holly_full.tscn" id="7_llnvs"]
-[ext_resource type="PackedScene" uid="uid://bl56dmxkxrt7f" path="res://Characters/wom_full.tscn" id="8_1jfyi"]
+[ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="7_ilu2f"]
+[ext_resource type="PackedScene" uid="uid://bq8hcw2ecc66g" path="res://full_chars/holly_full.tscn" id="7_llnvs"]
+[ext_resource type="PackedScene" uid="uid://bl56dmxkxrt7f" path="res://full_chars/wom_full.tscn" id="8_1jfyi"]
 [ext_resource type="Texture2D" uid="uid://do2b2k67rfr8p" path="res://Locations/bitmaps/Recept_Ext_Day.png" id="8_4pqxi"]
 [ext_resource type="Texture2D" uid="uid://cbjw3b5sriddo" path="res://Locations/bitmaps/Background Reception.png" id="8_edvoy"]
-[ext_resource type="Texture2D" uid="uid://derdry20ep40q" path="res://Characters/FullFigure/sonia_figura_intera.png" id="9_gcwmj"]
-[ext_resource type="Texture2D" uid="uid://1jqhi61rkqwd" path="res://Characters/FullFigure/Holly_leaning.png" id="10_2xcq5"]
+[ext_resource type="Texture2D" uid="uid://bb76go6d178tf" path="res://assets/char/full_figure/sonia_figura_intera.png" id="9_gcwmj"]
+[ext_resource type="Texture2D" uid="uid://1jqhi61rkqwd" path="res://assets/char/full_figure/Holly_leaning.png" id="10_2xcq5"]
 
-[node name="ReceptZoom" type="CanvasLayer" unique_id=2018217038]
-layer = 45
+[node name="ReceptZoom" type="Node2D" unique_id=1304912536]
 
-[node name="Control" type="Control" parent="." unique_id=1008992218]
-texture_filter = 2
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Open" type="Control" parent="Control" unique_id=578079214]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Room BG Template" type="TextureRect" parent="Control/Open" unique_id=459414441]
-layout_mode = 0
-offset_left = -177.0
-offset_top = -561.0
-offset_right = 1415.0
-offset_bottom = 1159.0
-texture = ExtResource("8_edvoy")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="HollyDesk" type="TextureRect" parent="Control/Open" unique_id=204645467]
+[node name="Open" type="Node2D" parent="." unique_id=2103116748]
 visible = false
-layout_mode = 0
-offset_left = 456.0
-offset_top = 293.0
-offset_right = 639.0
-offset_bottom = 500.0
-scale = Vector2(0.903961, 0.903961)
+
+[node name="Room BG Template" type="Sprite2D" parent="Open" unique_id=574455518]
+position = Vector2(920.9346, 359.93457)
+scale = Vector2(0.6692897, 0.6692897)
+texture = ExtResource("8_edvoy")
+
+[node name="Holly" parent="Open" unique_id=1431582319 instance=ExtResource("7_llnvs")]
+visible = false
+position = Vector2(616, 484)
+
+[node name="WOM" parent="Open" unique_id=1492687224 instance=ExtResource("8_1jfyi")]
+visible = false
+position = Vector2(1228.0001, 532)
+scale = Vector2(0.44660404, 0.44660404)
+flip_h = true
+
+[node name="HollyDesk" type="TextureRect" parent="Open" unique_id=204645467]
+offset_left = 677.9346
+offset_top = 450.93457
+offset_right = 860.9346
+offset_bottom = 657.9346
+scale = Vector2(1.0324347, 1.0324347)
 texture = ExtResource("10_2xcq5")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="HollyShadow" type="TextureRect" parent="Control/Open/HollyDesk" unique_id=1824782213]
+[node name="HollyShadow" type="TextureRect" parent="Open/HollyDesk" unique_id=1824782213]
 modulate = Color(0, 0, 0, 0.141176)
 show_behind_parent = true
 layout_mode = 0
@@ -59,20 +51,18 @@ texture = ExtResource("10_2xcq5")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Sonia" type="TextureRect" parent="Control/Open" unique_id=1795228676]
-visible = false
-layout_mode = 0
-offset_left = 257.0
-offset_top = 167.0
-offset_right = 491.0
-offset_bottom = 652.0
+[node name="Sonia" type="TextureRect" parent="Open" unique_id=1795228676]
+offset_left = 562.9346
+offset_top = 399.9346
+offset_right = 796.9346
+offset_bottom = 884.9346
 scale = Vector2(-1.19231, 1.19231)
 texture = ExtResource("9_gcwmj")
 expand_mode = 1
 stretch_mode = 4
 flip_h = true
 
-[node name="PlayerShadow" type="TextureRect" parent="Control/Open/Sonia" unique_id=974220501]
+[node name="PlayerShadow" type="TextureRect" parent="Open/Sonia" unique_id=974220501]
 modulate = Color(0, 0, 0, 0.345098)
 show_behind_parent = true
 layout_mode = 0
@@ -86,78 +76,27 @@ expand_mode = 1
 stretch_mode = 4
 flip_h = true
 
-[node name="Holly" parent="Control/Open" unique_id=1431582319 instance=ExtResource("7_llnvs")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 242.0
-offset_top = 71.0
-offset_right = 468.0
-offset_bottom = 532.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[node name="WOM" parent="Control/Open" unique_id=1492687224 instance=ExtResource("8_1jfyi")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 1016.0
-offset_top = 165.0
-offset_right = 1206.0
-offset_bottom = 607.0
-grow_horizontal = 1
-grow_vertical = 1
-flip_h = true
-
-[node name="Closed" type="Control" parent="Control" unique_id=1443119416]
-visible = false
-anchors_preset = 0
-offset_left = -1.0
-offset_top = 1.0
-offset_right = 39.0
-offset_bottom = 41.0
-
-[node name="Room BG Ext" type="TextureRect" parent="Control/Closed" unique_id=356272193]
-layout_mode = 0
-offset_left = -64.0
-offset_top = -52.0
-offset_right = 1401.0
-offset_bottom = 788.0
+[node name="Room BG Ext" type="Sprite2D" parent="." unique_id=817165949]
+position = Vector2(941, 544)
+scale = Vector2(0.72083324, 0.72083324)
 texture = ExtResource("8_4pqxi")
-expand_mode = 1
-stretch_mode = 4
 
-[node name="Holly" parent="Control/Closed" unique_id=1096720900 instance=ExtResource("7_llnvs")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 339.0
-offset_top = 222.0
-offset_right = 537.0
-offset_bottom = 656.0
-grow_horizontal = 1
-grow_vertical = 1
-scale = Vector2(0.759317, 0.759317)
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=145292958]
+custom_minimum_size = Vector2(2020, 1180)
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 2020.0
+offset_bottom = 1180.0
+mouse_filter = 2
+border_color = Color(0.2231029, 0.2231029, 0.22310284, 1)
+border_width = 200.0
+metadata/_edit_lock_ = true
 
-[node name="WOM" parent="Control/Closed" unique_id=1999222522 instance=ExtResource("8_1jfyi")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 330.0
-offset_top = 225.0
-offset_right = 489.0
-offset_bottom = 612.0
-grow_horizontal = 1
-grow_vertical = 1
+[node name="WOMFull" parent="." unique_id=222462752 instance=ExtResource("7_ilu2f")]
+position = Vector2(618, 643)
+scale = Vector2(0.38, 0.38)
+
+[node name="HollyFull" parent="." unique_id=41261546 instance=ExtResource("7_ilu2f")]
+position = Vector2(601, 509.00006)
+scale = Vector2(0.73956823, 0.73956823)
+character = 0

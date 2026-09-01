@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://jenc13cf5rsv" path="res://draggables/character.gd" id="1_i8brh"]
 [ext_resource type="Script" uid="uid://crmnw3ldr3xev" path="res://addons/drag_and_drop/scripts/draggable.gd" id="2_my7n2"]
 [ext_resource type="Script" uid="uid://djdmnemxrx7bg" path="res://addons/drag_and_drop/resources/draggable_types/draggable_type.gd" id="3_dp8ca"]
-[ext_resource type="Texture2D" uid="uid://cyafxq61qedjc" path="res://assets/char/holly_OBJ.png" id="4_i8brh"]
+[ext_resource type="Theme" uid="uid://7mdqj0pbw8l0" path="res://styles/Toon_theme.tres" id="4_01uwu"]
+[ext_resource type="Texture2D" uid="uid://cyafxq61qedjc" path="res://assets/char/bubbles/holly.png" id="4_i8brh"]
 
 [sub_resource type="Resource" id="Resource_tsf7w"]
 script = ExtResource("3_dp8ca")
@@ -28,25 +29,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = 60.0
-offset_right = 30.0
-offset_bottom = 83.0
+offset_left = -40.0
+offset_top = 97.0
+offset_right = 123.0
+offset_bottom = 166.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 4
+theme = ExtResource("4_01uwu")
 text = "Holly"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Texture" type="Sprite2D" parent="." unique_id=302458425]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_i8brh")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2067604183]
 scale = Vector2(0.7, 0.7)
 shape = SubResource("CircleShape2D_4nqyb")
+
+[node name="Texture" type="Sprite2D" parent="." unique_id=302458425]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_i8brh")
 
 [node name="Cards" type="Node2D" parent="." unique_id=500000001]
 position = Vector2(160, 0)

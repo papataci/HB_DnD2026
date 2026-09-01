@@ -45,5 +45,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Square" type="Sprite2D" parent="." unique_id=2103440666]
+modulate = Color(1, 0, 1, 0.19215687)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_rfg1b")

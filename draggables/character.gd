@@ -23,8 +23,16 @@ const CARD_SPACING := 100.0
 		_update_cards()
 
 func _ready() -> void:
+	_apply_initial_cards()
 	_update_display()
 	_update_cards()
+
+func _apply_initial_cards() -> void:
+	if not cards.is_empty():
+		return
+	var init_node := get_tree().get_first_node_in_group(CharacterInit.GROUP_NAME) as CharacterInit
+	if init_node:
+		cards = init_node.get_starting_cards(character)
 
 func _update_display() -> void:
 	var data := _get_data()
@@ -37,7 +45,7 @@ func _update_display() -> void:
 
 	var texture_node := get_node_or_null("Texture")
 	if texture_node and "texture" in texture_node:
-		texture_node.texture = data.texture
+		texture_node.texture = data.bubble_texture
 
 func _update_cards() -> void:
 	var container := get_node_or_null("Cards") as Node2D

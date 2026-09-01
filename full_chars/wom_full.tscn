@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bl56dmxkxrt7f"]
+
+[ext_resource type="Texture2D" uid="uid://du0a5ovxf62eb" path="res://assets/char/full_figure/w-o-m_figura_intera_BIIIG.png" id="1_jb1ke"]
+
+[node name="WOM" type="Sprite2D" unique_id=550923425]
+texture = ExtResource("1_jb1ke")
+
+[node name="WOM_Balloon_Pos" type="Marker2D" parent="." unique_id=1795445909]
+position = Vector2(370, -445)

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://u6h5cxmdggy5"]
+
+[ext_resource type="PackedScene" uid="uid://beoo2c1g7effm" path="res://sublocation/backgrounds/room_ext_bg.tscn" id="1_jkont"]
+[ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="3_ckswg"]
+
+[node name="RoomExtEmpty" type="Node2D" unique_id=199805946]
+
+[node name="RoomExtBG" parent="." unique_id=1129716900 instance=ExtResource("1_jkont")]
+position = Vector2(420, 436)
+
+[node name="WOMFull" parent="." unique_id=222462752 instance=ExtResource("3_ckswg")]
+position = Vector2(851, 619)
+scale = Vector2(0.38, 0.38)
+
+[node name="HollyFull" parent="." unique_id=992278168 instance=ExtResource("3_ckswg")]
+position = Vector2(860, 524.00006)
+scale = Vector2(0.73956823, 0.73956823)
+character = 0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=372899777]
+custom_minimum_size = Vector2(2020, 1180)
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 2020.0
+offset_bottom = 1180.0
+mouse_filter = 2
+border_color = Color(0.2231029, 0.2231029, 0.22310284, 1)
+border_width = 200.0
+metadata/_edit_lock_ = true

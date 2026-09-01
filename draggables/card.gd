@@ -11,6 +11,8 @@ const DATA: Array[CardData] = [
 	preload("res://draggables/cards/shoot.tres"),
 	preload("res://draggables/cards/talk.tres"),
 	preload("res://draggables/cards/turn.tres"),
+	preload("res://draggables/cards/hack.tres"),
+	preload("res://draggables/cards/clean.tres"),
 ]
 
 @export var action: ENUMS.CARDS = ENUMS.CARDS.ATTACK:

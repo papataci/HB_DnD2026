@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b4fx6ijnombh6"]
+
+[ext_resource type="Script" uid="uid://c8h3u3lmcyl5e" path="res://full_chars/full_figure.gd" id="1_script"]
+
+[node name="FullFigure" type="Node2D" unique_id=222462752]
+script = ExtResource("1_script")
+character = 1

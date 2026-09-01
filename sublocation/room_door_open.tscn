@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dcwpsrnhfm3ko"]
+
+[ext_resource type="Texture2D" uid="uid://ddufgxrvdnehj" path="res://assets/subloc/room_door_open.png" id="1_ju2qt"]
+[ext_resource type="Script" uid="uid://bsd8punqhtbnh" path="res://sublocation/backgrounds/room_door_open.gd" id="2_dd3hc"]
+
+[node name="RoomDoorOpen" type="Sprite2D" unique_id=906322239]
+scale = Vector2(0.92200005, 0.922)
+texture = ExtResource("1_ju2qt")
+script = ExtResource("2_dd3hc")

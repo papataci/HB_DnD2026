@@ -14,7 +14,7 @@
 ## See the License for the specific language governing permissions and
 ## limitations under the License.
 ##
-extends CanvasLayer
+extends Node2D
 
 ## A required signal that should be emitted when the Dialogue UI completes
 ## all its user interactions. This informs Orchestrator that it is then
@@ -40,10 +40,10 @@ var selection : int
 var _current_tween : Tween
 var _current_choices : Dictionary
 
-@onready var speaker 	  = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Speaker
-@onready var speaker_text = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SpeakerText
-@onready var response_tpl = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ResponseTemplate
-@onready var next_button  = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/NextButton
+@onready var speaker 	  = $Scale/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Speaker
+@onready var speaker_text = $Scale/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SpeakerText
+@onready var response_tpl = $Scale/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ResponseTemplate
+@onready var next_button  = $Scale/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/NextButton
 
 func _ready() -> void:
 	response_tpl.visible = false
@@ -58,7 +58,10 @@ func _ready() -> void:
 		show_message_finished.emit()
 		queue_free()
 	next_button.pressed.connect(button_handler)
-	
+
+	if dialogue_data.is_empty():
+		return
+
 	## Grab data from Orchestrator dictionary to present the UI
 	var character_name = dialogue_data["character_name"]
 	var message = dialogue_data["message"]	
@@ -85,12 +88,22 @@ func show_message(speaker_name: String, message: String, choices: Dictionary) ->
 	speaker_text.text = message
 	_current_choices = choices
 	await get_tree().process_frame
-	
+
 	var duration = speaker_text.text.length() * TEXT_SPEED
 	_current_tween = get_tree().create_tween()
 	_current_tween.tween_property(speaker_text, "visible_characters", speaker_text.text.length(), duration)
 	_current_tween.finished.connect(Callable(_on_tween_finished).bind(choices))
 	show()
+
+	## BlockMouseInteractions only stops Control/GUI input; drag-and-drop
+	## uses Area2D physics picking, which isn't part of that pipeline, so
+	## it has to be disabled separately while this panel is up.
+	get_tree().call_group(Draggable.GROUP_NAME, "set_input_enabled", false)
+	get_tree().call_group("backdrop_blur", "show")
+
+func _exit_tree() -> void:
+	get_tree().call_group(Draggable.GROUP_NAME, "set_input_enabled", true)
+	get_tree().call_group("backdrop_blur", "hide")
 	
 ## Callback when the tween typing has finished.
 ## This allows presenting the user choice options or Continue button.

@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://b1v6cty86i4jb"]
 
 [ext_resource type="Script" uid="uid://csavhka3g4p5" path="res://draggables/character_data.gd" id="1_holly"]
-[ext_resource type="Texture2D" uid="uid://cyafxq61qedjc" path="res://assets/char/holly_OBJ.png" id="2_w2qep"]
+[ext_resource type="PackedScene" uid="uid://bq8hcw2ecc66g" path="res://full_chars/holly_full.tscn" id="2_8kaxc"]
+[ext_resource type="Texture2D" uid="uid://cyafxq61qedjc" path="res://assets/char/bubbles/holly.png" id="2_w2qep"]
 
 [resource]
 script = ExtResource("1_holly")
 character_name = "Holly"
-texture = ExtResource("2_w2qep")
+bubble_texture = ExtResource("2_w2qep")
+full_figure_texture = ExtResource("2_8kaxc")

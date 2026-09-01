@@ -1,31 +1,50 @@
 extends Node2D
 class_name Subloc
 
-var sublocation_data: SublocationData
+const InkScene := preload("res://ink/ink_example.tscn")
 
-func configure(data: SublocationData) -> void:
-	sublocation_data = data
-	if not data:
+var subloc: DropSublocation
+var sublocation_data: SublocationData
+var _ink_instance: Node
+
+func configure(drop_subloc: DropSublocation) -> void:
+	subloc = drop_subloc
+	sublocation_data = drop_subloc.sublocation_data if drop_subloc else null
+	if not sublocation_data:
 		return
 
 	var title := get_node_or_null("Title") as Label
 	if title:
-		title.text = data.sublocation_name
+		title.text = sublocation_data.sublocation_name
 
-	var quest := data.get_current_quest()
-	var quest_label := get_node_or_null("QuestLabel") as Label
-	if quest_label:
-		quest_label.text = quest.quest_name if quest else ""
+	_load_subloc_scene(sublocation_data.sublocation_scene)
+	_start_ink_story(drop_subloc)
 
-	_load_background(data.background_scene)
-
-func _load_background(scene: PackedScene) -> void:
-	var background := get_node_or_null("Background") as Node2D
-	if not background:
+func _load_subloc_scene(scene: PackedScene) -> void:
+	var subloc_scene := get_node_or_null("SublocScene") as Node2D
+	if not subloc_scene:
 		return
 
-	for child in background.get_children():
+	for child in subloc_scene.get_children():
 		child.queue_free()
 
 	if scene:
-		background.add_child(scene.instantiate())
+		subloc_scene.add_child(scene.instantiate())
+
+func _start_ink_story(drop_subloc: DropSublocation) -> void:
+	if _ink_instance:
+		_ink_instance.queue_free()
+		_ink_instance = null
+
+	if not drop_subloc.ink_story:
+		return
+
+	var ink := InkScene.instantiate()
+	ink.ink_file = drop_subloc.ink_story
+	ink.start_knot = drop_subloc.knot
+	add_child(ink)
+	_ink_instance = ink
+
+	var execute := get_node_or_null("Sentence/Execute")
+	if execute and "story_manager" in execute:
+		execute.story_manager = ink

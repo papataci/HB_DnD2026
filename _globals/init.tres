@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="InitData" format=3 uid="uid://bhmlv6v7hjd7c"]
+
+[ext_resource type="Script" uid="uid://rlgm5rn5ebw7" path="res://_globals/init_data.gd" id="1_init"]
+
+[resource]
+script = ExtResource("1_init")
+starting_characters = Array[int]([1])

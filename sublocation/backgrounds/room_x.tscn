@@ -1,17 +1,69 @@
 [gd_scene format=3 uid="uid://bba60310o2865"]
 
 [ext_resource type="Texture2D" uid="uid://bcxvjeg8wl0rv" path="res://Locations/bitmaps/_templ_Room.png" id="2_m3ygq"]
+[ext_resource type="Script" uid="uid://lwqut13lskit" path="res://sublocation/backgrounds/room_closed.gd" id="3_spyv6"]
 [ext_resource type="PackedScene" uid="uid://brjaet4f7dboh" path="res://item/RoomItem.tscn" id="5_btbex"]
-[ext_resource type="PackedScene" uid="uid://bq8hcw2ecc66g" path="res://Characters/holly_full.tscn" id="5_xoqoy"]
-[ext_resource type="Texture2D" uid="uid://k26sl5rjheqi" path="res://Inventory/bitmaps/RosarioBudd.png" id="6_1fdj4"]
-[ext_resource type="PackedScene" uid="uid://bl56dmxkxrt7f" path="res://Characters/wom_full.tscn" id="6_ilyph"]
+[ext_resource type="PackedScene" uid="uid://bq8hcw2ecc66g" path="res://full_chars/holly_full.tscn" id="5_xoqoy"]
+[ext_resource type="Texture2D" uid="uid://k26sl5rjheqi" path="res://assets/items/RosarioBudd.png" id="6_1fdj4"]
+[ext_resource type="PackedScene" uid="uid://bl56dmxkxrt7f" path="res://full_chars/wom_full.tscn" id="6_ilyph"]
 [ext_resource type="FontFile" uid="uid://dr6cw3buovuch" path="res://assets/fonts/adamwarrenpro/adamwarrenpro-bold.ttf" id="7_0ccva"]
 [ext_resource type="Texture2D" uid="uid://b7gc7cbqh7ut3" path="res://Locations/bitmaps/Room_X_Ext_Day.png" id="7_eqws0"]
+[ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="9_tbwd4"]
 
-[node name="MorlakoRoomX" type="CanvasLayer" unique_id=1242410657]
-layer = 45
+[node name="MorlakoRoomX" type="Node2D" unique_id=1071241974]
+
+[node name="Room BG Ext" type="Sprite2D" parent="." unique_id=987172910]
+position = Vector2(493.0003, 461)
+scale = Vector2(0.96722215, 0.9672222)
+texture = ExtResource("7_eqws0")
+
+[node name="NumberLeft" type="Label" parent="Room BG Ext" unique_id=25485507]
+offset_left = -831.2464
+offset_top = 243.99774
+offset_right = -724.2464
+offset_bottom = 422.99774
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_0ccva")
+theme_override_font_sizes/font_size = 160
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DnD" type="Label" parent="Room BG Ext" unique_id=542862577]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1081.2751
+offset_top = -885.5256
+offset_right = -382.27515
+offset_bottom = -342.52557
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.270728
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_0ccva")
+theme_override_font_sizes/font_size = 52
+text = "DO
+NOT
+DISTURB!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Offset" type="Node" parent="Room BG Ext" unique_id=1200642574]
+script = ExtResource("3_spyv6")
+odd_room_offset_x = 1333.0
+even_room_offset_x = 493.0
+
+[node name="Holly" parent="." unique_id=2054940439 instance=ExtResource("5_xoqoy")]
+visible = false
+position = Vector2(1583, 574)
+scale = Vector2(0.759317, 0.759317)
 
 [node name="Control" type="Control" parent="." unique_id=343258520]
+visible = false
 texture_filter = 2
 layout_mode = 3
 anchors_preset = 15
@@ -21,6 +73,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Open" type="Control" parent="Control" unique_id=747850406]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -56,110 +109,27 @@ offset_bottom = 617.0
 texture = ExtResource("6_1fdj4")
 
 [node name="Holly" parent="Control/Open" unique_id=1888510017 instance=ExtResource("5_xoqoy")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 235.0
-offset_top = 216.0
-offset_right = 433.0
-offset_bottom = 650.0
-grow_horizontal = 1
-grow_vertical = 1
 scale = Vector2(0.759317, 0.759317)
 
 [node name="WOM" parent="Control/Open" unique_id=943066441 instance=ExtResource("6_ilyph")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 226.0
-offset_top = 219.0
-offset_right = 385.0
-offset_bottom = 606.0
-grow_horizontal = 1
-grow_vertical = 1
 
-[node name="Closed" type="Control" parent="Control" unique_id=785390294]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1217768555]
+custom_minimum_size = Vector2(2020, 1180)
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 2020.0
+offset_bottom = 1180.0
+mouse_filter = 2
+border_color = Color(0.2231029, 0.2231029, 0.22310284, 1)
+border_width = 200.0
+metadata/_edit_lock_ = true
 
-[node name="Room BG Ext" type="TextureRect" parent="Control/Closed" unique_id=2062502971]
-layout_mode = 0
-offset_left = -80.0
-offset_top = -96.0
-offset_right = 1385.0
-offset_bottom = 744.0
-texture = ExtResource("7_eqws0")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="ColorRect" type="ColorRect" parent="Control/Closed" unique_id=1814178238]
+[node name="WOMFull" parent="." unique_id=222462752 instance=ExtResource("9_tbwd4")]
 visible = false
-layout_mode = 0
-offset_left = 236.0
-offset_top = 406.0
-offset_right = 339.0
-offset_bottom = 491.0
+position = Vector2(952, 664)
+scale = Vector2(0.38, 0.38)
 
-[node name="ColorRect2" type="ColorRect" parent="Control/Closed" unique_id=1356621373]
-visible = false
-layout_mode = 0
-offset_left = 938.0
-offset_top = 422.0
-offset_right = 1039.0
-offset_bottom = 509.0
-
-[node name="Holly" parent="Control/Closed" unique_id=2054940439 instance=ExtResource("5_xoqoy")]
-visible = false
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 91.0
-offset_top = 246.0
-offset_right = 289.0
-offset_bottom = 680.0
-grow_horizontal = 1
-grow_vertical = 1
-scale = Vector2(0.759317, 0.759317)
-
-[node name="WOM" parent="Control/Closed" unique_id=113463560 instance=ExtResource("6_ilyph")]
-visible = false
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 82.0
-offset_top = 249.0
-offset_right = 241.0
-offset_bottom = 636.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[node name="9-x" type="Control" parent="Control/Closed" unique_id=808320813]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="NumberLeft" type="Label" parent="Control/Closed/9-x" unique_id=592325882]
-layout_mode = 0
-offset_left = 203.0
-offset_top = 439.0
-offset_right = 310.0
-offset_bottom = 524.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_0ccva")
-theme_override_font_sizes/font_size = 70
-text = "9"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="HollyFull" parent="." unique_id=1867439785 instance=ExtResource("9_tbwd4")]
+position = Vector2(929, 526)
+scale = Vector2(0.73956823, 0.73956823)
+character = 0
