@@ -3,17 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bcxvjeg8wl0rv" path="res://Locations/bitmaps/_templ_Room.png" id="1_elr8w"]
 [ext_resource type="PackedScene" uid="uid://brjaet4f7dboh" path="res://item/RoomItem.tscn" id="2_3goxa"]
 [ext_resource type="Texture2D" uid="uid://k26sl5rjheqi" path="res://assets/items/RosarioBudd.png" id="3_pkapb"]
-[ext_resource type="PackedScene" uid="uid://bq8hcw2ecc66g" path="res://full_chars/holly_full.tscn" id="4_6oud8"]
-[ext_resource type="PackedScene" uid="uid://bl56dmxkxrt7f" path="res://full_chars/wom_full.tscn" id="5_4ayfh"]
-[ext_resource type="PackedScene" uid="uid://d2lfhk7rw3fm3" path="res://full_chars/toshiro_full.tscn" id="6_6phew"]
 [ext_resource type="PackedScene" uid="uid://dmgh05kt1igeh" path="res://full_chars/traficante_full.tscn" id="7_ajaj0"]
 [ext_resource type="PackedScene" uid="uid://cguicreqiv72q" path="res://full_chars/ruperto_full.tscn" id="8_ag4mx"]
 [ext_resource type="PackedScene" uid="uid://dmi1ghw72wkr4" path="res://vfx/black_and_white_screen.tscn" id="9_4wrpx"]
 [ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="10_d6ftc"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xd3m5"]
-blend_mode = 3
-light_mode = 1
 
 [node name="RoomInt01" type="Node2D" unique_id=199805946]
 
@@ -22,7 +15,6 @@ position = Vector2(960, 540)
 texture = ExtResource("1_elr8w")
 
 [node name="Control" type="Control" parent="." unique_id=1853824138]
-visible = false
 texture_filter = 2
 layout_mode = 3
 anchors_preset = 15
@@ -32,17 +24,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Open" type="Control" parent="Control" unique_id=923366272]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PPFilter" type="ColorRect" parent="Control/Open" unique_id=1131645391]
-visible = false
-modulate = Color(0.882353, 1, 1, 1)
-material = SubResource("CanvasItemMaterial_xd3m5")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,19 +52,6 @@ offset_right = 846.0
 offset_bottom = 617.0
 texture = ExtResource("3_pkapb")
 
-[node name="Holly" parent="Control/Open" unique_id=1033452730 instance=ExtResource("4_6oud8")]
-visible = false
-
-[node name="WOM" parent="Control/Open" unique_id=1954141539 instance=ExtResource("5_4ayfh")]
-visible = false
-
-[node name="Toshiro" parent="Control/Open" unique_id=1523186070 instance=ExtResource("6_6phew")]
-layout_mode = 0
-offset_left = 749.0
-offset_top = 417.0
-offset_right = 919.0
-offset_bottom = 665.0
-
 [node name="Traficante" parent="Control/Open" unique_id=521120382 instance=ExtResource("7_ajaj0")]
 visible = false
 layout_mode = 0
@@ -101,15 +69,6 @@ offset_right = 916.0
 offset_bottom = 506.0
 scale = Vector2(0.86978, 0.86978)
 
-[node name="Closed" type="Control" parent="Control" unique_id=2010780323]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="WOM" parent="Control/Closed" unique_id=708462190 instance=ExtResource("5_4ayfh")]
-visible = false
-
 [node name="Black And White Screen" parent="." unique_id=671695954 instance=ExtResource("9_4wrpx")]
 visible = false
 
@@ -125,10 +84,16 @@ border_width = 200.0
 metadata/_edit_lock_ = true
 
 [node name="WOMFull" parent="." unique_id=222462752 instance=ExtResource("10_d6ftc")]
-position = Vector2(851, 619)
+position = Vector2(634, 659)
 scale = Vector2(0.38, 0.38)
 
 [node name="HollyFull" parent="." unique_id=992278168 instance=ExtResource("10_d6ftc")]
+visible = false
 position = Vector2(860, 524.00006)
 scale = Vector2(0.73956823, 0.73956823)
 character = 0
+
+[node name="ToshiroFull" parent="." unique_id=1214584449 instance=ExtResource("10_d6ftc")]
+position = Vector2(1374, 805)
+scale = Vector2(0.5613705, 0.5613705)
+character = 4

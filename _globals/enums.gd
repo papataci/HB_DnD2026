@@ -5,6 +5,8 @@ enum CHARACTERS {
 	WOM,
 	SANDRA,
 	GOD,
+	TOSHIRO,
+	RUPERTO,
 }
 
 enum CARDS {

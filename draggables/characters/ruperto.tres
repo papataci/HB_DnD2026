@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3]
+
+[ext_resource type="Script" uid="uid://csavhka3g4p5" path="res://draggables/character_data.gd" id="1_ruperto"]
+[ext_resource type="Texture2D" uid="uid://64iius5jjm8d" path="res://assets/char/bubbles/ruperto.png" id="2_ruperto"]
+[ext_resource type="PackedScene" uid="uid://cguicreqiv72q" path="res://full_chars/ruperto_full.tscn" id="3_ruperto"]
+
+[resource]
+script = ExtResource("1_ruperto")
+id = 5
+character_name = "Ruperto"
+playable = false
+char_intro = "Dopo il clamoroso successo all'Isola dei Formosi, Ruperto alloggia al Morlako per farsi come una carogna ed invitare aspiranti starlette."
+bubble_texture = ExtResource("2_ruperto")
+full_figure_texture = ExtResource("3_ruperto")

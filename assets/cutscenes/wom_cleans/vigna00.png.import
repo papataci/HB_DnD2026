@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djic8oh2scued"
-path="res://.godot/imported/toshiro_figura_intera.png-9a679a57c1f9f514f34f92d24ec11278.ctex"
+uid="uid://5tqw64ns216n"
+path="res://.godot/imported/vigna00.png-1d046730635d4b33b7f771a7eab8f1d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/char/full_figure/toshiro_figura_intera.png"
-dest_files=["res://.godot/imported/toshiro_figura_intera.png-9a679a57c1f9f514f34f92d24ec11278.ctex"]
+source_file="res://assets/cutscenes/wom_cleans/vigna00.png"
+dest_files=["res://.godot/imported/vigna00.png-1d046730635d4b33b7f771a7eab8f1d5.ctex"]
 
 [params]
 

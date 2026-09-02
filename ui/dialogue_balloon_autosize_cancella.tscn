@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://bxlryal5yyygw"]
+
+[ext_resource type="Script" uid="uid://ck1v5liqr5ppk" path="res://ui/dialogue_balloon_autosize.gd" id="1_72jqy"]
+[ext_resource type="StyleBox" uid="uid://cpjyxn3pem7p0" path="res://ui/dialogue_balloon_small.tres" id="2_ec6r4"]
+[ext_resource type="Theme" uid="uid://7mdqj0pbw8l0" path="res://styles/Toon_theme.tres" id="3_ni4fb"]
+[ext_resource type="StyleBox" uid="uid://cjbet7obfrfyd" path="res://ui/dialogue_balloon_medium.tres" id="4_s4kse"]
+[ext_resource type="StyleBox" uid="uid://dfsgnj8e17gww" path="res://ui/dialogue_balloon_big.tres" id="5_tynvv"]
+[ext_resource type="Texture2D" uid="uid://jc7osmxjj54m" path="res://assets/ui/Arrow_Alone.png" id="6_u3jfa"]
+
+[node name="DialogueMessage" type="CanvasLayer" unique_id=1709913785]
+layer = 100
+script = ExtResource("1_72jqy")
+
+[node name="BlockMouseInteractions" type="MarginContainer" parent="." unique_id=246055175]
+editor_description = "Prevents interacting with other objects when dialogue starts."
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PositionControl" type="Control" parent="." unique_id=950982961]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 500.0
+offset_top = 500.0
+offset_right = 540.0
+offset_bottom = 540.0
+
+[node name="Marker2D" type="Marker2D" parent="PositionControl" unique_id=1933957854]
+
+[node name="PanelContainerSmall" type="PanelContainer" parent="PositionControl" unique_id=20111391]
+visible = false
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 340.0
+theme_override_styles/panel = ExtResource("2_ec6r4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PositionControl/PanelContainerSmall" unique_id=1710620262]
+layout_mode = 2
+theme = ExtResource("3_ni4fb")
+
+[node name="Speaker" type="Label" parent="PositionControl/PanelContainerSmall/VBoxContainer" unique_id=66373366]
+layout_mode = 2
+text = "Speaker Name"
+horizontal_alignment = 1
+
+[node name="SpeakerText" type="RichTextLabel" parent="PositionControl/PanelContainerSmall/VBoxContainer" unique_id=1568384924]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "Speaker Text that will be shown."
+fit_content = true
+autowrap_mode = 2
+
+[node name="ResponseTemplate" type="Button" parent="PositionControl/PanelContainerSmall/VBoxContainer" unique_id=2097321653]
+layout_mode = 2
+text = "Some Response (If choices are provided)"
+alignment = 0
+
+[node name="NextButton" type="Button" parent="PositionControl/PanelContainerSmall/VBoxContainer" unique_id=1130119484]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Continue"
+alignment = 2
+
+[node name="PanelContainerMedium" type="PanelContainer" parent="PositionControl" unique_id=477749497]
+visible = false
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 340.0
+theme_override_styles/panel = ExtResource("4_s4kse")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PositionControl/PanelContainerMedium" unique_id=1733801187]
+layout_mode = 2
+theme = ExtResource("3_ni4fb")
+
+[node name="Speaker" type="Label" parent="PositionControl/PanelContainerMedium/VBoxContainer" unique_id=836160338]
+layout_mode = 2
+text = "Speaker Name"
+horizontal_alignment = 1
+
+[node name="SpeakerText" type="RichTextLabel" parent="PositionControl/PanelContainerMedium/VBoxContainer" unique_id=93798278]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "Speaker Text that will be shown."
+fit_content = true
+autowrap_mode = 2
+
+[node name="ResponseTemplate" type="Button" parent="PositionControl/PanelContainerMedium/VBoxContainer" unique_id=1361953489]
+layout_mode = 2
+text = "Some Response (If choices are provided)"
+alignment = 0
+
+[node name="NextButton" type="Button" parent="PositionControl/PanelContainerMedium/VBoxContainer" unique_id=1998019401]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Continue"
+alignment = 2
+
+[node name="PanelContainerBig" type="PanelContainer" parent="PositionControl" unique_id=177756586]
+layout_mode = 0
+offset_left = -54.0
+offset_top = -272.0
+offset_right = 446.0
+offset_bottom = -49.0
+theme = ExtResource("3_ni4fb")
+theme_override_styles/panel = ExtResource("5_tynvv")
+
+[node name="ArrowRightControl" type="Control" parent="PositionControl/PanelContainerBig" unique_id=334972685]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="PositionControl/PanelContainerBig/ArrowRightControl" unique_id=205900254]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 163.0
+offset_right = 396.0
+offset_bottom = 224.0
+texture = ExtResource("6_u3jfa")
+stretch_mode = 2
+
+[node name="ArrowLeftControl" type="Control" parent="PositionControl/PanelContainerBig" unique_id=1613967629]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="PositionControl/PanelContainerBig/ArrowLeftControl" unique_id=1322022437]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 166.0
+offset_right = 67.0
+offset_bottom = 227.0
+texture = ExtResource("6_u3jfa")
+stretch_mode = 2
+flip_h = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PositionControl/PanelContainerBig" unique_id=486366950]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PositionControl/PanelContainerBig/HBoxContainer" unique_id=1718721736]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_ni4fb")
+
+[node name="Speaker" type="Label" parent="PositionControl/PanelContainerBig/HBoxContainer/VBoxContainer" unique_id=1578909417]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.772096, 0.313525, 0.271463, 1)
+theme_override_font_sizes/font_size = 28
+text = "Speaker Name"
+
+[node name="SpeakerText" type="RichTextLabel" parent="PositionControl/PanelContainerBig/HBoxContainer/VBoxContainer" unique_id=1068896386]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "Speaker Text that will be shown.
+On more than one line"
+fit_content = true
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="PositionControl/PanelContainerBig/HBoxContainer/VBoxContainer" unique_id=1734924338]
+visible = false
+layout_mode = 2
+
+[node name="ResponseTemplate" type="Button" parent="PositionControl/PanelContainerBig/HBoxContainer/VBoxContainer" unique_id=1520512696]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Some Response (If choices are provided)"
+alignment = 0
+
+[node name="NextButton" type="Button" parent="PositionControl/PanelContainerBig/HBoxContainer" unique_id=1164626989]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 14
+text = " > "
+alignment = 2

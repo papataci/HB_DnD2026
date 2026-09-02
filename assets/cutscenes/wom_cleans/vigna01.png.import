@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgv144eoxr5m"
-path="res://.godot/imported/Trafficante_figura_intera.png-73d10c14ab43d85839912e7585fa1edb.ctex"
+uid="uid://bq2g7u2k5nhlj"
+path="res://.godot/imported/vigna01.png-8af475da45420f27284efe30827ef3af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/char/full_figure/Trafficante_figura_intera.png"
-dest_files=["res://.godot/imported/Trafficante_figura_intera.png-73d10c14ab43d85839912e7585fa1edb.ctex"]
+source_file="res://assets/cutscenes/wom_cleans/vigna01.png"
+dest_files=["res://.godot/imported/vigna01.png-8af475da45420f27284efe30827ef3af.ctex"]
 
 [params]
 

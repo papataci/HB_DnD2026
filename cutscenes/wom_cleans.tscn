@@ -1,0 +1,46 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://cutscenes/wom_cleans.gd" id="1_womcl"]
+[ext_resource type="Texture2D" uid="uid://5tqw64ns216n" path="res://assets/cutscenes/wom_cleans/vigna00.png" id="2_womcl"]
+[ext_resource type="Theme" uid="uid://7mdqj0pbw8l0" path="res://styles/Toon_theme.tres" id="3_womcl"]
+
+[node name="WomCleans" type="CanvasLayer"]
+layer = 50
+script = ExtResource("1_womcl")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9, 0.9, 0.9, 1)
+
+[node name="Panel" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_womcl")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SkipButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -70.0
+offset_right = -30.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("3_womcl")
+theme_override_font_sizes/font_size = 25
+text = "skip"
+
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]

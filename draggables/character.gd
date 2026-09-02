@@ -7,6 +7,8 @@ const DATA: Array[CharacterData] = [
 	preload("res://draggables/characters/wom.tres"),
 	preload("res://draggables/characters/sandra.tres"),
 	preload("res://draggables/characters/god.tres"),
+	preload("res://draggables/characters/toshiro.tres"),
+	preload("res://draggables/characters/ruperto.tres"),
 ]
 
 const CARD_SCENE := preload("res://draggables/card.tscn")
@@ -70,7 +72,14 @@ func get_display_name() -> String:
 	return data.character_name if data else ""
 
 func _get_data() -> CharacterData:
+	return get_data(character)
+
+static func get_data(character_id: ENUMS.CHARACTERS) -> CharacterData:
 	for data in DATA:
-		if data.id == character:
+		if data.id == character_id:
 			return data
 	return null
+
+static func is_playable(character_id: ENUMS.CHARACTERS) -> bool:
+	var data := get_data(character_id)
+	return data != null and data.playable

@@ -1,16 +1,10 @@
 [gd_scene format=3 uid="uid://d2lfhk7rw3fm3"]
 
-[ext_resource type="Texture2D" uid="uid://djic8oh2scued" path="res://assets/char/full_figure/Toshiro_figura_intera.png" id="1_t0gsy"]
+[ext_resource type="Texture2D" uid="uid://djic8oh2scued" path="res://assets/char/full_figure/toshiro_figura_intera.png" id="1_t0gsy"]
 
-[node name="Toshiro" type="TextureRect" unique_id=1806931099]
-offset_left = 527.0
-offset_top = 436.0
-offset_right = 697.0
-offset_bottom = 684.0
+[node name="ToshiroFull" type="Sprite2D" unique_id=79783836]
 texture = ExtResource("1_t0gsy")
-expand_mode = 1
-stretch_mode = 4
 flip_h = true
 
 [node name="Toshiro_Balloon_Pos" type="Marker2D" parent="." unique_id=532313828]
-position = Vector2(54, -31)
+position = Vector2(-146, -493)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmgh05kt1igeh"]
 
-[ext_resource type="Texture2D" uid="uid://dgv144eoxr5m" path="res://assets/char/full_figure/Trafficante_figura_intera.png" id="1_arfk3"]
+[ext_resource type="Texture2D" uid="uid://dgv144eoxr5m" path="res://assets/char/full_figure/traficante_figura_intera.png" id="1_arfk3"]
 
 [node name="Traficante" type="TextureRect" unique_id=587365440]
 offset_left = 484.0

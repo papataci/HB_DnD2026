@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dh770k7go0cvg" path="res://assets/locations/morlako_tot_day.png" id="1_gjgjs"]
 [ext_resource type="PackedScene" uid="uid://cxvrn3hs61m4b" path="res://drop_zones/drop_sublocation.tscn" id="3_nnb31"]
 [ext_resource type="Resource" uid="uid://bynpvxcdx2rdb" path="res://sublocation/data/reception.tres" id="4_reception"]
-[ext_resource type="Resource" uid="uid://c4vvroj7wf6mp" path="res://sublocation/data/room01.tres" id="5_room01"]
 [ext_resource type="Resource" uid="uid://c8xp4lygy2mgm" path="res://sublocation/data/room05.tres" id="6_dce22"]
+[ext_resource type="Resource" uid="uid://cw6odov7u40yu" path="res://sublocation/data/room_int_01.tres" id="6_elest"]
 [ext_resource type="Resource" uid="uid://b16n00734t0hl" path="res://sublocation/data/room02.tres" id="6_room02"]
+[ext_resource type="Resource" uid="uid://cocov62bkehcv" path="res://ink/toshiro_00.ink.json" id="7_80a1g"]
 [ext_resource type="Resource" uid="uid://b67kj3mnjkesi" path="res://sublocation/data/room06.tres" id="7_gdcmo"]
 [ext_resource type="Resource" uid="uid://bpgq7colulfjn" path="res://sublocation/data/shack.tres" id="7_shack"]
 [ext_resource type="Resource" uid="uid://uda55snyl5mm" path="res://sublocation/data/room07.tres" id="8_elest"]
@@ -38,7 +39,10 @@ knot = "ClosedReception"
 [node name="Room01" parent="Morlako" unique_id=68717004 instance=ExtResource("3_nnb31")]
 position = Vector2(1480.0001, 528)
 scale = Vector2(2.0920734, 2.0450795)
-sublocation_data = ExtResource("5_room01")
+sublocation_data = ExtResource("6_elest")
+characters = Array[int]([4])
+ink_story = ExtResource("7_80a1g")
+knot = "Start"
 
 [node name="Room02" parent="Morlako" unique_id=1383656763 instance=ExtResource("3_nnb31")]
 position = Vector2(1632.0001, 456)

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://dv2as61t2r8de"]
+
+[ext_resource type="Script" uid="uid://csavhka3g4p5" path="res://draggables/character_data.gd" id="1_toshiro"]
+[ext_resource type="Texture2D" uid="uid://dhd450dtymqjp" path="res://assets/char/bubbles/toshiro.png" id="1_ylv6h"]
+[ext_resource type="PackedScene" uid="uid://d2lfhk7rw3fm3" path="res://full_chars/toshiro_full.tscn" id="3_toshiro"]
+
+[resource]
+script = ExtResource("1_toshiro")
+id = 4
+character_name = "Toshiro"
+playable = false
+char_intro = "Graduated from the Kyoto University, he's studying the flowering process of \"Rantatutaria Putrescens\", a local rare species of succulent that flowers every 42 years and allegedly has hallucinatory effects."
+bubble_texture = ExtResource("1_ylv6h")
+full_figure_texture = ExtResource("3_toshiro")

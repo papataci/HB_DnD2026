@@ -49,10 +49,6 @@ characters_container = NodePath("../Char")
 [node name="CharacterInit" type="Node" parent="." unique_id=1273769968]
 script = ExtResource("5_charinit")
 
-[node name="Background" type="Node2D" parent="." unique_id=1818855024]
-
-[node name="Interaction" type="Node2D" parent="." unique_id=1481333865]
-
 [node name="Char" type="Node2D" parent="." unique_id=1376955046]
 z_index = 200
 position = Vector2(121, 934)

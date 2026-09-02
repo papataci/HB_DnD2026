@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="SublocationData" format=3 uid="uid://cw6odov7u40yu"]
 
 [ext_resource type="PackedScene" uid="uid://b0y4k0yc8575v" path="res://sublocation/room_int_01.tscn" id="2_077ei"]
+[ext_resource type="Resource" uid="uid://cocov62bkehcv" path="res://ink/toshiro_00.ink.json" id="2_oa218"]
 [ext_resource type="Script" uid="uid://6q5t07fqbll5" path="res://Locations/sublocation_data.gd" id="2_roomint01"]
 
 [resource]
@@ -8,3 +9,6 @@ script = ExtResource("2_roomint01")
 id = 14
 sublocation_name = "Room Int 01"
 sublocation_scene = ExtResource("2_077ei")
+starting_characters = Array[int]([4])
+starting_ink_story = ExtResource("2_oa218")
+starting_knot = "Start"

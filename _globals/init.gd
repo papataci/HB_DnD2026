@@ -33,8 +33,9 @@ func refresh() -> void:
 		return
 	for child in characters_container.get_children():
 		child.queue_free()
-	for i in location.characters.size():
+	var playable_characters := location.characters.filter(Character.is_playable)
+	for i in playable_characters.size():
 		var character := CHARACTER_SCENE.instantiate() as Character
-		character.character = location.characters[i]
+		character.character = playable_characters[i]
 		character.position = Vector2(0, -i * CHARACTER_SPACING)
 		characters_container.add_child(character)

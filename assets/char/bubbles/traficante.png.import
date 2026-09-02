@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://54g17e00v0tj"
-path="res://.godot/imported/toshiro_figura_intera.png-9baee3cfa91d7d73493b879b1d781ecb.ctex"
+uid="uid://itockiwndf6g"
+path="res://.godot/imported/traficante.png-dd23ac265bef5262c022f5c762b60f9b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/npc/toshiro_figura_intera.png"
-dest_files=["res://.godot/imported/toshiro_figura_intera.png-9baee3cfa91d7d73493b879b1d781ecb.ctex"]
+source_file="res://assets/char/bubbles/traficante.png"
+dest_files=["res://.godot/imported/traficante.png-dd23ac265bef5262c022f5c762b60f9b.ctex"]
 
 [params]
 

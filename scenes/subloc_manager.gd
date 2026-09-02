@@ -1,5 +1,5 @@
 extends Node2D
-class_name Subloc
+class_name SublocManager
 
 const InkScene := preload("res://ink/ink_example.tscn")
 

@@ -7,59 +7,33 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_geu4r"]
 
-[sub_resource type="Animation" id="Animation_8m6ri"]
-resource_name = "Fade In Out"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FadeContainer:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 3, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_ck11h"]
-resource_name = "RESET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FadeContainer:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ye4xa"]
-_data = {
-&"Fade In Out": SubResource("Animation_8m6ri"),
-&"RESET": SubResource("Animation_ck11h")
-}
-
 [node name="CharIntro" type="CanvasLayer" unique_id=753092189]
-layer = 100
+layer = 400
 script = ExtResource("1_yjt6y")
+pause_before = 2.0
+hold_duration = 4.0
+pause_after = 1.0
 
 [node name="FadeContainer" type="Panel" parent="." unique_id=203021523]
 modulate = Color(1, 1, 1, 0)
-
-[node name="NinePatchRect" type="NinePatchRect" parent="FadeContainer" unique_id=224647461]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 96.0
-offset_top = 104.0
-offset_right = 1192.0
-offset_bottom = 560.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_geu4r")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="FadeContainer" unique_id=224647461]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -705.0
+offset_top = -274.0
+offset_right = 705.0
+offset_bottom = 274.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_pd1xf")
@@ -69,11 +43,16 @@ patch_margin_right = 128
 patch_margin_bottom = 64
 
 [node name="VignetteCountainer" type="PanelContainer" parent="FadeContainer" unique_id=2071929474]
-layout_mode = 0
-offset_left = 120.0
-offset_top = 128.0
-offset_right = 1390.0
-offset_bottom = 536.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -635.0
+offset_top = -204.0
+offset_right = 635.0
+offset_bottom = 204.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -137,16 +116,20 @@ fit_content = true
 scroll_active = false
 
 [node name="SkipButton" type="Button" parent="FadeContainer" unique_id=634305058]
-layout_mode = 0
-offset_left = 1080.0
-offset_top = 520.0
-offset_right = 1150.0
-offset_bottom = 551.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 325.0
+offset_top = 188.0
+offset_right = 395.0
+offset_bottom = 219.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("4_xk0vt")
 theme_override_font_sizes/font_size = 25
 text = "skip"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=810590937]
-libraries/ = SubResource("AnimationLibrary_ye4xa")
 
 [connection signal="pressed" from="FadeContainer/SkipButton" to="." method="_on_skip_button_pressed"]

@@ -1,0 +1,61 @@
+Ink command convention
+=======================
+Engine commands are authored as a line starting with "@COMMAND:", the "@"
+marking it as an out-of-band directive rather than a character speaking (see
+the plain "Speaker: text" dialogue form, e.g. "Toshiro: ..."). Parsed in
+ink/ink_starter.gd's _advance().
+
+When you add a new command, add it to this list.
+
+@MCP: <text>
+	Shows <text> in a ShellMessage panel (ui/shell_message.tscn), styled as
+	a system/narrator message, and waits for the player to dismiss it before
+	the story continues.
+	Example: @MCP: This room is empty, go back to work!
+
+@CUTSCENE: <name>
+	Plays the cutscene registered under <name> in
+	CutsceneManager.CUTSCENES (_globals/cutscene_manager.gd) full-screen,
+	and waits for it to finish before the story continues. <name> must
+	match a key in that dictionary.
+	Example: @CUTSCENE: holly_awakes
+
+@TELEPORT: <target>
+	Moves every playable character currently present (in the sublocation
+	we're in, or the top-level location if we aren't in one) into <target>,
+	then plays the same fade/swap transition as dragging a character there.
+	<target> is always the destination's own name (case-insensitive) -
+	never a magic keyword - and is looked up as:
+	  - a key in ENUMS.LOCATIONS (e.g. "morlako" or "MORLAKO"): returns
+		everyone to the top-level location and fully exits any (possibly
+		nested) sublocation. Only one location exists today, so which name
+		was given doesn't matter yet - it's still required to be a real one.
+	  - else a key in ENUMS.SUBLOCATIONS (e.g. "reception" or "RECEPTION"),
+		which must currently be instanced somewhere in the scene tree
+		(LocationManager.find_subloc()).
+	Example: @TELEPORT: reception
+	Example: @TELEPORT: morlako
+
+@INTRO: <Character>
+	Plays cutscenes/char_intro.tscn full-screen, showing <Character>'s
+	portrait (CharacterData.bubble_texture), name (character_name), and
+	intro text (char_intro), and waits for it to finish before the story
+	continues. Not routed through CutsceneManager.CUTSCENES - it's a
+	dedicated scene, instantiated directly (see _play_char_intro() in
+	ink/ink_starter.gd), since it needs an argument (which character).
+	<Character> is a key in ENUMS.CHARACTERS (case-insensitive), and must
+	have a CharacterData entry in Character.DATA (draggables/character.gd)
+	with those fields filled in to display anything meaningful.
+	Example: @INTRO: toshiro
+
+@SET_KNOT: <knot>
+	Calls DropSublocation.set_knot(<knot>) on the current sublocation
+	(LocationManager.current_subloc), so re-entering it later resumes the
+	ink story from <knot> instead of wherever it started this time - e.g.
+	put this at the end of a quest-step knot so the room doesn't replay the
+	same scene on the next visit. Leave <knot> empty to reset back to the
+	start of the ink file. Doesn't change which ink file is playing, only
+	the knot within it (see drop_zones/drop_sublocation.gd). Synchronous -
+	doesn't pause the story like the other commands.
+	Example: @SET_KNOT: ToshiroMeetsHolly
+	Example: @SET_KNOT:

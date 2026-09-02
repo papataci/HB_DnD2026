@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 __InkRuntime="*res://addons/inkgd/ink_runtime.gd"
+CutsceneManager="*res://_globals/cutscene_manager.gd"
 
 [display]
 
