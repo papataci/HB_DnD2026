@@ -4,5 +4,4 @@
 
 [resource]
 script = ExtResource("1_phoneboot")
-id = 10
 sublocation_name = "Phone Booth"

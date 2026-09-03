@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://6q5t07fqbll5" path="res://Locations/sublocation_data.gd" id="1_room06"]
 [ext_resource type="PackedScene" uid="uid://u6h5cxmdggy5" path="res://sublocation/room_ext_empty.tscn" id="2_866fh"]
+[ext_resource type="Resource" uid="uid://dyfaigiacps61" path="res://ink/morlako/room_default.ink.json" id="3_ink"]
 
 [resource]
 script = ExtResource("1_room06")
-id = 4
 sublocation_name = "Room 06"
 sublocation_scene = ExtResource("2_866fh")
+starting_ink_story = ExtResource("3_ink")
+starting_knot = "EmptyRoom"

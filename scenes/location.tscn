@@ -3,20 +3,7 @@
 [ext_resource type="Script" uid="uid://cmy6cje0nfa35" path="res://scenes/location.gd" id="0_location"]
 [ext_resource type="Texture2D" uid="uid://dh770k7go0cvg" path="res://assets/locations/morlako_tot_day.png" id="1_gjgjs"]
 [ext_resource type="PackedScene" uid="uid://cxvrn3hs61m4b" path="res://drop_zones/drop_sublocation.tscn" id="3_nnb31"]
-[ext_resource type="Resource" uid="uid://bynpvxcdx2rdb" path="res://sublocation/data/reception.tres" id="4_reception"]
-[ext_resource type="Resource" uid="uid://c8xp4lygy2mgm" path="res://sublocation/data/room05.tres" id="6_dce22"]
-[ext_resource type="Resource" uid="uid://c4vvroj7wf6mp" path="res://sublocation/data/room01.tres" id="6_room01"]
-[ext_resource type="Resource" uid="uid://b16n00734t0hl" path="res://sublocation/data/room02.tres" id="6_room02"]
-[ext_resource type="Resource" uid="uid://b67kj3mnjkesi" path="res://sublocation/data/room06.tres" id="7_gdcmo"]
-[ext_resource type="Resource" uid="uid://bpgq7colulfjn" path="res://sublocation/data/shack.tres" id="7_shack"]
-[ext_resource type="Resource" uid="uid://uda55snyl5mm" path="res://sublocation/data/room07.tres" id="8_elest"]
-[ext_resource type="Resource" path="res://sublocation/data/phoneboot.tres" id="8_phoneboot"]
-[ext_resource type="Resource" uid="uid://coh4fhg7up5uc" path="res://sublocation/data/room08.tres" id="9_80a1g"]
-[ext_resource type="Resource" path="res://sublocation/data/dumpster.tres" id="9_dumpster"]
-[ext_resource type="Resource" uid="uid://c275lylgbc8hu" path="res://sublocation/data/room09.tres" id="10_g22qp"]
-[ext_resource type="Resource" uid="uid://duofm4c88ryhm" path="res://sublocation/data/roomx.tres" id="11_q5x7i"]
 [ext_resource type="Texture2D" uid="uid://8w4cbryf51na" path="res://assets/ui/HollywppdBauTitle_1k.png" id="15_gdcmo"]
-[ext_resource type="Resource" uid="uid://dyfaigiacps61" path="res://ink/morlako/room_default.ink.json" id="16_inkstory"]
 
 [node name="Location" type="Node2D" unique_id=77529473]
 script = ExtResource("0_location")
@@ -31,82 +18,64 @@ texture = ExtResource("1_gjgjs")
 [node name="Reception" parent="Morlako" unique_id=1877650446 instance=ExtResource("3_nnb31")]
 position = Vector2(1208, 744)
 scale = Vector2(4.2667336, 2.7743697)
-sublocation_data = ExtResource("4_reception")
-ink_story = ExtResource("16_inkstory")
-knot = "ClosedReception"
+target = 0
 
 [node name="Room01" parent="Morlako" unique_id=68717004 instance=ExtResource("3_nnb31")]
 position = Vector2(1480.0001, 528)
 scale = Vector2(2.0920734, 2.0450795)
-sublocation_data = ExtResource("6_room01")
+target = 1
 
 [node name="Room02" parent="Morlako" unique_id=1383656763 instance=ExtResource("3_nnb31")]
 position = Vector2(1632.0001, 456)
 scale = Vector2(2.0920734, 2.0450795)
-sublocation_data = ExtResource("6_room02")
-ink_story = ExtResource("16_inkstory")
-knot = "EmptyRoom"
+target = 2
 
 [node name="Room05" parent="Morlako" unique_id=1212429847 instance=ExtResource("3_nnb31")]
 position = Vector2(608, 512)
 scale = Vector2(2.0920734, 2.0450795)
-sublocation_data = ExtResource("6_dce22")
-ink_story = ExtResource("16_inkstory")
-knot = "EmptyRoom"
+target = 3
 
 [node name="Room06" parent="Morlako" unique_id=104571156 instance=ExtResource("3_nnb31")]
 position = Vector2(752.00006, 439.99997)
 scale = Vector2(2.0920734, 2.0450795)
-sublocation_data = ExtResource("7_gdcmo")
-ink_story = ExtResource("16_inkstory")
-knot = "EmptyRoom"
+target = 4
 
 [node name="Room07" parent="Morlako" unique_id=39410998 instance=ExtResource("3_nnb31")]
 position = Vector2(944.00006, 344)
 scale = Vector2(2.0920734, 2.0450795)
-sublocation_data = ExtResource("8_elest")
-ink_story = ExtResource("16_inkstory")
-knot = "EmptyRoom"
+target = 5
 
 [node name="Room08" parent="Morlako" unique_id=104770816 instance=ExtResource("3_nnb31")]
 position = Vector2(800.00006, 280)
 scale = Vector2(2.0920734, 2.0450795)
-sublocation_data = ExtResource("9_80a1g")
-ink_story = ExtResource("16_inkstory")
-knot = "EmptyRoom"
+target = 6
 
 [node name="Room09" parent="Morlako" unique_id=63825760 instance=ExtResource("3_nnb31")]
 position = Vector2(1064.0001, 136)
 scale = Vector2(2.0920734, 2.0450795)
-sublocation_data = ExtResource("10_g22qp")
-ink_story = ExtResource("16_inkstory")
-knot = "EmptyRoom"
+target = 7
 
 [node name="RoomX" parent="Morlako" unique_id=1182106277 instance=ExtResource("3_nnb31")]
 position = Vector2(1208, 200)
 scale = Vector2(2.0920734, 2.0450795)
-sublocation_data = ExtResource("11_q5x7i")
-ink_story = ExtResource("16_inkstory")
-knot = "ClosedRoomX"
+target = 8
 
 [node name="Shack" parent="Morlako" unique_id=1850566846 instance=ExtResource("3_nnb31")]
 position = Vector2(1816, 344)
 scale = Vector2(2.0920734, 2.0450795)
-sublocation_data = ExtResource("7_shack")
-ink_story = ExtResource("16_inkstory")
-knot = "ClosedShack"
+target = 9
 
 [node name="Phoneboot" parent="Morlako" unique_id=1504334405 instance=ExtResource("3_nnb31")]
 visible = false
 position = Vector2(1528.0001, 712)
 scale = Vector2(2.0920734, 2.0450795)
-sublocation_data = ExtResource("8_phoneboot")
+target = 10
 
 [node name="Dumpster" parent="Morlako" unique_id=118920572 instance=ExtResource("3_nnb31")]
 visible = false
 position = Vector2(944.00006, 920)
 scale = Vector2(2.3320735, 1.8050795)
-sublocation_data = ExtResource("9_dumpster")
+target = 11
 
 [node name="HollywppdBauTitle1k" type="Sprite2D" parent="Morlako" unique_id=404104764]
 position = Vector2(360.00003, 88)

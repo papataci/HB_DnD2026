@@ -2,73 +2,70 @@ Ink command convention
 =======================
 Engine commands are authored as a line starting with "@COMMAND:", the "@"
 marking it as an out-of-band directive rather than a character speaking (see
-the plain "Speaker: text" dialogue form, e.g. "Toshiro: ..."). Parsed in
-ink/ink_starter.gd's _advance().
+the plain "Speaker: text" dialogue form, e.g. "Toshiro: ..."). The grammar
+(prefix, argument counts, name lookups) lives in ink/ink_commands.gd and is
+used both at runtime (ink/ink_starter.gd) and by the launch-time content
+check (_globals/content_check.gd), which reports unknown commands, wrong
+argument counts, unknown names and missing knots in the Output panel as soon
+as the game starts - so run the game once after editing ink and look there.
 
-When you add a new command, add it to this list.
+When you add a new command, add it to InkCommands.ARITY, handle it in
+ink_starter.gd, and add it to this list.
+
+Names are case-insensitive. Sublocations are named by their
+ENUMS.SUBLOCATIONS key (_globals/enums.gd): note "room01" but "room_int_01".
 
 @MCP: <text>
 	Shows <text> in a ShellMessage panel (ui/shell_message.tscn), styled as
 	a system/narrator message, and waits for the player to dismiss it before
-	the story continues.
+	the story continues. The whole rest of the line is the text.
 	Example: @MCP: This room is empty, go back to work!
 
 @CUTSCENE: <name>
 	Plays the cutscene registered under <name> in
 	CutsceneManager.CUTSCENES (_globals/cutscene_manager.gd) full-screen,
-	and waits for it to finish before the story continues. <name> must
-	match a key in that dictionary.
+	and waits for it to finish before the story continues.
 	Example: @CUTSCENE: holly_awakes
 
 @TELEPORT: <target>
-	Moves every playable character currently present (in the sublocation
-	we're in, or the top-level location if we aren't in one) into <target>,
-	then plays the same fade/swap transition as dragging a character there.
-	<target> is always the destination's own name (case-insensitive) -
-	never a magic keyword - and is looked up as:
-	  - a key in ENUMS.LOCATIONS (e.g. "morlako" or "MORLAKO"): returns
-		everyone to the top-level location and fully exits any (possibly
-		nested) sublocation. Only one location exists today, so which name
-		was given doesn't matter yet - it's still required to be a real one.
-	  - else a key in ENUMS.SUBLOCATIONS (e.g. "reception" or "RECEPTION"),
-		which must currently be instanced somewhere in the scene tree
-		(LocationManager.find_subloc()).
+	Moves every playable character currently present into <target>, then
+	plays the same fade as walking there. <target> is either:
+	  - a key in ENUMS.LOCATIONS (e.g. "morlako"): everyone returns to the
+		top-level map, fully exiting any (possibly nested) sublocation. Only
+		one location exists today, so which name was given doesn't matter
+		yet - it's still required to be a real one.
+	  - a key in ENUMS.SUBLOCATIONS (e.g. "reception"): that sublocation is
+		shown as a fresh top-level entry, so its back arrow leads to the map.
 	Example: @TELEPORT: reception
 	Example: @TELEPORT: morlako
 
 @INTRO: <Character>
-	Plays cutscenes/char_intro.tscn full-screen, showing <Character>'s
-	portrait (CharacterData.bubble_texture), name (character_name), and
-	intro text (char_intro), and waits for it to finish before the story
-	continues. Not routed through CutsceneManager.CUTSCENES - it's a
-	dedicated scene, instantiated directly (see _play_char_intro() in
-	ink/ink_starter.gd), since it needs an argument (which character).
-	<Character> is a key in ENUMS.CHARACTERS (case-insensitive), and must
-	have a CharacterData entry in Character.DATA (draggables/character.gd)
-	with those fields filled in to display anything meaningful.
+	Plays ui/char_intro.tscn full-screen, showing <Character>'s portrait
+	(CharacterData.bubble_texture), name (character_name), and intro text
+	(char_intro), and waits for it to finish before the story continues.
+	<Character> is a key in ENUMS.CHARACTERS and must have a CharacterData
+	entry in Character.DATA (draggables/character.gd) with those fields
+	filled in to display anything meaningful.
 	Example: @INTRO: toshiro
 
 @SET_KNOT: <knot>
 @SET_KNOT: <sublocation> <ink_story> <knot>
-	Calls DropSublocation.set_knot() on <sublocation>, so re-entering it
-	later resumes <ink_story> from <knot> instead of wherever it started
-	this time - e.g. put this at the end of a quest-step knot so the room
-	doesn't replay the same scene on the next visit.
-	The 1-argument form is shorthand for "SELF - <knot>" - just move the
-	current sublocation's own current ink story to a new knot, the common
-	case. The 3-argument form is only needed to move a *different* room's
-	story forward, or to switch which ink story a room is playing.
-	<sublocation> is a key in ENUMS.SUBLOCATIONS (case-insensitive) and
-	must currently be instanced somewhere in the scene tree - same lookup
-	as "@TELEPORT:" (LocationManager.find_subloc()) - or the literal
-	keyword SELF, meaning the sublocation currently playing this ink file
-	(LocationManager.current_subloc).
-	<ink_story> is a key in InkRegistry.INK_STORIES (_globals/ink_registry.gd,
-	case-insensitive), or "-" to leave <sublocation>'s current ink story
-	alone.
-	<knot> is the knot to resume from, or "-" for the empty string (resets
-	to the start of the ink file).
+	Records in WorldState (_globals/world_state.gd) where a sublocation's
+	story resumes from the next time it's entered - e.g. put this at the end
+	of a quest-step knot so the room doesn't replay the same scene on the
+	next visit. Because that state lives in WorldState rather than on scene
+	nodes, the target room doesn't need to be loaded, and the command works
+	the same before or after a @TELEPORT.
+	The 1-argument form is shorthand for "SELF - <knot>": move the story
+	this line is in, for the sublocation it's attached to, to <knot>.
+	The 3-argument form can also move a *different* room's story, or switch
+	which ink story a room plays:
+	  <sublocation> is a key in ENUMS.SUBLOCATIONS, or the literal keyword
+	  SELF for the sublocation this story is attached to.
+	  <ink_story> is a key in InkRegistry.INK_STORIES
+	  (_globals/ink_registry.gd), or "-" to keep the room's current story.
+	  <knot> is the knot to resume from, or "-" for the start of the file.
 	Synchronous - doesn't pause the story like the other commands.
 	Example: @SET_KNOT: LeaveMeAlone
-	Example: @SET_KNOT: reception room_default EmptyRoom
-	Example: @SET_KNOT: -
+	Example: @SET_KNOT: room01 room_default RoomAlreadyClean
+	Example: @SET_KNOT: SELF - -

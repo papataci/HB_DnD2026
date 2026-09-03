@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://beoo2c1g7effm" path="res://sublocation/backgrounds/room_ext_bg.tscn" id="1_drnsl"]
 [ext_resource type="PackedScene" uid="uid://dcwpsrnhfm3ko" path="res://sublocation/room_door_open.tscn" id="4_s3kle"]
 [ext_resource type="PackedScene" uid="uid://cxvrn3hs61m4b" path="res://drop_zones/drop_sublocation.tscn" id="5_wsky2"]
-[ext_resource type="Resource" uid="uid://cw6odov7u40yu" path="res://sublocation/data/room_int_01.tres" id="6_ggk13"]
 [ext_resource type="PackedScene" uid="uid://dmi1ghw72wkr4" path="res://vfx/black_and_white_screen.tscn" id="9_gilbb"]
 [ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="13_88j15"]
 
@@ -40,4 +39,4 @@ position = Vector2(1154.0002, 656.0001)
 
 [node name="DropSublocation" parent="RoomDoorOpen" unique_id=1877650446 instance=ExtResource("5_wsky2")]
 scale = Vector2(4.29718, 8.765728)
-sublocation_data = ExtResource("6_ggk13")
+target = 14

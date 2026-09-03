@@ -6,7 +6,6 @@
 
 [resource]
 script = ExtResource("2_roomint01")
-id = 14
 sublocation_name = "Room Int 01"
 sublocation_scene = ExtResource("2_077ei")
 starting_characters = Array[int]([4])

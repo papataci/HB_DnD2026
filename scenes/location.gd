@@ -1,4 +1,4 @@
 extends Node2D
 class_name Location
-
-@export var characters: Array[ENUMS.CHARACTERS] = []
+## The top-level map scene. Who is standing on it lives in
+## WorldState.map_characters, not here.

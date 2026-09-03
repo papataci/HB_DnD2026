@@ -1,30 +1,42 @@
 extends Node2D
 class_name SublocManager
+## Renders one sublocation: swaps its scene content in and starts its ink
+## story from wherever WorldState says it should resume. Owns nothing
+## persistent - LocationManager tells it which id to show and it rebuilds
+## from the template + WorldState every time, so re-showing a room is always
+## a clean rebuild.
 
 const InkScene := preload("res://ink/ink_example.tscn")
 
-var subloc: DropSublocation
-var sublocation_data: SublocationData
+## The sublocation being shown (WorldState.MAP until configure() is called).
+var subloc_id: int = WorldState.MAP
+var template: SublocationData
 var _ink_instance: Node
 
-func configure(drop_subloc: DropSublocation) -> void:
-	subloc = drop_subloc
-	sublocation_data = drop_subloc.sublocation_data if drop_subloc else null
-	print("SublocManager: configure(\"%s\", id=%s) ink_story=%s knot=\"%s\"" % [
-		drop_subloc.get_display_name() if drop_subloc else "<null>",
-		drop_subloc.get_instance_id() if drop_subloc else "<none>",
-		drop_subloc.ink_story if drop_subloc else null,
-		drop_subloc.knot if drop_subloc else "",
-	])
-	if not sublocation_data:
+## Walks up from `node` to the SublocManager rendering it, or null. For room
+## content that needs to know which sublocation it's part of (see
+## sublocation/backgrounds/room_door_open.gd).
+static func find_owner(node: Node) -> SublocManager:
+	var current := node
+	while current:
+		if current is SublocManager:
+			return current
+		current = current.get_parent()
+	return null
+
+func configure(id: int) -> void:
+	subloc_id = id
+	template = Sublocations.template(id)
+	if not template:
 		return
+	print("SublocManager: showing %s" % Sublocations.key_name(id))
 
-	var title := get_node_or_null("Title") as Label
+	var title := get_node_or_null("DEBUG/Title") as Label
 	if title:
-		title.text = sublocation_data.sublocation_name
+		title.text = template.sublocation_name
 
-	_load_subloc_scene(sublocation_data.sublocation_scene)
-	_start_ink_story(drop_subloc)
+	_load_subloc_scene(template.sublocation_scene)
+	_start_ink_story(id)
 
 func _load_subloc_scene(scene: PackedScene) -> void:
 	var subloc_scene := get_node_or_null("SublocScene") as Node2D
@@ -37,18 +49,19 @@ func _load_subloc_scene(scene: PackedScene) -> void:
 	if scene:
 		subloc_scene.add_child(scene.instantiate())
 
-func _start_ink_story(drop_subloc: DropSublocation) -> void:
+func _start_ink_story(id: int) -> void:
 	if _ink_instance:
 		_ink_instance.queue_free()
 		_ink_instance = null
 
-	if not drop_subloc.ink_story:
-		print("SublocManager: _start_ink_story(\"%s\") has no ink_story, skipping" % drop_subloc.get_display_name())
+	var state := WorldState.get_state(id)
+	if not state or not state.story:
 		return
 
 	var ink := InkScene.instantiate()
-	ink.ink_file = drop_subloc.ink_story
-	ink.start_knot = drop_subloc.knot
+	ink.ink_file = state.story
+	ink.start_knot = state.knot
+	ink.subloc_id = id
 	add_child(ink)
 	_ink_instance = ink
 

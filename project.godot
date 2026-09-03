@@ -24,6 +24,8 @@ config/icon="res://icon.svg"
 __InkRuntime="*res://addons/inkgd/ink_runtime.gd"
 CutsceneManager="*res://_globals/cutscene_manager.gd"
 InkRegistry="*res://_globals/ink_registry.gd"
+WorldState="*res://_globals/world_state.gd"
+ContentCheck="*res://_globals/content_check.gd"
 
 [display]
 

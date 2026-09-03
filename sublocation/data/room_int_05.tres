@@ -5,6 +5,5 @@
 
 [resource]
 script = ExtResource("2_roomint05")
-id = 18
 sublocation_name = "Room Int 05"
 sublocation_scene = ExtResource("1_roomint05")
