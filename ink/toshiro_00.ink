@@ -16,21 +16,21 @@
     
     @CUTSCENE: wom_cleans
     @SET_KNOT: LeaveMeAlone
+    @SET_KNOT: room01 room_default RoomAlreadyClean
     @TELEPORT: Morlako
 
 -> END
 
 === LeaveMeAlone ===
     Toshiro: どけ、ポンコツ!
-/* Levati dai piedi
-
-- どけ、ポンコツ! (Doke, ponkotsu!)
-- どけ (doke) — rude imperative "move!/get out of the way!"
-- ポンコツ (ponkotsu) — the classic Japanese slang for a beat-up, useless machine/junk heap — commonly used as an insult toward robots specifically, so it lands better than a literal "scrap metal" translation.
-
-More literal alternative: 邪魔だ、鉄くず! (Jama da, tetsukuzu! — "You're in the way, scrap iron!") — works too, but ポンコツ is the more natural/idiomatic insult for a robot in Japanese.
-
- ----------------------------------*/
+    /* Levati dai piedi
+    
+    - どけ、ポンコツ! (Doke, ponkotsu!)
+    - どけ (doke) — rude imperative "move!/get out of the way!"
+    - ポンコツ (ponkotsu) — the classic Japanese slang for a beat-up, useless machine/junk heap — commonly used as an insult toward robots specifically, so it lands better than a literal "scrap metal" translation.
+    
+    More literal alternative: 邪魔だ、鉄くず! (Jama da, tetsukuzu! — "You're in the way, scrap iron!") — works too, but ポンコツ is the more natural/idiomatic insult for a robot in Japanese.
+    */
 
 -> END
 

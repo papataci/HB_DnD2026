@@ -80,8 +80,17 @@ func teleport_to_location() -> void:
 
 	_add_to_location(_take_present_characters())
 
-	for parked in _subloc_stack:
-		parked.queue_free()
+	# _subloc_stack[0] (if any) is the persistent top-level DropSublocation
+	# fixture living in the map scene (e.g. Room01) - it was never reparented
+	# via _keep_alive() and must survive this. Everything deeper - every other
+	# stack entry, plus current_subloc itself once we've gone past the top
+	# level - is a disposable kept-alive clone tied to content that's already
+	# being replaced, and must be freed here or it dangles under
+	# LocationManager forever.
+	if not _subloc_stack.is_empty():
+		current_subloc.queue_free()
+		for i in range(1, _subloc_stack.size()):
+			_subloc_stack[i].queue_free()
 	_subloc_stack.clear()
 
 	_current_subloc_instance.queue_free()

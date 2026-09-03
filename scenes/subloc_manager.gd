@@ -10,6 +10,12 @@ var _ink_instance: Node
 func configure(drop_subloc: DropSublocation) -> void:
 	subloc = drop_subloc
 	sublocation_data = drop_subloc.sublocation_data if drop_subloc else null
+	print("SublocManager: configure(\"%s\", id=%s) ink_story=%s knot=\"%s\"" % [
+		drop_subloc.get_display_name() if drop_subloc else "<null>",
+		drop_subloc.get_instance_id() if drop_subloc else "<none>",
+		drop_subloc.ink_story if drop_subloc else null,
+		drop_subloc.knot if drop_subloc else "",
+	])
 	if not sublocation_data:
 		return
 
@@ -37,6 +43,7 @@ func _start_ink_story(drop_subloc: DropSublocation) -> void:
 		_ink_instance = null
 
 	if not drop_subloc.ink_story:
+		print("SublocManager: _start_ink_story(\"%s\") has no ink_story, skipping" % drop_subloc.get_display_name())
 		return
 
 	var ink := InkScene.instantiate()

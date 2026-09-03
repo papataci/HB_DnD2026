@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bfm2sdblg8sf2"
-path="res://.godot/imported/KOMIKSLI.ttf-b2c80f602f2a3cda181dd12f964b9011.fontdata"
+uid="uid://bgljtoqsov2pk"
+path="res://.godot/imported/SF Pixelate Bold.ttf-cdddcf3a8c1f777df4396db9e2df57cd.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/komikah/KOMIKSLI.ttf"
-dest_files=["res://.godot/imported/KOMIKSLI.ttf-b2c80f602f2a3cda181dd12f964b9011.fontdata"]
+source_file="res://ui/fonts/sf_pixelate/SF Pixelate Bold.ttf"
+dest_files=["res://.godot/imported/SF Pixelate Bold.ttf-cdddcf3a8c1f777df4396db9e2df57cd.fontdata"]
 
 [params]
 

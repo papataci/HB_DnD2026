@@ -1,8 +1,8 @@
 [gd_resource type="Theme" format=3 uid="uid://7mdqj0pbw8l0"]
 
-[ext_resource type="FontFile" uid="uid://bkyn3hqt3voox" path="res://assets/fonts/komikah/KOMIKAH_.ttf" id="1_ipbfg"]
-[ext_resource type="FontFile" uid="uid://b3xhdaglj7135" path="res://assets/fonts/komikah/KOMIKASK.ttf" id="2_30d37"]
-[ext_resource type="FontFile" uid="uid://bfm2sdblg8sf2" path="res://assets/fonts/komikah/KOMIKSLI.ttf" id="3_t3o56"]
+[ext_resource type="FontFile" uid="uid://bkyn3hqt3voox" path="res://ui/fonts/komikah/KOMIKAH_.ttf" id="1_ipbfg"]
+[ext_resource type="FontFile" uid="uid://b3xhdaglj7135" path="res://ui/fonts/komikah/KOMIKASK.ttf" id="2_30d37"]
+[ext_resource type="FontFile" uid="uid://bfm2sdblg8sf2" path="res://ui/fonts/komikah/KOMIKSLI.ttf" id="3_t3o56"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkxr0"]
 content_margin_left = 8.0

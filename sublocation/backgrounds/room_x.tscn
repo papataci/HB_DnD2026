@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bq8hcw2ecc66g" path="res://full_chars/holly_full.tscn" id="5_xoqoy"]
 [ext_resource type="Texture2D" uid="uid://k26sl5rjheqi" path="res://assets/items/RosarioBudd.png" id="6_1fdj4"]
 [ext_resource type="PackedScene" uid="uid://bl56dmxkxrt7f" path="res://full_chars/wom_full.tscn" id="6_ilyph"]
-[ext_resource type="FontFile" uid="uid://dr6cw3buovuch" path="res://assets/fonts/adamwarrenpro/adamwarrenpro-bold.ttf" id="7_0ccva"]
+[ext_resource type="FontFile" uid="uid://dr6cw3buovuch" path="res://ui/fonts/adamwarrenpro/adamwarrenpro-bold.ttf" id="7_0ccva"]
 [ext_resource type="Texture2D" uid="uid://b7gc7cbqh7ut3" path="res://Locations/bitmaps/Room_X_Ext_Day.png" id="7_eqws0"]
 [ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="9_tbwd4"]
 

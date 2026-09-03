@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dr6cw3buovuch"
-path="res://.godot/imported/adamwarrenpro-bold.ttf-bcfc64b71d2c59651cafdce0f5a60e25.fontdata"
+path="res://.godot/imported/adamwarrenpro-bold.ttf-3132d4161a7f6a7ca344ec740307a155.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/adamwarrenpro/adamwarrenpro-bold.ttf"
-dest_files=["res://.godot/imported/adamwarrenpro-bold.ttf-bcfc64b71d2c59651cafdce0f5a60e25.fontdata"]
+source_file="res://ui/fonts/adamwarrenpro/adamwarrenpro-bold.ttf"
+dest_files=["res://.godot/imported/adamwarrenpro-bold.ttf-3132d4161a7f6a7ca344ec740307a155.fontdata"]
 
 [params]
 

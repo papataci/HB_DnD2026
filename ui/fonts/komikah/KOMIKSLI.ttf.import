@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bqtns2hb34263"
-path="res://.godot/imported/adamwarrenpro.ttf-c3ddcbfac49ae1f1f2daedcd73f510f5.fontdata"
+uid="uid://bfm2sdblg8sf2"
+path="res://.godot/imported/KOMIKSLI.ttf-e22c49053b8ab46e3047c9095b30773a.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/adamwarrenpro/adamwarrenpro.ttf"
-dest_files=["res://.godot/imported/adamwarrenpro.ttf-c3ddcbfac49ae1f1f2daedcd73f510f5.fontdata"]
+source_file="res://ui/fonts/komikah/KOMIKSLI.ttf"
+dest_files=["res://.godot/imported/KOMIKSLI.ttf-e22c49053b8ab46e3047c9095b30773a.fontdata"]
 
 [params]
 

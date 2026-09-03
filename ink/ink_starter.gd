@@ -2,7 +2,7 @@ extends Node2D
 
 const ShellMessageScene := preload("res://ui/shell_message.tscn")
 const DialogueBalloonScene := preload("res://ui/dialogue_balloon_autosize.tscn")
-const CharIntroScene := preload("res://cutscenes/char_intro.tscn")
+const CharIntroScene := preload("res://ui/char_intro.tscn")
 
 @export var ink_file: Resource = preload("res://ink/example.ink.json")
 ## Knot/stitch to jump to before the story starts. Leave empty to start
@@ -73,6 +73,7 @@ func _advance() -> void:
 ## dismiss it before the story continues.
 func _show_mcp_line(line: String) -> void:
 	var section := line.trim_prefix(MCP_PREFIX).strip_edges()
+	print("Ink: @MCP \"%s\"" % section)
 
 	var shell_message := ShellMessageScene.instantiate()
 	shell_message.dialogue_data = {
@@ -88,7 +89,9 @@ func _show_mcp_line(line: String) -> void:
 ## waits for it to finish before the story continues.
 func _play_cutscene(line: String) -> void:
 	var cutscene_name := line.trim_prefix(CUTSCENE_PREFIX).strip_edges()
+	print("Ink: @CUTSCENE \"%s\"" % cutscene_name)
 	await CutsceneManager.play_by_name(cutscene_name)
+	print("Ink: @CUTSCENE \"%s\" finished" % cutscene_name)
 
 ## Ink authors a teleport cue as "@TELEPORT: <target>", where <target> is a
 ## key in ENUMS.LOCATIONS (e.g. "MORLAKO") or ENUMS.SUBLOCATIONS (e.g.
@@ -99,6 +102,7 @@ func _play_cutscene(line: String) -> void:
 ## there. Waits for it to finish before the story continues.
 func _teleport(line: String) -> void:
 	var target_name := line.trim_prefix(TELEPORT_PREFIX).strip_edges()
+	print("Ink: @TELEPORT \"%s\"" % target_name)
 	var location_manager := get_tree().get_first_node_in_group(LocationManager.GROUP_NAME) as LocationManager
 	if not location_manager:
 		push_error("Ink: @TELEPORT has no LocationManager in the scene")
@@ -109,7 +113,9 @@ func _teleport(line: String) -> void:
 	if ENUMS.LOCATIONS.has(target_key):
 		# Only "return to the top-level location" is supported today - there's
 		# only one location, so which one was named doesn't matter yet.
+		print("Ink: @TELEPORT \"%s\" resolved as top-level location" % target_name)
 		await location_manager.teleport_to_location()
+		print("Ink: @TELEPORT \"%s\" finished" % target_name)
 		return
 
 	if not ENUMS.SUBLOCATIONS.has(target_key):
@@ -121,11 +127,13 @@ func _teleport(line: String) -> void:
 		push_error("Ink: @TELEPORT sublocation \"%s\" not found in the current scene" % target_name)
 		return
 
+	print("Ink: @TELEPORT \"%s\" resolved as sublocation" % target_name)
 	await location_manager.teleport_to_subloc(target_subloc)
+	print("Ink: @TELEPORT \"%s\" finished" % target_name)
 
 ## Ink authors a character-introduction cue as "@INTRO: <Character>", where
 ## <Character> is a key in ENUMS.CHARACTERS (e.g. "TOSHIRO"). Plays
-## cutscenes/char_intro.tscn full-screen with that character's portrait,
+## ui/char_intro.tscn full-screen with that character's portrait,
 ## name, and CharacterData.char_intro text, and waits for it to finish
 ## before the story continues. Goes straight to its own scene rather than
 ## through CutsceneManager, since it's not really a "cutscene" - it's a
@@ -133,6 +141,7 @@ func _teleport(line: String) -> void:
 ## above for the same direct-instantiation pattern).
 func _play_char_intro(line: String) -> void:
 	var character_key := line.trim_prefix(INTRO_PREFIX).strip_edges().to_upper()
+	print("Ink: @INTRO \"%s\"" % character_key)
 	if not ENUMS.CHARACTERS.has(character_key):
 		push_error("Ink: @INTRO unknown character \"%s\"" % character_key)
 		return
@@ -142,21 +151,82 @@ func _play_char_intro(line: String) -> void:
 	get_tree().root.add_child(intro)
 	intro.cutscene_play()
 	await intro.cutscene_ended
+	print("Ink: @INTRO \"%s\" finished" % character_key)
 
-## Ink authors a "move the story forward" cue as "@SET_KNOT: <knot>", which
-## calls DropSublocation.set_knot() on the current sublocation (see
-## LocationManager.current_subloc) so that re-entering it later resumes from
-## <knot> instead of wherever it started this time - e.g. after a quest step
-## completes, so the room doesn't replay the same intro. Leave <knot> empty
-## to reset back to the start of the ink file. Synchronous - doesn't pause
-## the story.
+## Ink authors a "move the story forward" cue as either just
+## "@SET_KNOT: <knot>" - shorthand for SELF and the current ink story, see
+## below - or the full "@SET_KNOT: <sublocation> <ink_story> <knot>", which
+## calls DropSublocation.set_knot() on <sublocation> so that re-entering it
+## later resumes from <knot> of <ink_story> instead of wherever it started
+## this time - e.g. put this at the end of a quest-step knot so the room
+## doesn't replay the same scene on the next visit. Unlike the other
+## commands here, <sublocation> doesn't have to be the one currently playing
+## this ink file - the 3-argument form can move a *different* room's story
+## forward too.
+## <sublocation> is a key in ENUMS.SUBLOCATIONS (case-insensitive) and must
+## currently be instanced somewhere in the scene tree - same lookup as
+## "@TELEPORT:" (see LocationManager.find_subloc()) - or the literal keyword
+## SELF, meaning the sublocation currently playing this ink file
+## (LocationManager.current_subloc).
+## <ink_story> is a key in InkRegistry.INK_STORIES (case-insensitive), or "-"
+## to leave <sublocation>'s current ink story alone.
+## <knot> is the knot to resume from, or "-" for the empty string (resets to
+## the start of the ink file).
+## Synchronous - doesn't pause the story.
 func _set_knot(line: String) -> void:
-	var knot_name := line.trim_prefix(SET_KNOT_PREFIX).strip_edges()
-	var location_manager := get_tree().get_first_node_in_group(LocationManager.GROUP_NAME) as LocationManager
-	if not location_manager or not location_manager.current_subloc:
-		push_error("Ink: @SET_KNOT has no current sublocation to update")
+	var args := line.trim_prefix(SET_KNOT_PREFIX).strip_edges().split(" ", false)
+	print("Ink: @SET_KNOT %s" % [args])
+
+	var sublocation_name := "SELF"
+	var ink_story_name := "-"
+	var knot_arg: String
+
+	if args.size() == 1:
+		knot_arg = args[0]
+	elif args.size() == 3:
+		sublocation_name = args[0]
+		ink_story_name = args[1]
+		knot_arg = args[2]
+	else:
+		push_error("Ink: @SET_KNOT expects \"<knot>\" or \"<sublocation> <ink_story> <knot>\", got \"%s\"" % line)
 		return
-	location_manager.current_subloc.set_knot(knot_name)
+
+	var knot_name := "" if knot_arg == "-" else knot_arg
+
+	var location_manager := get_tree().get_first_node_in_group(LocationManager.GROUP_NAME) as LocationManager
+	if not location_manager:
+		push_error("Ink: @SET_KNOT has no LocationManager in the scene")
+		return
+
+	var target_subloc: DropSublocation
+	if sublocation_name.to_upper() == "SELF":
+		target_subloc = location_manager.current_subloc
+		if not target_subloc:
+			push_error("Ink: @SET_KNOT SELF has no current sublocation to update")
+			return
+	else:
+		var target_key := sublocation_name.to_upper()
+		if not ENUMS.SUBLOCATIONS.has(target_key):
+			push_error("Ink: @SET_KNOT unknown sublocation \"%s\"" % sublocation_name)
+			return
+
+		target_subloc = location_manager.find_subloc(ENUMS.SUBLOCATIONS[target_key])
+		if not target_subloc:
+			push_error("Ink: @SET_KNOT sublocation \"%s\" not found in the current scene" % sublocation_name)
+			return
+
+	var new_ink_story: Resource = null
+	if ink_story_name != "-":
+		new_ink_story = InkRegistry.INK_STORIES.get(ink_story_name.to_lower())
+		if not new_ink_story:
+			push_error("Ink: @SET_KNOT unknown ink story \"%s\"" % ink_story_name)
+			return
+
+	target_subloc.set_knot(knot_name, new_ink_story)
+	print("Ink: @SET_KNOT \"%s\" applied to \"%s\" (id=%s) - now ink_story=%s knot=\"%s\"" % [
+		knot_name, target_subloc.get_display_name(), target_subloc.get_instance_id(),
+		target_subloc.ink_story, target_subloc.knot,
+	])
 
 ## Ink authors character lines as "Speaker: text" (see e.g. ink/toshiro_00.ink).
 ## Returns "Speaker" when the line starts with that pattern, or "" for plain

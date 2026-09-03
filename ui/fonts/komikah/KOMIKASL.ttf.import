@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b105oi58nw66a"
-path="res://.godot/imported/KOMIKASL.ttf-97a5699e0c952cdb26d2f42a29446e3a.fontdata"
+path="res://.godot/imported/KOMIKASL.ttf-dcb71d6511636e72085039c21a13653f.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/komikah/KOMIKASL.ttf"
-dest_files=["res://.godot/imported/KOMIKASL.ttf-97a5699e0c952cdb26d2f42a29446e3a.fontdata"]
+source_file="res://ui/fonts/komikah/KOMIKASL.ttf"
+dest_files=["res://.godot/imported/KOMIKASL.ttf-dcb71d6511636e72085039c21a13653f.fontdata"]
 
 [params]
 

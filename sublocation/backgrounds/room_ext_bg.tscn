@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://beoo2c1g7effm"]
 
-[ext_resource type="FontFile" uid="uid://dr6cw3buovuch" path="res://assets/fonts/adamwarrenpro/adamwarrenpro-bold.ttf" id="2_jndff"]
+[ext_resource type="FontFile" uid="uid://dr6cw3buovuch" path="res://ui/fonts/adamwarrenpro/adamwarrenpro-bold.ttf" id="2_jndff"]
 [ext_resource type="Texture2D" uid="uid://bnt6gscnuugec" path="res://assets/subloc/room_ext.png" id="10_jndff"]
 [ext_resource type="Script" uid="uid://lwqut13lskit" path="res://sublocation/backgrounds/room_closed.gd" id="11_room_closed"]
 

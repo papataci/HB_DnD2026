@@ -2,18 +2,18 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bdkgskkmdjkdv"
-path="res://.godot/imported/SF Pixelate Oblique.ttf-4bd4ab0fcce5661d775030a510b80674.fontdata"
+uid="uid://b5f0n0aj16plk"
+path="res://.godot/imported/TopazPlus_a500_v1.0.ttf-fcf9e83fafbbfd96c63ad110a8d171be.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/sf_pixelate/SF Pixelate Oblique.ttf"
-dest_files=["res://.godot/imported/SF Pixelate Oblique.ttf-4bd4ab0fcce5661d775030a510b80674.fontdata"]
+source_file="res://ui/fonts/TopazPlus_a500_v1.0.ttf"
+dest_files=["res://.godot/imported/TopazPlus_a500_v1.0.ttf-fcf9e83fafbbfd96c63ad110a8d171be.fontdata"]
 
 [params]
 
 Rendering=null
-antialiasing=1
+antialiasing=0
 generate_mipmaps=false
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
@@ -23,7 +23,7 @@ allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
 hinting=3
-subpixel_positioning=4
+subpixel_positioning=0
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null

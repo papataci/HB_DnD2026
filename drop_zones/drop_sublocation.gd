@@ -17,19 +17,30 @@ const GROUP_NAME := &"drop_sublocation"
 
 ## The Ink story/knot this sublocation currently starts from. Live, mutable
 ## state, seeded from SublocationData.starting_ink_story/starting_knot the
-## first time this instance is ready (see _apply_initial_ink()) but held here
-## per DropSublocation instance rather than on SublocationData, since this
-## node is unique per sublocation and safe to mutate at runtime, unlike a
-## shared Resource, which would leak changes to every reference to it.
+## first time this instance is ready (see _apply_initial_ink()) and held here
+## per DropSublocation instance, which is enough for a persistent top-level
+## door (e.g. Room01 in location.tscn - never freed once placed). A door
+## nested inside another sublocation's own scene content (e.g. the one inside
+## room_ext_01.tscn) is instead recreated from scratch every time that
+## content reloads (see SublocManager._load_subloc_scene()), so its own
+## `knot` doesn't survive being re-entered - see set_knot() below.
 @export var ink_story: Resource
 @export var knot: String = ""
 
 ## Call this whenever gameplay should move this sublocation's story forward
 ## (e.g. after a quest step completes), so re-entering it resumes there.
+## Also writes back into sublocation_data itself: a nested door's own
+## instance doesn't survive its parent scene reloading (see the class-level
+## comment above), so the shared SublocationData resource is the only state
+## that actually persists across that recreation.
 func set_knot(new_knot: String, new_ink_story: Resource = null) -> void:
 	knot = new_knot
 	if new_ink_story:
 		ink_story = new_ink_story
+	if sublocation_data:
+		sublocation_data.starting_knot = new_knot
+		if new_ink_story:
+			sublocation_data.starting_ink_story = new_ink_story
 
 func _ready() -> void:
 	_apply_initial_characters()

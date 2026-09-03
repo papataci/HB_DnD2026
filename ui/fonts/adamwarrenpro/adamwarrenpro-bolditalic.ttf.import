@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bkyn3hqt3voox"
-path="res://.godot/imported/KOMIKAH_.ttf-da121c4aafad8605d096d9afc24f3ef2.fontdata"
+uid="uid://dy64o1xcgtvul"
+path="res://.godot/imported/adamwarrenpro-bolditalic.ttf-1faceade848bcd8bdb279d8491eadee7.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/komikah/KOMIKAH_.ttf"
-dest_files=["res://.godot/imported/KOMIKAH_.ttf-da121c4aafad8605d096d9afc24f3ef2.fontdata"]
+source_file="res://ui/fonts/adamwarrenpro/adamwarrenpro-bolditalic.ttf"
+dest_files=["res://.godot/imported/adamwarrenpro-bolditalic.ttf-1faceade848bcd8bdb279d8491eadee7.fontdata"]
 
 [params]
 

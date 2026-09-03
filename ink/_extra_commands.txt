@@ -49,13 +49,26 @@ When you add a new command, add it to this list.
 	Example: @INTRO: toshiro
 
 @SET_KNOT: <knot>
-	Calls DropSublocation.set_knot(<knot>) on the current sublocation
-	(LocationManager.current_subloc), so re-entering it later resumes the
-	ink story from <knot> instead of wherever it started this time - e.g.
-	put this at the end of a quest-step knot so the room doesn't replay the
-	same scene on the next visit. Leave <knot> empty to reset back to the
-	start of the ink file. Doesn't change which ink file is playing, only
-	the knot within it (see drop_zones/drop_sublocation.gd). Synchronous -
-	doesn't pause the story like the other commands.
-	Example: @SET_KNOT: ToshiroMeetsHolly
-	Example: @SET_KNOT:
+@SET_KNOT: <sublocation> <ink_story> <knot>
+	Calls DropSublocation.set_knot() on <sublocation>, so re-entering it
+	later resumes <ink_story> from <knot> instead of wherever it started
+	this time - e.g. put this at the end of a quest-step knot so the room
+	doesn't replay the same scene on the next visit.
+	The 1-argument form is shorthand for "SELF - <knot>" - just move the
+	current sublocation's own current ink story to a new knot, the common
+	case. The 3-argument form is only needed to move a *different* room's
+	story forward, or to switch which ink story a room is playing.
+	<sublocation> is a key in ENUMS.SUBLOCATIONS (case-insensitive) and
+	must currently be instanced somewhere in the scene tree - same lookup
+	as "@TELEPORT:" (LocationManager.find_subloc()) - or the literal
+	keyword SELF, meaning the sublocation currently playing this ink file
+	(LocationManager.current_subloc).
+	<ink_story> is a key in InkRegistry.INK_STORIES (_globals/ink_registry.gd,
+	case-insensitive), or "-" to leave <sublocation>'s current ink story
+	alone.
+	<knot> is the knot to resume from, or "-" for the empty string (resets
+	to the start of the ink file).
+	Synchronous - doesn't pause the story like the other commands.
+	Example: @SET_KNOT: LeaveMeAlone
+	Example: @SET_KNOT: reception room_default EmptyRoom
+	Example: @SET_KNOT: -

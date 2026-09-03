@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dy64o1xcgtvul"
-path="res://.godot/imported/adamwarrenpro-bolditalic.ttf-6db5db950416ae6a3776d31b451e34de.fontdata"
+uid="uid://bdkgskkmdjkdv"
+path="res://.godot/imported/SF Pixelate Oblique.ttf-a3c884d866e38b73b8cfe5d7fb974e1b.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/adamwarrenpro/adamwarrenpro-bolditalic.ttf"
-dest_files=["res://.godot/imported/adamwarrenpro-bolditalic.ttf-6db5db950416ae6a3776d31b451e34de.fontdata"]
+source_file="res://ui/fonts/sf_pixelate/SF Pixelate Oblique.ttf"
+dest_files=["res://.godot/imported/SF Pixelate Oblique.ttf-a3c884d866e38b73b8cfe5d7fb974e1b.fontdata"]
 
 [params]
 
