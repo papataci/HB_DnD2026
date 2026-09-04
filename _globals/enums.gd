@@ -7,6 +7,8 @@ enum CHARACTERS {
 	GOD,
 	TOSHIRO,
 	RUPERTO,
+	TRAFICANTE,
+	TRISHA,
 }
 
 enum CARDS {

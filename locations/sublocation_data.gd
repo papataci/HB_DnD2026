@@ -10,5 +10,8 @@ class_name SublocationData
 @export var sublocation_scene: PackedScene
 @export var starting_characters: Array[ENUMS.CHARACTERS] = []
 @export var starting_ink_story: Resource
+## Leave empty to start starting_ink_story from InkCommands.DEFAULT_KNOT
+## ("Start") - the convention every room-quest ink file uses for its opening
+## knot. Only set this when resuming somewhere other than the beginning.
 @export var starting_knot: String = ""
 @export var starting_open: bool = true

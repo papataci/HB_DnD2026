@@ -1,9 +1,33 @@
 === Start ===
+    @INTRO: Ruperto
+
     WOM: Room... Bzzz... Needs... Cleaning... Bzz...
 
     Ruperto: Piss off [i]ferraglia[/i]... this is not a place for a celebrity... Tell you master I won't pay a dime.
 
     WOM: Master won't be pleased sir...
+    
+    @SET_KNOT: LeaveMeAlone
+    @SET_KNOT: room08 ruperto_00 RoomRefused
+    @CLOSE: room08
+    @TELEPORT: Morlako
+
+
+-> END
+
+
+=== RoomRefused ===
+@MCP: Bzzz... Tenant... is... An asshole, bzzz... Boss intervention is requested.
+@TELEPORT: Morlako
+
+-> END
+
+
+
+
+=== LeaveMeAlone ===
+
+    Ruperto: Go on [i]ferraglia[/i]... Call your master if you dare!
 
 -> END
 

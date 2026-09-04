@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://diq3apsd3y8c3" path="res://scenes/fader.gd" id="2_fader"]
 [ext_resource type="Script" uid="uid://c7erehovvdvps" path="res://scenes/location_manager.gd" id="3_locmgr"]
 [ext_resource type="Script" uid="uid://crnm3ff4tms2" path="res://_globals/character_init.gd" id="5_charinit"]
-[ext_resource type="Material" uid="uid://fogfuovalal0" path="res://ui/backdrop_blur.tres" id="6_blur"]
+[ext_resource type="Material" uid="uid://fogfuovalal0" path="res://post/backdrop_blur.tres" id="6_blur"]
 
 [node name="main" type="Node2D" unique_id=757197430]
 

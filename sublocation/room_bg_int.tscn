@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://csdva5dju2ojr"]
+
+[ext_resource type="Texture2D" uid="uid://bcxvjeg8wl0rv" path="res://Locations/bitmaps/_templ_Room.png" id="1_xxqqp"]
+[ext_resource type="PackedScene" uid="uid://dmi1ghw72wkr4" path="res://post/black_and_white_screen.tscn" id="2_dftd2"]
+
+[node name="Room BG Int" type="Sprite2D" unique_id=1314890775]
+z_index = 300
+texture = ExtResource("1_xxqqp")
+
+[node name="Black And White Screen" parent="." unique_id=1311407313 instance=ExtResource("2_dftd2")]
+brightness = 0.807
+contrast = 0.928

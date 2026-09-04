@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmi1ghw72wkr4"]
+[gd_scene format=3 uid="uid://dmi1ghw72wkr4"]
 
-[ext_resource type="Shader" uid="uid://dt8icuu25xvck" path="res://_tests/BeWFullScreen.gdshader" id="1_2i2b1"]
+[ext_resource type="Script" path="res://post/black_and_white_screen.gd" id="1_script"]
+[ext_resource type="Shader" uid="uid://8ahky0y0g161" path="res://_tests/BeWFullScreen.gdshader" id="1_2i2b1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lojmr"]
 shader = ExtResource("1_2i2b1")
@@ -10,6 +11,7 @@ shader_parameter/saturation = 0.0
 
 [node name="Black And White Screen" type="CanvasLayer"]
 layer = 128
+script = ExtResource("1_script")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_lojmr")

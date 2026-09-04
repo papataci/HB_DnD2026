@@ -6,4 +6,4 @@
 texture = ExtResource("1_jb1ke")
 
 [node name="WOM_Balloon_Pos" type="Marker2D" parent="." unique_id=1795445909]
-position = Vector2(370, -445)
+position = Vector2(370, -742)

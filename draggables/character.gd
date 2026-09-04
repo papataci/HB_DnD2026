@@ -9,6 +9,8 @@ const DATA: Array[CharacterData] = [
 	preload("res://draggables/characters/god.tres"),
 	preload("res://draggables/characters/toshiro.tres"),
 	preload("res://draggables/characters/ruperto.tres"),
+	preload("res://draggables/characters/traficante.tres"),
+	preload("res://draggables/characters/trisha.tres"),
 ]
 
 const CARD_SCENE := preload("res://draggables/card.tscn")

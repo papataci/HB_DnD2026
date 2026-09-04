@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://hfkd0bsyx8jn"]
+
+[ext_resource type="PackedScene" uid="uid://csdva5dju2ojr" path="res://sublocation/room_bg_int.tscn" id="1_bgint"]
+[ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="2_fullfig"]
+
+[node name="RoomInt05" type="Node2D" unique_id=199805955]
+
+[node name="Room BG Int" parent="." unique_id=1314890776 instance=ExtResource("1_bgint")]
+position = Vector2(960, 540)
+
+[node name="TrishaFull" parent="." unique_id=1214584450 instance=ExtResource("2_fullfig")]
+z_index = 330
+position = Vector2(1265, 676)
+scale = Vector2(0.441, 0.441)
+character = 7
+
+[node name="WOMFull" parent="." unique_id=222462757 instance=ExtResource("2_fullfig")]
+z_index = 330
+position = Vector2(596, 716)
+scale = Vector2(0.38, 0.38)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=372899782]
+custom_minimum_size = Vector2(2020, 1180)
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 2020.0
+offset_bottom = 1180.0
+mouse_filter = 2
+border_color = Color(0.2231029, 0.2231029, 0.22310284, 1)
+border_width = 200.0
+metadata/_edit_lock_ = true

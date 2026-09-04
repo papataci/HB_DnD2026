@@ -1,12 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1lu60pg73vgp"]
+[gd_scene format=3 uid="uid://c1lu60pg73vgp"]
 
 [ext_resource type="Material" uid="uid://c84fecku2mtol" path="res://_tests/CastShadow.tres" id="1_627qv"]
 [ext_resource type="Material" uid="uid://q3o3wohu53hh" path="res://_tests/Outline.tres" id="1_am5j6"]
-[ext_resource type="Texture2D" uid="uid://twpcqp8uhh3m" path="res://Characters/FullFigure/w-o-m_figura_intera_BIIIG.png" id="2_nw0is"]
+[ext_resource type="Texture2D" path="res://Characters/FullFigure/w-o-m_figura_intera_BIIIG.png" id="2_nw0is"]
 [ext_resource type="Material" uid="uid://emg1f2ejx08t" path="res://_tests/CRT.tres" id="4_dpd7w"]
 [ext_resource type="Material" uid="uid://cjap2mdraw57m" path="res://_tests/VHS_CRT.tres" id="5_3ifec"]
-[ext_resource type="PackedScene" uid="uid://dmi1ghw72wkr4" path="res://Scenes/black_and_white_screen.tscn" id="6_lkft2"]
-[ext_resource type="Shader" uid="uid://c588hf3cfycsr" path="res://_tests/BeW.gdshader" id="7_8fd8v"]
+[ext_resource type="PackedScene" path="res://Scenes/black_and_white_screen.tscn" id="6_lkft2"]
+[ext_resource type="Shader" uid="uid://bl8sevc4bysxj" path="res://_tests/BeW.gdshader" id="7_8fd8v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7nsyr"]
 shader = ExtResource("7_8fd8v")

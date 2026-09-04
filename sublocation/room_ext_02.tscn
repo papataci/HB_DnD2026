@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b6opcncpy36mq"]
 
 [ext_resource type="PackedScene" uid="uid://beoo2c1g7effm" path="res://sublocation/backgrounds/room_ext_bg.tscn" id="1_8qe0m"]
-[ext_resource type="PackedScene" uid="uid://dmi1ghw72wkr4" path="res://vfx/black_and_white_screen.tscn" id="2_kgqfd"]
+[ext_resource type="PackedScene" uid="uid://dmi1ghw72wkr4" path="res://post/black_and_white_screen.tscn" id="2_kgqfd"]
 [ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="3_jvep4"]
 [ext_resource type="Texture2D" uid="uid://ddufgxrvdnehj" path="res://assets/subloc/room_door_open.png" id="4_85ohc"]
 

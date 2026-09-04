@@ -34,3 +34,5 @@ vertical_alignment = 1
 
 [node name="RoomNumberSwitcher" type="Node" parent="." unique_id=1446434674]
 script = ExtResource("11_room_closed")
+odd_room_offset_x = 0.0
+even_room_offset_x = 0.0

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://duxy0047brrkw"]
+
+[ext_resource type="Texture2D" uid="uid://bjk305kl7pid7" path="res://draggables/cards/texture.old/seduce_h.png" id="1_6ch5c"]
+[ext_resource type="Script" uid="uid://csavhka3g4p5" path="res://draggables/character_data.gd" id="1_trisha"]
+
+[resource]
+script = ExtResource("1_trisha")
+id = 7
+character_name = "Trisha"
+playable = false
+bubble_texture = ExtResource("1_6ch5c")

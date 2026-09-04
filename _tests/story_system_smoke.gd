@@ -101,6 +101,99 @@ func _run() -> void:
 	await manager.go_location()
 	_check(manager.current_subloc() == WorldState.MAP, "go_location() from Room 01 returns to the map")
 
+	# --- Room 08 / Ruperto: same ext -> door -> interior shape as Room 01 ---
+	_check(WorldState.is_character_at(ENUMS.SUBLOCATIONS.ROOM_INT_08, ENUMS.CHARACTERS.RUPERTO), "Ruperto is seeded into Room Int 08 (starting_characters)")
+	var ruperto_room := WorldState.get_state(ENUMS.SUBLOCATIONS.ROOM_INT_08)
+	_check(ruperto_room.knot == "Start", "Room Int 08 starts at knot \"Start\"")
+	_check(ruperto_room.story == InkRegistry.INK_STORIES["ruperto_00"], "Room Int 08 starts with ruperto_00")
+	# NOTE: room08.tres (the exterior) was since given the same story/knot as
+	# room_int_08.tres, so Ruperto's Start knot now plays both on entering
+	# Room 08 directly *and* again through its door - flagged to the user
+	# rather than asserted against here, since it's an active choice on their
+	# side, not (yet) a settled design.
+
+	await manager.go_subloc(ENUMS.SUBLOCATIONS.ROOM08)
+	_check(manager.current_subloc() == ENUMS.SUBLOCATIONS.ROOM08, "entered Room 08")
+	shown = _subloc_manager(manager)
+	_check(shown != null and shown.get_node_or_null("SublocScene/RoomExt08") != null, "Room 08 exterior scene loaded")
+	var ruperto_door := _find_portal(shown, ENUMS.SUBLOCATIONS.ROOM_INT_08)
+	_check(ruperto_door != null, "Room 08 exterior contains the door portal targeting Room Int 08")
+
+	await manager.go_subloc(ENUMS.SUBLOCATIONS.ROOM_INT_08)
+	_check(manager.current_subloc() == ENUMS.SUBLOCATIONS.ROOM_INT_08, "entered Room Int 08")
+	shown = _subloc_manager(manager)
+	_check(shown != null and shown.get_node_or_null("SublocScene/RoomInt08") != null, "Room Int 08 interior scene loaded")
+	_check(shown != null and shown.get_node_or_null("SublocScene/RoomInt08/RupertoFull") != null, "Ruperto's figure is in the interior scene")
+	ink = shown._ink_instance if shown else null
+	_check(ink != null and ink.ink_file == InkRegistry.INK_STORIES["ruperto_00"], "Room Int 08 started ruperto_00")
+	_check(ink != null and ink.start_knot == "Start", "...at knot \"Start\"")
+	_check(manager.is_character_present(ENUMS.CHARACTERS.RUPERTO), "Ruperto is present in his interior")
+
+	# --- @CLOSE / @OPEN, dispatched through the running ink instance --------
+	_check(WorldState.get_state(ENUMS.SUBLOCATIONS.ROOM_INT_08).is_open, "Room Int 08 starts open")
+	if ink:
+		ink._set_open("SELF", false)
+	_check(not WorldState.get_state(ENUMS.SUBLOCATIONS.ROOM_INT_08).is_open, "ink._set_open(\"SELF\", false) closes Room Int 08 in WorldState")
+	if ink:
+		ink._set_open("SELF", true)
+	_check(WorldState.get_state(ENUMS.SUBLOCATIONS.ROOM_INT_08).is_open, "ink._set_open(\"SELF\", true) reopens it")
+
+	await manager.go_location()
+	await manager.go_location()
+	_check(manager.current_subloc() == WorldState.MAP, "stepped back out of Room Int 08 / Room 08 to the map")
+
+	# --- Room 07 / Traficante: same shape, but no ink story yet ---------------
+	_check(WorldState.is_character_at(ENUMS.SUBLOCATIONS.ROOM_INT_07, ENUMS.CHARACTERS.TRAFICANTE), "Traficante is seeded into Room Int 07 (starting_characters)")
+	_check(WorldState.get_state(ENUMS.SUBLOCATIONS.ROOM_INT_07).story == null, "Room Int 07 has no ink story yet (none authored)")
+	_check(WorldState.get_state(ENUMS.SUBLOCATIONS.ROOM07).story == null, "Room 07 (exterior) starts with no story, so it doesn't auto-eject before the door")
+
+	await manager.go_subloc(ENUMS.SUBLOCATIONS.ROOM07)
+	_check(manager.current_subloc() == ENUMS.SUBLOCATIONS.ROOM07, "entered Room 07")
+	shown = _subloc_manager(manager)
+	_check(shown != null and shown.get_node_or_null("SublocScene/RoomExt07") != null, "Room 07 exterior scene loaded")
+	var traficante_door := _find_portal(shown, ENUMS.SUBLOCATIONS.ROOM_INT_07)
+	_check(traficante_door != null, "Room 07 exterior contains the door portal targeting Room Int 07")
+
+	await manager.go_subloc(ENUMS.SUBLOCATIONS.ROOM_INT_07)
+	_check(manager.current_subloc() == ENUMS.SUBLOCATIONS.ROOM_INT_07, "entered Room Int 07")
+	shown = _subloc_manager(manager)
+	_check(shown != null and shown.get_node_or_null("SublocScene/RoomInt07") != null, "Room Int 07 interior scene loaded")
+	_check(shown != null and shown.get_node_or_null("SublocScene/RoomInt07/TraficanteFull") != null, "Traficante's figure is in the interior scene")
+	_check(shown != null and shown._ink_instance == null, "Room Int 07 plays no ink (none authored yet)")
+	_check(manager.is_character_present(ENUMS.CHARACTERS.TRAFICANTE), "Traficante is present in his interior")
+
+	await manager.go_location()
+	await manager.go_location()
+	_check(manager.current_subloc() == WorldState.MAP, "stepped back out of Room Int 07 / Room 07 to the map")
+
+	# --- Room 05 / Trisha: same ext -> door -> interior shape as Room 01 -----
+	_check(WorldState.is_character_at(ENUMS.SUBLOCATIONS.ROOM_INT_05, ENUMS.CHARACTERS.TRISHA), "Trisha is seeded into Room Int 05 (starting_characters)")
+	var trisha_room := WorldState.get_state(ENUMS.SUBLOCATIONS.ROOM_INT_05)
+	_check(trisha_room.knot == "Start", "Room Int 05 starts at knot \"Start\"")
+	_check(trisha_room.story == InkRegistry.INK_STORIES["trisha_00"], "Room Int 05 starts with trisha_00")
+	_check(WorldState.get_state(ENUMS.SUBLOCATIONS.ROOM05).story == null, "Room 05 (exterior) starts with no story, so it doesn't auto-eject before the door")
+
+	await manager.go_subloc(ENUMS.SUBLOCATIONS.ROOM05)
+	_check(manager.current_subloc() == ENUMS.SUBLOCATIONS.ROOM05, "entered Room 05")
+	shown = _subloc_manager(manager)
+	_check(shown != null and shown.get_node_or_null("SublocScene/RoomExt05") != null, "Room 05 exterior scene loaded")
+	var trisha_door := _find_portal(shown, ENUMS.SUBLOCATIONS.ROOM_INT_05)
+	_check(trisha_door != null, "Room 05 exterior contains the door portal targeting Room Int 05")
+
+	await manager.go_subloc(ENUMS.SUBLOCATIONS.ROOM_INT_05)
+	_check(manager.current_subloc() == ENUMS.SUBLOCATIONS.ROOM_INT_05, "entered Room Int 05")
+	shown = _subloc_manager(manager)
+	_check(shown != null and shown.get_node_or_null("SublocScene/RoomInt05") != null, "Room Int 05 interior scene loaded")
+	_check(shown != null and shown.get_node_or_null("SublocScene/RoomInt05/TrishaFull") != null, "Trisha's figure is in the interior scene")
+	ink = shown._ink_instance if shown else null
+	_check(ink != null and ink.ink_file == InkRegistry.INK_STORIES["trisha_00"], "Room Int 05 started trisha_00")
+	_check(ink != null and ink.start_knot == "Start", "...at knot \"Start\"")
+	_check(manager.is_character_present(ENUMS.CHARACTERS.TRISHA), "Trisha is present in her interior")
+
+	await manager.go_location()
+	await manager.go_location()
+	_check(manager.current_subloc() == WorldState.MAP, "stepped back out of Room Int 05 / Room 05 to the map")
+
 	# --- Command grammar ----------------------------------------------------
 	var parsed := InkCommands.parse("@SET_KNOT: room01 room_default RoomAlreadyClean")
 	_check(parsed != null and parsed.command == "SET_KNOT" and parsed.args.size() == 3, "InkCommands.parse splits arguments")
@@ -114,6 +207,17 @@ func _run() -> void:
 	_check(bad_story != null and InkCommands.validate(bad_story).contains("unknown ink story"), "validate() catches an unknown ink story")
 	var bad_arity := InkCommands.parse("@SET_KNOT: a b")
 	_check(bad_arity != null and InkCommands.validate(bad_arity).contains("argument"), "validate() catches a wrong argument count")
+
+	# --- @CLOSE / @OPEN -------------------------------------------------------
+	_check(WorldState.get_state(ENUMS.SUBLOCATIONS.ROOM_INT_08).is_open, "Room Int 08 starts open (SublocationData.starting_open default)")
+	var close_cmd := InkCommands.parse("@CLOSE: room_int_08")
+	_check(close_cmd != null and close_cmd.command == "CLOSE" and InkCommands.validate(close_cmd).is_empty(), "@CLOSE parses and validates")
+	WorldState.set_open(ENUMS.SUBLOCATIONS.ROOM_INT_08, false)
+	_check(not WorldState.get_state(ENUMS.SUBLOCATIONS.ROOM_INT_08).is_open, "WorldState.set_open(false) closes it")
+	WorldState.set_open(ENUMS.SUBLOCATIONS.ROOM_INT_08, true)
+	_check(WorldState.get_state(ENUMS.SUBLOCATIONS.ROOM_INT_08).is_open, "WorldState.set_open(true) reopens it")
+	var bad_close := InkCommands.parse("@CLOSE: room_01")
+	_check(bad_close != null and InkCommands.validate(bad_close).contains("unknown sublocation"), "@CLOSE validate() catches an unknown sublocation key")
 
 	_finish()
 

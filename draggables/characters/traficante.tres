@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3]
+
+[ext_resource type="Script" uid="uid://csavhka3g4p5" path="res://draggables/character_data.gd" id="1_traficante"]
+[ext_resource type="Texture2D" uid="uid://itockiwndf6g" path="res://assets/char/bubbles/traficante.png" id="2_traficante"]
+[ext_resource type="PackedScene" uid="uid://dmgh05kt1igeh" path="res://full_chars/traficante_full.tscn" id="3_traficante"]
+
+[resource]
+script = ExtResource("1_traficante")
+id = 6
+character_name = "Traficante"
+playable = false
+bubble_texture = ExtResource("2_traficante")
+full_figure_texture = ExtResource("3_traficante")

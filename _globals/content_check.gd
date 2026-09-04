@@ -31,8 +31,11 @@ func _check_templates() -> void:
 				push_warning(message)
 
 		if template.starting_ink_story:
-			if not template.starting_knot.is_empty() and not _has_knot(_knot_names(template.starting_ink_story), template.starting_knot):
-				push_error("ContentCheck: %s starting_knot \"%s\" doesn't exist in %s" % [key, template.starting_knot, template.starting_ink_story.resource_path])
+			# "" resolves to InkCommands.DEFAULT_KNOT at play time (see
+			# SublocManager._start_ink_story()) - check that instead.
+			var knot := template.starting_knot if not template.starting_knot.is_empty() else InkCommands.DEFAULT_KNOT
+			if not _has_knot(_knot_names(template.starting_ink_story), knot):
+				push_error("ContentCheck: %s starting_knot \"%s\" doesn't exist in %s" % [key, knot, template.starting_ink_story.resource_path])
 		elif not template.starting_knot.is_empty():
 			push_error("ContentCheck: %s has starting_knot \"%s\" but no starting_ink_story" % [key, template.starting_knot])
 
@@ -84,8 +87,12 @@ func _check_set_knot(story_name: String, own_knots: PackedStringArray, parsed: I
 				return
 			knots = _knot_names(template.starting_ink_story)
 			where = template.starting_ink_story.resource_path
-	if knot == "-" or knot.is_empty():
-		return
+	if knot == "-":
+		knot = ""
+	# "" resolves to InkCommands.DEFAULT_KNOT at play time (see
+	# SublocManager._start_ink_story()) - check that instead.
+	if knot.is_empty():
+		knot = InkCommands.DEFAULT_KNOT
 	if not _has_knot(knots, knot):
 		push_error("ContentCheck: %s: @SET_KNOT knot \"%s\" doesn't exist in %s" % [story_name, knot, where])
 

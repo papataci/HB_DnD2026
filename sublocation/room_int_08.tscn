@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ngkvk4kpyshp"]
+
+[ext_resource type="PackedScene" uid="uid://csdva5dju2ojr" path="res://sublocation/room_bg_int.tscn" id="1_2ijnr"]
+[ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="2_fullfig"]
+
+[node name="RoomInt08" type="Node2D" unique_id=199805951]
+
+[node name="Room BG Int" parent="." unique_id=1314890775 instance=ExtResource("1_2ijnr")]
+position = Vector2(960, 540)
+
+[node name="RupertoFull" parent="." unique_id=1774215071 instance=ExtResource("2_fullfig")]
+z_index = 330
+position = Vector2(1265, 676)
+scale = Vector2(0.441, 0.441)
+character = 5
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=372899780]
+custom_minimum_size = Vector2(2020, 1180)
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 2020.0
+offset_bottom = 1180.0
+mouse_filter = 2
+border_color = Color(0.2231029, 0.2231029, 0.22310284, 1)
+border_width = 200.0
+metadata/_edit_lock_ = true
+
+[node name="WOMFull" parent="." unique_id=222462752 instance=ExtResource("2_fullfig")]
+z_index = 330
+position = Vector2(596, 716)
+scale = Vector2(0.38, 0.38)
+
+[node name="HollyFull" parent="." unique_id=1988555610 instance=ExtResource("2_fullfig")]
+z_index = 330
+position = Vector2(759.00006, 708.00006)
+scale = Vector2(0.4318203, 0.4318203)
+character = 0

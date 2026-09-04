@@ -83,6 +83,10 @@ func _run_command(command: InkCommands.Parsed) -> void:
 			await _play_char_intro(command.args[0])
 		"SET_KNOT":
 			_set_knot(command.args)
+		"CLOSE":
+			_set_open(command.args[0], false)
+		"OPEN":
+			_set_open(command.args[0], true)
 	print("Ink: @%s finished" % command.command)
 
 ## "@MCP: <text>" - shows the text in a ShellMessage panel, styled as a
@@ -129,7 +133,7 @@ func _play_char_intro(character_name: String) -> void:
 ## (SELF) and keeps its current ink story. In the 3-argument form
 ## <sublocation> is an ENUMS.SUBLOCATIONS key or SELF, <ink_story> a key in
 ## InkRegistry.INK_STORIES or "-" to keep the current one, and <knot> the
-## knot name or "-" for the start of the file. Since state lives in
+## knot name or "-" for InkCommands.DEFAULT_KNOT ("Start"). Since state lives in
 ## WorldState rather than on scene nodes, the target doesn't need to be
 ## loaded, and this works before or after a @TELEPORT alike.
 func _set_knot(args: PackedStringArray) -> void:
@@ -143,13 +147,33 @@ func _set_knot(args: PackedStringArray) -> void:
 	if knot == "-":
 		knot = ""
 
-	var id := subloc_id if subloc_name.to_upper() == "SELF" else Sublocations.parse_key(subloc_name)
+	var id := _resolve_subloc(subloc_name)
 	if id == WorldState.MAP:
-		push_error("Ink: @SET_KNOT SELF used in a story that isn't attached to a sublocation")
 		return
 
 	var story: Resource = null if story_name == "-" else InkRegistry.INK_STORIES.get(story_name.to_lower())
 	WorldState.set_story(id, knot, story)
+
+## "@CLOSE: <sublocation>" / "@OPEN: <sublocation>" - sets whether
+## <sublocation> is open in WorldState (e.g. room_door_open.gd reads this to
+## show/hide a room's open-door sprite). <sublocation> is an
+## ENUMS.SUBLOCATIONS key or SELF, same as @SET_KNOT's. Synchronous - doesn't
+## pause the story.
+func _set_open(subloc_name: String, open: bool) -> void:
+	var id := _resolve_subloc(subloc_name)
+	if id == WorldState.MAP:
+		return
+	WorldState.set_open(id, open)
+
+## Resolves the shared "SELF or ENUMS.SUBLOCATIONS key" command argument to a
+## sublocation id, or WorldState.MAP (with an error) if SELF was used in a
+## story that isn't attached to one.
+func _resolve_subloc(name: String) -> int:
+	if name.to_upper() != "SELF":
+		return Sublocations.parse_key(name)
+	if subloc_id == WorldState.MAP:
+		push_error("Ink: SELF used in a story that isn't attached to a sublocation")
+	return subloc_id
 
 func _location_manager() -> LocationManager:
 	var location_manager := get_tree().get_first_node_in_group(LocationManager.GROUP_NAME) as LocationManager

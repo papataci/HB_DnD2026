@@ -10,9 +10,10 @@
 [node name="CharIntro" type="CanvasLayer" unique_id=753092189]
 layer = 400
 script = ExtResource("1_yjt6y")
-pause_before = 2.0
-hold_duration = 4.0
-pause_after = 1.0
+pause_before = 1.2
+fade_duration = 0.7
+hold_duration = 3.0
+pause_after = 0.7
 
 [node name="FadeContainer" type="Panel" parent="." unique_id=203021523]
 modulate = Color(1, 1, 1, 0)

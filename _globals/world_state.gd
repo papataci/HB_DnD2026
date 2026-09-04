@@ -22,13 +22,22 @@ const INIT_DATA: InitData = preload("res://_globals/init.tres")
 class SublocState:
 	## Compiled ink (.ink.json) this sublocation plays, or null for none.
 	var story: Resource
-	## Knot to resume `story` from; "" means the start of the file.
+	## Knot to resume `story` from; "" resolves to InkCommands.DEFAULT_KNOT
+	## ("Start") when the story is actually played (SublocManager).
 	var knot: String = ""
 	var characters: Array[ENUMS.CHARACTERS] = []
 	var is_open: bool = true
 
 var map_characters: Array[ENUMS.CHARACTERS] = []
-var _sublocs: Dictionary[int, SublocState] = {}
+## Keyed by Sublocations.key_name(id) (e.g. "ROOM08"), not the raw
+## ENUMS.SUBLOCATIONS int, purely so this dictionary reads as names instead
+## of bare numbers when inspected live (Godot's remote debugger, a print of
+## this node, etc.). Every method below still takes/returns the int id -
+## that's the type-safe, typo-proof identity used everywhere else in the
+## codebase (DropSublocation.target's Inspector dropdown, ink command
+## resolution, LocationManager's nav path...) - this is purely an internal
+## storage detail, not a second identity system.
+var _sublocs: Dictionary[String, SublocState] = {}
 
 func _ready() -> void:
 	reset()
@@ -45,10 +54,10 @@ func reset() -> void:
 		state.knot = template.starting_knot
 		state.characters = template.starting_characters.duplicate()
 		state.is_open = template.starting_open
-		_sublocs[id] = state
+		_sublocs[Sublocations.key_name(id)] = state
 
 func get_state(id: int) -> SublocState:
-	var state: SublocState = _sublocs.get(id)
+	var state: SublocState = _sublocs.get(Sublocations.key_name(id))
 	if not state:
 		push_error("WorldState: no state for sublocation %s" % Sublocations.key_name(id))
 	return state

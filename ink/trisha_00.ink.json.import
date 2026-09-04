@@ -1,0 +1,15 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+uid="uid://8os7rjpxc80p"
+path="res://.godot/imported/trisha_00.ink.json-ba8c03543fd7314344bb5f87759d17fd.res"
+
+[deps]
+
+source_file="res://ink/trisha_00.ink.json"
+dest_files=["res://.godot/imported/trisha_00.ink.json-ba8c03543fd7314344bb5f87759d17fd.res"]
+
+[params]
+
+compress=true

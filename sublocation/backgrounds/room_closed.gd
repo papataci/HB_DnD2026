@@ -10,7 +10,7 @@ func _ready() -> void:
 
 	var room_number := _find_room_number()
 	var is_odd := room_number != -1 and room_number % 2 == 1
-	texture_node.position.x = odd_room_offset_x if is_odd else even_room_offset_x
+	##texture_node.position.x = odd_room_offset_x if is_odd else even_room_offset_x
 
 ## The number in the rendered sublocation's display name (e.g. 7 for
 ## "Room 07"), or -1.

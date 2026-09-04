@@ -1,14 +1,18 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cy3wt4f3np2xw"]
 
-[ext_resource type="Script" path="res://cutscenes/wom_cleans.gd" id="1_womcl"]
+[ext_resource type="Script" uid="uid://c5ejfn617cpqa" path="res://cutscenes/wom_cleans.gd" id="1_womcl"]
 [ext_resource type="Texture2D" uid="uid://5tqw64ns216n" path="res://assets/cutscenes/wom_cleans/vigna00.png" id="2_womcl"]
 [ext_resource type="Theme" uid="uid://7mdqj0pbw8l0" path="res://styles/Toon_theme.tres" id="3_womcl"]
 
-[node name="WomCleans" type="CanvasLayer"]
+[node name="WomCleans" type="CanvasLayer" unique_id=922295724]
 layer = 50
 script = ExtResource("1_womcl")
+pause_before = 0.3
+fade_duration = 0.9
+hold_duration = 0.9
+pause_after = 0.3
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1899432894]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.9, 0.9, 0.9, 1)
 
-[node name="Panel" type="TextureRect" parent="."]
+[node name="Panel" type="TextureRect" parent="." unique_id=1202341876]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -26,8 +30,7 @@ texture = ExtResource("2_womcl")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="SkipButton" type="Button" parent="."]
-layout_mode = 1
+[node name="SkipButton" type="Button" parent="." unique_id=1902309777]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0

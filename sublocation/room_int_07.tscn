@@ -1,0 +1,30 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://bcxvjeg8wl0rv" path="res://Locations/bitmaps/_templ_Room.png" id="1_bg"]
+[ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="2_fullfig"]
+
+[node name="RoomInt07" type="Node2D" unique_id=199805953]
+
+[node name="Room BG Int" type="Sprite2D" parent="." unique_id=1942009489]
+position = Vector2(960, 540)
+texture = ExtResource("1_bg")
+
+[node name="TraficanteFull" parent="." unique_id=1090463282 instance=ExtResource("2_fullfig")]
+position = Vector2(1374, 805)
+scale = Vector2(0.5613705, 0.5613705)
+character = 6
+
+[node name="WOMFull" parent="." unique_id=222462756 instance=ExtResource("2_fullfig")]
+position = Vector2(634, 659)
+scale = Vector2(0.38, 0.38)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=372899781]
+custom_minimum_size = Vector2(2020, 1180)
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 2020.0
+offset_bottom = 1180.0
+mouse_filter = 2
+border_color = Color(0.2231029, 0.2231029, 0.22310284, 1)
+border_width = 200.0
+metadata/_edit_lock_ = true

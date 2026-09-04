@@ -60,7 +60,10 @@ func _start_ink_story(id: int) -> void:
 
 	var ink := InkScene.instantiate()
 	ink.ink_file = state.story
-	ink.start_knot = state.knot
+	# "" (never set, or explicitly reset via "@SET_KNOT: ... -") means resume
+	# from InkCommands.DEFAULT_KNOT - see its doc comment for why that
+	# fallback lives here and not in ink_starter.gd.
+	ink.start_knot = state.knot if not state.knot.is_empty() else InkCommands.DEFAULT_KNOT
 	ink.subloc_id = id
 	add_child(ink)
 	_ink_instance = ink

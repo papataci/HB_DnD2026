@@ -64,8 +64,23 @@ ENUMS.SUBLOCATIONS key (_globals/enums.gd): note "room01" but "room_int_01".
 	  SELF for the sublocation this story is attached to.
 	  <ink_story> is a key in InkRegistry.INK_STORIES
 	  (_globals/ink_registry.gd), or "-" to keep the room's current story.
-	  <knot> is the knot to resume from, or "-" for the start of the file.
+	  <knot> is the knot to resume from, or "-" for InkCommands.DEFAULT_KNOT
+	  ("Start") - the convention every room-quest ink file uses for its
+	  opening knot.
 	Synchronous - doesn't pause the story like the other commands.
 	Example: @SET_KNOT: LeaveMeAlone
 	Example: @SET_KNOT: room01 room_default RoomAlreadyClean
 	Example: @SET_KNOT: SELF - -
+
+@CLOSE: <sublocation>
+@OPEN: <sublocation>
+	Sets whether <sublocation> is open in WorldState
+	(_globals/world_state.gd) - e.g. sublocation/backgrounds/room_door_open.gd
+	reads this to show/hide a room's open-door sprite. <sublocation> is a key
+	in ENUMS.SUBLOCATIONS, or the literal keyword SELF for the sublocation
+	this story is attached to - same argument form as @SET_KNOT's. Like
+	@SET_KNOT, this is state in WorldState, not on a scene node, so the
+	target doesn't need to be loaded, and it works before or after a
+	@TELEPORT alike. Synchronous - doesn't pause the story.
+	Example: @CLOSE: SELF
+	Example: @OPEN: room01

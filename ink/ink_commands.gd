@@ -7,6 +7,15 @@ class_name InkCommands
 
 const PREFIX := "@"
 
+## The knot a room-attached story resumes from when its knot is "" - the
+## convention every room-quest ink file in this project follows for its
+## opening knot (see e.g. toshiro_00.ink, ruperto_00.ink). Applied where room
+## data feeds into the ink runner (SublocManager._start_ink_story()), not by
+## ink_starter.gd itself, since that scene is also used for ink files with no
+## knots at all (e.g. ink/example.ink), where "" correctly means "just play
+## from the top" and forcing this knot would break them.
+const DEFAULT_KNOT := "Start"
+
 ## Commands whose argument is free text: everything after the colon is kept
 ## as a single argument instead of being split on spaces.
 const FREE_TEXT: Array[String] = ["MCP"]
@@ -18,6 +27,8 @@ const ARITY: Dictionary[String, Array] = {
 	"TELEPORT": [1],
 	"INTRO": [1],
 	"SET_KNOT": [1, 3],
+	"CLOSE": [1],
+	"OPEN": [1],
 }
 
 class Parsed:
@@ -67,10 +78,18 @@ static func validate(parsed: Parsed) -> String:
 				return "@TELEPORT unknown target \"%s\"" % target
 		"SET_KNOT":
 			if parsed.args.size() == 3:
-				var subloc := parsed.args[0]
-				if subloc.to_upper() != "SELF" and Sublocations.parse_key(subloc) == -1:
-					return "@SET_KNOT unknown sublocation \"%s\"" % subloc
+				if not _is_valid_subloc_arg(parsed.args[0]):
+					return "@SET_KNOT unknown sublocation \"%s\"" % parsed.args[0]
 				var story := parsed.args[1]
 				if story != "-" and not InkRegistry.INK_STORIES.has(story.to_lower()):
 					return "@SET_KNOT unknown ink story \"%s\"" % story
+		"CLOSE", "OPEN":
+			if not _is_valid_subloc_arg(parsed.args[0]):
+				return "@%s unknown sublocation \"%s\"" % [parsed.command, parsed.args[0]]
 	return ""
+
+## True if `name` is the literal keyword SELF, or a key in
+## ENUMS.SUBLOCATIONS (case-insensitive) - the shared "which sublocation"
+## argument form used by @SET_KNOT's 3-argument form, @CLOSE and @OPEN.
+static func _is_valid_subloc_arg(name: String) -> bool:
+	return name.to_upper() == "SELF" or Sublocations.parse_key(name) != -1
