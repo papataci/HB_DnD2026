@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c7yw11qk3u4vq"]
+
+[ext_resource type="Script" path="res://drop_zones/droppable_feedback.gd" id="1_feedback"]
+
+[node name="DroppableFeedback" type="Node2D" unique_id=208384481]
+script = ExtResource("1_feedback")

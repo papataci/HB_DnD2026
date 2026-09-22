@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djic8oh2scued"
-path="res://.godot/imported/Toshiro_figura_intera.png-dfdd24c851605a5df75987686937246b.ctex"
+uid="uid://do2b2k67rfr8p"
+path="res://.godot/imported/Recept_Ext_Day.png-ca6ccf1b854db1584862cb6af48b94bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/char/full_figure/Toshiro_figura_intera.png"
-dest_files=["res://.godot/imported/Toshiro_figura_intera.png-dfdd24c851605a5df75987686937246b.ctex"]
+source_file="res://assets/subloc/Recept_Ext_Day.png"
+dest_files=["res://.godot/imported/Recept_Ext_Day.png-ca6ccf1b854db1584862cb6af48b94bf.ctex"]
 
 [params]
 

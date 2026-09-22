@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://btqc466kisyto"]
+
+[ext_resource type="Texture2D" uid="uid://cbjw3b5sriddo" path="res://assets/subloc/Background Reception.png" id="1_8aq86"]
+[ext_resource type="PackedScene" uid="uid://bq8hcw2ecc66g" path="res://full_chars/holly_full.tscn" id="2_y0bha"]
+[ext_resource type="PackedScene" uid="uid://bl56dmxkxrt7f" path="res://full_chars/wom_full.tscn" id="3_xcrvu"]
+[ext_resource type="Texture2D" uid="uid://1jqhi61rkqwd" path="res://assets/char/full_figure/Holly_leaning.png" id="4_su35h"]
+[ext_resource type="Texture2D" uid="uid://bb76go6d178tf" path="res://assets/char/full_figure/sonia_figura_intera.png" id="5_psa0y"]
+[ext_resource type="Texture2D" uid="uid://do2b2k67rfr8p" path="res://assets/subloc/Recept_Ext_Day.png" id="6_jj7fx"]
+[ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="7_s3vqr"]
+[ext_resource type="PackedScene" uid="uid://dcwpsrnhfm3ko" path="res://sublocation/room_door_open.tscn" id="8_su35h"]
+[ext_resource type="PackedScene" uid="uid://cxvrn3hs61m4b" path="res://drop_zones/drop_sublocation.tscn" id="9_psa0y"]
+[ext_resource type="PackedScene" uid="uid://c7yw11qk3u4vq" path="res://drop_zones/droppable_feedback.tscn" id="10_jj7fx"]
+
+[node name="ReceptionExt" type="Node2D" unique_id=1304912536]
+
+[node name="Open" type="Node2D" parent="." unique_id=2103116748]
+
+[node name="Room BG Template" type="Sprite2D" parent="Open" unique_id=574455518]
+position = Vector2(920.9346, 359.93457)
+scale = Vector2(0.6692897, 0.6692897)
+texture = ExtResource("1_8aq86")
+
+[node name="Holly" parent="Open" unique_id=1431582319 instance=ExtResource("2_y0bha")]
+visible = false
+position = Vector2(616, 484)
+
+[node name="WOM" parent="Open" unique_id=1492687224 instance=ExtResource("3_xcrvu")]
+visible = false
+position = Vector2(1228.0001, 532)
+scale = Vector2(0.44660404, 0.44660404)
+flip_h = true
+
+[node name="HollyDesk" type="TextureRect" parent="Open" unique_id=204645467]
+offset_left = 677.9346
+offset_top = 450.93457
+offset_right = 860.9346
+offset_bottom = 657.9346
+scale = Vector2(1.0324347, 1.0324347)
+texture = ExtResource("4_su35h")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="HollyShadow" type="TextureRect" parent="Open/HollyDesk" unique_id=1824782213]
+modulate = Color(0, 0, 0, 0.141176)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -6.89374
+offset_top = -4.0
+offset_right = 175.106
+offset_bottom = 286.0
+scale = Vector2(1.04, 1.04)
+texture = ExtResource("4_su35h")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Sonia" type="TextureRect" parent="Open" unique_id=1795228676]
+offset_left = 562.9346
+offset_top = 399.9346
+offset_right = 796.9346
+offset_bottom = 884.9346
+scale = Vector2(-1.19231, 1.19231)
+texture = ExtResource("5_psa0y")
+expand_mode = 1
+stretch_mode = 4
+flip_h = true
+
+[node name="PlayerShadow" type="TextureRect" parent="Open/Sonia" unique_id=974220501]
+modulate = Color(0, 0, 0, 0.345098)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 6.22578
+offset_top = 3.87094
+offset_right = 230.226
+offset_bottom = 539.871
+scale = Vector2(1.04, 1.04)
+texture = ExtResource("5_psa0y")
+expand_mode = 1
+stretch_mode = 4
+flip_h = true
+
+[node name="Room BG Ext" type="Sprite2D" parent="." unique_id=817165949]
+position = Vector2(941, 544)
+scale = Vector2(0.72083324, 0.72083324)
+texture = ExtResource("6_jj7fx")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=145292958]
+custom_minimum_size = Vector2(2020, 1180)
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 2020.0
+offset_bottom = 1180.0
+mouse_filter = 2
+border_color = Color(0.2231029, 0.2231029, 0.22310284, 1)
+border_width = 200.0
+metadata/_edit_lock_ = true
+
+[node name="WOMFull" parent="." unique_id=222462752 instance=ExtResource("7_s3vqr")]
+position = Vector2(618, 643)
+scale = Vector2(0.38, 0.38)
+
+[node name="RoomDoorOpen" parent="." unique_id=906322239 instance=ExtResource("8_su35h")]
+position = Vector2(927.0003, 675.0002)
+
+[node name="DropSublocation" parent="RoomDoorOpen" unique_id=1877650446 instance=ExtResource("9_psa0y")]
+scale = Vector2(4.29718, 8.765728)
+target = 23
+
+[node name="DroppableFeedback" parent="RoomDoorOpen/DropSublocation" unique_id=208384481 instance=ExtResource("10_jj7fx")]
+
+[node name="Polygon2D" type="Polygon2D" parent="RoomDoorOpen/DropSublocation/DroppableFeedback" unique_id=544191434]
+color = Color(1, 0, 1, 0.3254902)
+polygon = PackedVector2Array(-31.80217, -32.294003, -31.80217, 32.0465, 32.811646, 32.0465, 32.811646, -32.294003)

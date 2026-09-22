@@ -80,13 +80,22 @@ func _check_set_knot(story_name: String, own_knots: PackedStringArray, parsed: I
 			knots = own_knots
 			where = story_name
 		else:
-			# "-" on another room means "whatever story it has by then", which
-			# is runtime state; the best static guess is its starting story.
-			var template: SublocationData = Sublocations.all().get(Sublocations.parse_key(parsed.args[0]))
-			if not template or not template.starting_ink_story:
+			# "-" on another room/location means "whatever story it has by
+			# then", which is runtime state; the best static guess is its
+			# starting story.
+			var starting_story: Resource = null
+			var subloc_target := Sublocations.parse_key(parsed.args[0])
+			if subloc_target != -1:
+				var template: SublocationData = Sublocations.all().get(subloc_target)
+				starting_story = template.starting_ink_story if template else null
+			else:
+				var location_target := Locations.parse_key(parsed.args[0])
+				var location_template: LocationData = Locations.all().get(location_target)
+				starting_story = location_template.starting_ink_story if location_template else null
+			if not starting_story:
 				return
-			knots = _knot_names(template.starting_ink_story)
-			where = template.starting_ink_story.resource_path
+			knots = _knot_names(starting_story)
+			where = starting_story.resource_path
 	if knot == "-":
 		knot = ""
 	# "" resolves to InkCommands.DEFAULT_KNOT at play time (see

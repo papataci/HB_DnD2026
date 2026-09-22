@@ -36,6 +36,7 @@ const TEMPLATE_PATHS: Dictionary[int, String] = {
 	ENUMS.SUBLOCATIONS.ROOM_INT_07: "res://sublocation/data/room_int_07.tres",
 	ENUMS.SUBLOCATIONS.ROOM_INT_08: "res://sublocation/data/room_int_08.tres",
 	ENUMS.SUBLOCATIONS.ROOM_INT_09: "res://sublocation/data/room_int_09.tres",
+	ENUMS.SUBLOCATIONS.RECEPTION_INT: "res://sublocation/data/reception_int.tres",
 }
 
 static var _templates: Dictionary[int, SublocationData] = {}
@@ -75,3 +76,25 @@ static func key_name(id: int) -> String:
 static func display_name(id: int) -> String:
 	var found: SublocationData = all().get(id)
 	return found.sublocation_name if found else key_name(id)
+
+## Resolves `id` to the id that owns its WorldState roster: itself, unless
+## `id` is the "interior" half of an ext/int pair, in which case it's the
+## matching "exterior" half - inferred from the naming convention rather than
+## authored anywhere, since the two are always paired. Two naming shapes are
+## in use: numbered rooms infix it before the number (ROOM_INT_nn <-> ROOMnn),
+## while unnumbered ones like Reception suffix it (RECEPTION_INT <->
+## RECEPTION). A room's 1-character capacity is a property of the room as a
+## whole, not of whichever of its two views is currently on screen: stepping
+## through the door from ROOM01 to ROOM_INT_01 doesn't change who's "in the
+## room" (same for RECEPTION / RECEPTION_INT).
+static func room_group(id: int) -> int:
+	var key := key_name(id)
+	if key.begins_with("ROOM_INT_"):
+		var ext_key := "ROOM" + key.trim_prefix("ROOM_INT_")
+		if ENUMS.SUBLOCATIONS.has(ext_key):
+			return ENUMS.SUBLOCATIONS[ext_key]
+	if key.ends_with("_INT"):
+		var ext_key := key.trim_suffix("_INT")
+		if ENUMS.SUBLOCATIONS.has(ext_key):
+			return ENUMS.SUBLOCATIONS[ext_key]
+	return id

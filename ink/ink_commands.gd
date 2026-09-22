@@ -27,8 +27,9 @@ const ARITY: Dictionary[String, Array] = {
 	"TELEPORT": [1],
 	"INTRO": [1],
 	"SET_KNOT": [1, 3],
-	"CLOSE": [1],
-	"OPEN": [1],
+	"CLOSE": [0, 1],
+	"OPEN": [0, 1],
+	"RESOLVE_ROOM": [0, 1],
 }
 
 class Parsed:
@@ -78,18 +79,26 @@ static func validate(parsed: Parsed) -> String:
 				return "@TELEPORT unknown target \"%s\"" % target
 		"SET_KNOT":
 			if parsed.args.size() == 3:
-				if not _is_valid_subloc_arg(parsed.args[0]):
-					return "@SET_KNOT unknown sublocation \"%s\"" % parsed.args[0]
+				if not _is_valid_target_arg(parsed.args[0]):
+					return "@SET_KNOT unknown sublocation or location \"%s\"" % parsed.args[0]
 				var story := parsed.args[1]
 				if story != "-" and not InkRegistry.INK_STORIES.has(story.to_lower()):
 					return "@SET_KNOT unknown ink story \"%s\"" % story
-		"CLOSE", "OPEN":
-			if not _is_valid_subloc_arg(parsed.args[0]):
+		"CLOSE", "OPEN", "RESOLVE_ROOM":
+			if parsed.args.size() == 1 and not _is_valid_subloc_arg(parsed.args[0]):
 				return "@%s unknown sublocation \"%s\"" % [parsed.command, parsed.args[0]]
 	return ""
 
 ## True if `name` is the literal keyword SELF, or a key in
 ## ENUMS.SUBLOCATIONS (case-insensitive) - the shared "which sublocation"
-## argument form used by @SET_KNOT's 3-argument form, @CLOSE and @OPEN.
+## argument form used by @CLOSE, @OPEN and @RESOLVE_ROOM (sublocation-only
+## concepts - a location has no door or "Unresolved" flag of its own).
 static func _is_valid_subloc_arg(name: String) -> bool:
 	return name.to_upper() == "SELF" or Sublocations.parse_key(name) != -1
+
+## True if `name` is SELF, a key in ENUMS.SUBLOCATIONS, or a key in
+## ENUMS.LOCATIONS - the broader "which story" argument form used by
+## @SET_KNOT's 3-argument form, since a location can have its own story too
+## (see WorldState.set_location_story(), LocationManager).
+static func _is_valid_target_arg(name: String) -> bool:
+	return name.to_upper() == "SELF" or Sublocations.parse_key(name) != -1 or Locations.parse_key(name) != -1

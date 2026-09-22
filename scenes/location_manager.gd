@@ -10,6 +10,12 @@ class_name LocationManager
 const GROUP_NAME := &"location_manager"
 const CHARACTER_SCENE := preload("res://draggables/character.tscn")
 const CHARACTER_SPACING := 200.0
+const InkScene := preload("res://ink/ink_example.tscn")
+
+## Which ENUMS.LOCATIONS this manager navigates - the same role subloc_id
+## plays for SublocManager. Used to look up this location's own story/knot in
+## WorldState (see teleport_to_location()).
+@export var location: ENUMS.LOCATIONS = ENUMS.LOCATIONS.MORLAKO
 
 @export var fader: ColorRect
 @export var container: Node
@@ -79,7 +85,9 @@ func teleport_to_subloc(target: int) -> void:
 	await fader.fade_in().finished
 
 ## "@TELEPORT: <location>": every playable character back to the map, fully
-## exiting however deep we are.
+## exiting however deep we are. If that was the last unresolved room, plays
+## this location's own story (WorldState.get_location_state(location)) once
+## the map is back on screen.
 func teleport_to_location() -> void:
 	if _path.is_empty():
 		return
@@ -90,6 +98,28 @@ func teleport_to_location() -> void:
 	_render()
 
 	await fader.fade_in().finished
+
+	if WorldState.all_resolved():
+		await _play_location_story()
+
+## Plays this location's story from wherever WorldState says it should
+## resume (a no-op if it has none), on top of whatever's on screen, and frees
+## itself when the story ends. SELF in a command it contains resolves to this
+## location (see ink_starter.gd's location_id).
+func _play_location_story() -> void:
+	var state := WorldState.get_location_state(location)
+	if not state or not state.story:
+		return
+
+	var ink := InkScene.instantiate()
+	ink.ink_file = state.story
+	ink.location_id = location
+	# "" (never set) means resume from InkCommands.DEFAULT_KNOT - same
+	# convention as SublocManager._start_ink_story().
+	ink.start_knot = state.knot if not state.knot.is_empty() else InkCommands.DEFAULT_KNOT
+	get_tree().root.add_child(ink)
+	await ink.story_ended
+	ink.queue_free()
 
 ## Rebuilds the view for the top of `_path`: the map's roster, or a
 ## SublocManager configured for the current sublocation plus its roster.

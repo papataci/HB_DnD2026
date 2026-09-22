@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="SublocationData" format=3 uid="uid://c4vvroj7wf6mp"]
 
 [ext_resource type="PackedScene" uid="uid://dqju0sl1w0ndk" path="res://sublocation/room_ext_01.tscn" id="1_v0xj3"]
-[ext_resource type="Script" uid="uid://6q5t07fqbll5" path="res://Locations/sublocation_data.gd" id="3_xlt2n"]
+[ext_resource type="Script" uid="uid://6q5t07fqbll5" path="res://locations/sublocation_data.gd" id="3_xlt2n"]
 
 [resource]
 script = ExtResource("3_xlt2n")
 sublocation_name = "Room 01"
 sublocation_scene = ExtResource("1_v0xj3")
+starting_unresolved = true

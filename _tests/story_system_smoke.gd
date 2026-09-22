@@ -130,13 +130,14 @@ func _run() -> void:
 	_check(manager.is_character_present(ENUMS.CHARACTERS.RUPERTO), "Ruperto is present in his interior")
 
 	# --- @CLOSE / @OPEN, dispatched through the running ink instance --------
-	_check(WorldState.get_state(ENUMS.SUBLOCATIONS.ROOM_INT_08).is_open, "Room Int 08 starts open")
+	_check(WorldState.is_open(ENUMS.SUBLOCATIONS.ROOM_INT_08), "Room Int 08 starts open")
 	if ink:
-		ink._set_open("SELF", false)
-	_check(not WorldState.get_state(ENUMS.SUBLOCATIONS.ROOM_INT_08).is_open, "ink._set_open(\"SELF\", false) closes Room Int 08 in WorldState")
+		ink._set_open(PackedStringArray(["SELF"]), false)
+	_check(not WorldState.is_open(ENUMS.SUBLOCATIONS.ROOM_INT_08), "ink._set_open(SELF, false) closes Room Int 08 in WorldState")
+	_check(not WorldState.is_open(ENUMS.SUBLOCATIONS.ROOM08), "...and it's shared with Room 08's exterior (the door sprite room_door_open.gd reads)")
 	if ink:
-		ink._set_open("SELF", true)
-	_check(WorldState.get_state(ENUMS.SUBLOCATIONS.ROOM_INT_08).is_open, "ink._set_open(\"SELF\", true) reopens it")
+		ink._set_open(PackedStringArray(["SELF"]), true)
+	_check(WorldState.is_open(ENUMS.SUBLOCATIONS.ROOM_INT_08), "ink._set_open(SELF, true) reopens it")
 
 	await manager.go_location()
 	await manager.go_location()
@@ -209,13 +210,16 @@ func _run() -> void:
 	_check(bad_arity != null and InkCommands.validate(bad_arity).contains("argument"), "validate() catches a wrong argument count")
 
 	# --- @CLOSE / @OPEN -------------------------------------------------------
-	_check(WorldState.get_state(ENUMS.SUBLOCATIONS.ROOM_INT_08).is_open, "Room Int 08 starts open (SublocationData.starting_open default)")
+	_check(WorldState.is_open(ENUMS.SUBLOCATIONS.ROOM_INT_08), "Room Int 08 starts open (SublocationData.starting_open default)")
 	var close_cmd := InkCommands.parse("@CLOSE: room_int_08")
 	_check(close_cmd != null and close_cmd.command == "CLOSE" and InkCommands.validate(close_cmd).is_empty(), "@CLOSE parses and validates")
+	var bare_close := InkCommands.parse("@CLOSE:")
+	_check(bare_close != null and bare_close.args.is_empty() and InkCommands.validate(bare_close).is_empty(), "@CLOSE with no argument (defaults to SELF) parses and validates")
 	WorldState.set_open(ENUMS.SUBLOCATIONS.ROOM_INT_08, false)
-	_check(not WorldState.get_state(ENUMS.SUBLOCATIONS.ROOM_INT_08).is_open, "WorldState.set_open(false) closes it")
+	_check(not WorldState.is_open(ENUMS.SUBLOCATIONS.ROOM_INT_08), "WorldState.set_open(false) closes it")
+	_check(not WorldState.is_open(ENUMS.SUBLOCATIONS.ROOM08), "...and it's shared with Room 08's exterior")
 	WorldState.set_open(ENUMS.SUBLOCATIONS.ROOM_INT_08, true)
-	_check(WorldState.get_state(ENUMS.SUBLOCATIONS.ROOM_INT_08).is_open, "WorldState.set_open(true) reopens it")
+	_check(WorldState.is_open(ENUMS.SUBLOCATIONS.ROOM_INT_08), "WorldState.set_open(true) reopens it")
 	var bad_close := InkCommands.parse("@CLOSE: room_01")
 	_check(bad_close != null and InkCommands.validate(bad_close).contains("unknown sublocation"), "@CLOSE validate() catches an unknown sublocation key")
 

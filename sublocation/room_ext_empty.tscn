@@ -12,11 +12,6 @@ position = Vector2(420, 436)
 position = Vector2(851, 619)
 scale = Vector2(0.38, 0.38)
 
-[node name="HollyFull" parent="." unique_id=992278168 instance=ExtResource("3_ckswg")]
-position = Vector2(860, 524.00006)
-scale = Vector2(0.73956823, 0.73956823)
-character = 0
-
 [node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=372899777]
 custom_minimum_size = Vector2(2020, 1180)
 offset_left = -100.0
@@ -27,3 +22,8 @@ mouse_filter = 2
 border_color = Color(0.2231029, 0.2231029, 0.22310284, 1)
 border_width = 200.0
 metadata/_edit_lock_ = true
+
+[node name="HollyFull" parent="." unique_id=109875135 instance=ExtResource("3_ckswg")]
+position = Vector2(805.00006, 700.00006)
+scale = Vector2(0.44220233, 0.44220233)
+character = 0

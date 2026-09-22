@@ -1,0 +1,14 @@
+[remap]
+
+importer="inkgd.ink"
+type="Resource"
+uid="uid://5tgtj3pwyfkv"
+path="res://.godot/imported/time_scheduler.ink-01cf45b4cbead63924fd7f5cca7ebee7.res"
+
+[deps]
+
+source_file="res://ink/time_scheduler.ink"
+dest_files=["res://.godot/imported/time_scheduler.ink-01cf45b4cbead63924fd7f5cca7ebee7.res"]
+
+[params]
+

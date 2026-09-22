@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://bba60310o2865"]
 
-[ext_resource type="Texture2D" uid="uid://bcxvjeg8wl0rv" path="res://Locations/bitmaps/_templ_Room.png" id="2_m3ygq"]
+[ext_resource type="Texture2D" uid="uid://bcxvjeg8wl0rv" path="res://assets/subloc/_templ_Room.png" id="2_m3ygq"]
 [ext_resource type="Script" uid="uid://lwqut13lskit" path="res://sublocation/backgrounds/room_closed.gd" id="3_spyv6"]
 [ext_resource type="PackedScene" uid="uid://brjaet4f7dboh" path="res://item/RoomItem.tscn" id="5_btbex"]
 [ext_resource type="PackedScene" uid="uid://bq8hcw2ecc66g" path="res://full_chars/holly_full.tscn" id="5_xoqoy"]
 [ext_resource type="Texture2D" uid="uid://k26sl5rjheqi" path="res://assets/items/RosarioBudd.png" id="6_1fdj4"]
 [ext_resource type="PackedScene" uid="uid://bl56dmxkxrt7f" path="res://full_chars/wom_full.tscn" id="6_ilyph"]
 [ext_resource type="FontFile" uid="uid://dr6cw3buovuch" path="res://ui/fonts/adamwarrenpro/adamwarrenpro-bold.ttf" id="7_0ccva"]
-[ext_resource type="Texture2D" uid="uid://b7gc7cbqh7ut3" path="res://Locations/bitmaps/Room_X_Ext_Day.png" id="7_eqws0"]
+[ext_resource type="Texture2D" uid="uid://b7gc7cbqh7ut3" path="res://assets/subloc/Room_X_Ext_Day.png" id="7_eqws0"]
 [ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="9_tbwd4"]
 
 [node name="MorlakoRoomX" type="Node2D" unique_id=1071241974]
@@ -129,7 +129,7 @@ visible = false
 position = Vector2(952, 664)
 scale = Vector2(0.38, 0.38)
 
-[node name="HollyFull" parent="." unique_id=1867439785 instance=ExtResource("9_tbwd4")]
-position = Vector2(929, 526)
-scale = Vector2(0.73956823, 0.73956823)
+[node name="HollyFull" parent="." unique_id=1220964986 instance=ExtResource("9_tbwd4")]
+position = Vector2(987, 700)
+scale = Vector2(0.44220233, 0.44220233)
 character = 0

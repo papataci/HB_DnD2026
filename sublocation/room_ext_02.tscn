@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dmi1ghw72wkr4" path="res://post/black_and_white_screen.tscn" id="2_kgqfd"]
 [ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="3_jvep4"]
 [ext_resource type="Texture2D" uid="uid://ddufgxrvdnehj" path="res://assets/subloc/room_door_open.png" id="4_85ohc"]
+[ext_resource type="PackedScene" uid="uid://cxvrn3hs61m4b" path="res://drop_zones/drop_sublocation.tscn" id="5_jvep4"]
+[ext_resource type="PackedScene" uid="uid://c7yw11qk3u4vq" path="res://drop_zones/droppable_feedback.tscn" id="6_85ohc"]
 
 [node name="RoomExt02" type="Node2D" unique_id=199805946]
 
@@ -16,11 +18,6 @@ visible = false
 [node name="WOMFull" parent="." unique_id=222462752 instance=ExtResource("3_jvep4")]
 position = Vector2(851, 619)
 scale = Vector2(0.38, 0.38)
-
-[node name="HollyFull" parent="." unique_id=992278168 instance=ExtResource("3_jvep4")]
-position = Vector2(860, 524.00006)
-scale = Vector2(0.73956823, 0.73956823)
-character = 0
 
 [node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=372899777]
 custom_minimum_size = Vector2(2020, 1180)
@@ -39,8 +36,33 @@ position = Vector2(1222.0002, 661.0001)
 scale = Vector2(0.92200005, 0.922)
 texture = ExtResource("4_85ohc")
 
+[node name="DropSublocation" parent="RoomDoorOpenEven" unique_id=1877650446 instance=ExtResource("5_jvep4")]
+scale = Vector2(4.29718, 8.765728)
+target = 14
+
+[node name="DroppableFeedback" parent="RoomDoorOpenEven/DropSublocation" unique_id=208384481 instance=ExtResource("6_85ohc")]
+
+[node name="Polygon2D" type="Polygon2D" parent="RoomDoorOpenEven/DropSublocation/DroppableFeedback" unique_id=1036862531]
+color = Color(1, 0, 1, 0.3254902)
+polygon = PackedVector2Array(-31.80217, -32.294003, -31.80217, 32.0465, 32.811646, 32.0465, 32.811646, -32.294003)
+
 [node name="RoomDoorOpenOdd" type="Sprite2D" parent="." unique_id=1461124986]
 visible = false
 position = Vector2(74.00003, 661.00006)
 scale = Vector2(0.92200005, 0.922)
 texture = ExtResource("4_85ohc")
+
+[node name="DropSublocation" parent="RoomDoorOpenOdd" unique_id=335607814 instance=ExtResource("5_jvep4")]
+scale = Vector2(4.29718, 8.765728)
+target = 14
+
+[node name="DroppableFeedback" parent="RoomDoorOpenOdd/DropSublocation" unique_id=1245684273 instance=ExtResource("6_85ohc")]
+
+[node name="Polygon2D" type="Polygon2D" parent="RoomDoorOpenOdd/DropSublocation/DroppableFeedback" unique_id=1324145630]
+color = Color(1, 0, 1, 0.3254902)
+polygon = PackedVector2Array(-31.80217, -32.294003, -31.80217, 32.0465, 32.811646, 32.0465, 32.811646, -32.294003)
+
+[node name="HollyFull" parent="." unique_id=1256739801 instance=ExtResource("3_jvep4")]
+position = Vector2(805.00006, 700.00006)
+scale = Vector2(0.44220233, 0.44220233)
+character = 0

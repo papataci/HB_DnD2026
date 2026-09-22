@@ -13,3 +13,6 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# inkgd: machine-local Inklecate path, not portable across machines/OSes
+.inkgd_compiler.cfg

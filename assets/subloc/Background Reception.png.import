@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7gc7cbqh7ut3"
-path="res://.godot/imported/Room_X_Ext_Day.png-ebd9f87b45439013049e5beb375f3d88.ctex"
+uid="uid://cbjw3b5sriddo"
+path="res://.godot/imported/Background Reception.png-6150a6272e6af44823363b5f05bf3402.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Locations/bitmaps/Room_X_Ext_Day.png"
-dest_files=["res://.godot/imported/Room_X_Ext_Day.png-ebd9f87b45439013049e5beb375f3d88.ctex"]
+source_file="res://assets/subloc/Background Reception.png"
+dest_files=["res://.godot/imported/Background Reception.png-6150a6272e6af44823363b5f05bf3402.ctex"]
 
 [params]
 

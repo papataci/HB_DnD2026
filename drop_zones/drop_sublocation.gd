@@ -17,6 +17,17 @@ func _ready() -> void:
 	if not Engine.is_editor_hint():
 		$DropZone.drop_applied.connect(_on_drop_applied)
 
+## Walks up from `node` to the DropSublocation portal it's part of (e.g. a
+## CharBubble or DroppableFeedback child of it), or null. Mirrors
+## SublocManager.find_owner().
+static func find_owner(node: Node) -> DropSublocation:
+	var current := node
+	while current:
+		if current is DropSublocation:
+			return current
+		current = current.get_parent()
+	return null
+
 func _on_drop_applied(zone: DropZone, area: Area2D, _plan: DropPlan) -> void:
 	DropUtils.clear_occupant_reference(zone, area)
 	get_tree().call_group(LocationManager.GROUP_NAME, "go_subloc", target, area)

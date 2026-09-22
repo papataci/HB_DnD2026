@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbjw3b5sriddo"
-path="res://.godot/imported/Background Reception.png-42450fdd37d870117aee3852dff7f104.ctex"
+uid="uid://bwy51lu26vegr"
+path="res://.godot/imported/Shack_Ext_Day.png-3d5ca13e1fa92fd37d32cc04393a47b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Locations/bitmaps/Background Reception.png"
-dest_files=["res://.godot/imported/Background Reception.png-42450fdd37d870117aee3852dff7f104.ctex"]
+source_file="res://assets/subloc/Shack_Ext_Day.png"
+dest_files=["res://.godot/imported/Shack_Ext_Day.png-3d5ca13e1fa92fd37d32cc04393a47b3.ctex"]
 
 [params]
 

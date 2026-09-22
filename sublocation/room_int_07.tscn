@@ -1,6 +1,6 @@
 [gd_scene format=3]
 
-[ext_resource type="Texture2D" uid="uid://bcxvjeg8wl0rv" path="res://Locations/bitmaps/_templ_Room.png" id="1_bg"]
+[ext_resource type="Texture2D" uid="uid://bcxvjeg8wl0rv" path="res://assets/subloc/_templ_Room.png" id="1_bg"]
 [ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="2_fullfig"]
 
 [node name="RoomInt07" type="Node2D" unique_id=199805953]

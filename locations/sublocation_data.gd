@@ -15,3 +15,7 @@ class_name SublocationData
 ## knot. Only set this when resuming somewhere other than the beginning.
 @export var starting_knot: String = ""
 @export var starting_open: bool = true
+## Shown as the CharBubble's red "Unresolved" sprite when true. Shared across
+## a room's ext/int pair like starting_characters - authoring it on either
+## template flags the room.
+@export var starting_unresolved: bool = false

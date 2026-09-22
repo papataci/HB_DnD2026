@@ -1,0 +1,1 @@
+{"inkVersion":21,"root":[[["done",{"#n":"g-0"}],null],"done",{"Day01MorningEnd":["^@MCP: There's nothing else to do here, head back to the reception for charging...","\n","^@OPEN: reception","\n","^@SET_KNOT: reception time_scheduler GoCharging","\n","end",null],"GoCharging":["^@MCP: Time to charge!","\n","end",null]}],"listDefs":{}}

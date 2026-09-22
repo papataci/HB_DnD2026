@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://beoo2c1g7effm" path="res://sublocation/backgrounds/room_ext_bg.tscn" id="1_drnsl"]
 [ext_resource type="PackedScene" uid="uid://dcwpsrnhfm3ko" path="res://sublocation/room_door_open.tscn" id="4_s3kle"]
 [ext_resource type="PackedScene" uid="uid://cxvrn3hs61m4b" path="res://drop_zones/drop_sublocation.tscn" id="5_wsky2"]
+[ext_resource type="PackedScene" uid="uid://c7yw11qk3u4vq" path="res://drop_zones/droppable_feedback.tscn" id="6_s3kle"]
 [ext_resource type="PackedScene" uid="uid://dmi1ghw72wkr4" path="res://post/black_and_white_screen.tscn" id="9_gilbb"]
 [ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="13_88j15"]
 
@@ -15,12 +16,13 @@ position = Vector2(1500, 436)
 visible = false
 
 [node name="WOMFull" parent="." unique_id=222462752 instance=ExtResource("13_88j15")]
+visible = false
 position = Vector2(787, 618.99994)
 scale = Vector2(0.38, 0.38)
 
 [node name="HollyFull" parent="." unique_id=992278168 instance=ExtResource("13_88j15")]
-position = Vector2(796, 524.00006)
-scale = Vector2(0.73956823, 0.73956823)
+position = Vector2(805.00006, 700.00006)
+scale = Vector2(0.44220233, 0.44220233)
 character = 0
 
 [node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=372899777]
@@ -35,8 +37,15 @@ border_width = 200.0
 metadata/_edit_lock_ = true
 
 [node name="RoomDoorOpen" parent="." unique_id=906322239 instance=ExtResource("4_s3kle")]
+visible = false
 position = Vector2(1154.0002, 656.0001)
 
 [node name="DropSublocation" parent="RoomDoorOpen" unique_id=1877650446 instance=ExtResource("5_wsky2")]
 scale = Vector2(4.29718, 8.765728)
 target = 14
+
+[node name="DroppableFeedback" parent="RoomDoorOpen/DropSublocation" unique_id=208384481 instance=ExtResource("6_s3kle")]
+
+[node name="Polygon2D" type="Polygon2D" parent="RoomDoorOpen/DropSublocation/DroppableFeedback" unique_id=732578495]
+color = Color(1, 0, 1, 0.3254902)
+polygon = PackedVector2Array(-31.80217, -32.294003, -31.80217, 32.0465, 32.811646, 32.0465, 32.811646, -32.294003)

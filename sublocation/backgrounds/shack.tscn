@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c4k7aaxhx11x"]
 
-[ext_resource type="Texture2D" uid="uid://bwy51lu26vegr" path="res://Locations/bitmaps/Shack_Ext_Day.png" id="7_54tfr"]
+[ext_resource type="Texture2D" uid="uid://bwy51lu26vegr" path="res://assets/subloc/Shack_Ext_Day.png" id="7_54tfr"]
 [ext_resource type="PackedScene" uid="uid://b4fx6ijnombh6" path="res://full_chars/full_figure.tscn" id="7_k5ej0"]
 
 [node name="Shack" type="Node2D" unique_id=22109286]
@@ -14,11 +14,6 @@ texture = ExtResource("7_54tfr")
 position = Vector2(504, 672)
 scale = Vector2(0.38, 0.38)
 
-[node name="HollyFull" parent="." unique_id=232047369 instance=ExtResource("7_k5ej0")]
-position = Vector2(486, 532.00006)
-scale = Vector2(0.73956823, 0.73956823)
-character = 0
-
 [node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1655531416]
 custom_minimum_size = Vector2(2020, 1180)
 offset_left = -100.0
@@ -29,3 +24,8 @@ mouse_filter = 2
 border_color = Color(0.2231029, 0.2231029, 0.22310284, 1)
 border_width = 200.0
 metadata/_edit_lock_ = true
+
+[node name="HollyFull" parent="." unique_id=1944262545 instance=ExtResource("7_k5ej0")]
+position = Vector2(514, 700)
+scale = Vector2(0.44220233, 0.44220233)
+character = 0

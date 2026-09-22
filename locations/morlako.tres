@@ -1,23 +1,26 @@
 [gd_resource type="Resource" script_class="LocationData" format=3 uid="uid://cli2m34excf24"]
 
-[ext_resource type="Script" uid="uid://6q5t07fqbll5" path="res://Locations/sublocation_data.gd" id="1b_sublocdata"]
-[ext_resource type="Script" uid="uid://ct2nwp74vscrt" path="res://Locations/location_data.gd" id="1_morlako"]
+[ext_resource type="Script" uid="uid://6q5t07fqbll5" path="res://locations/sublocation_data.gd" id="1b_sublocdata"]
+[ext_resource type="Script" uid="uid://ct2nwp74vscrt" path="res://locations/location_data.gd" id="1_morlako"]
 [ext_resource type="Texture2D" uid="uid://dh770k7go0cvg" path="res://assets/locations/morlako_tot_day.png" id="2_bg"]
 [ext_resource type="Resource" uid="uid://bynpvxcdx2rdb" path="res://sublocation/data/reception.tres" id="3_reception"]
 [ext_resource type="Resource" uid="uid://c4vvroj7wf6mp" path="res://sublocation/data/room01.tres" id="4_room01"]
-[ext_resource type="Resource" path="res://sublocation/data/room02.tres" id="5_room02"]
-[ext_resource type="Resource" path="res://sublocation/data/room05.tres" id="6_room05"]
-[ext_resource type="Resource" path="res://sublocation/data/room06.tres" id="7_room06"]
-[ext_resource type="Resource" path="res://sublocation/data/room07.tres" id="8_room07"]
-[ext_resource type="Resource" path="res://sublocation/data/room08.tres" id="9_room08"]
-[ext_resource type="Resource" path="res://sublocation/data/room09.tres" id="10_room09"]
-[ext_resource type="Resource" path="res://sublocation/data/roomx.tres" id="11_roomx"]
+[ext_resource type="Resource" uid="uid://b16n00734t0hl" path="res://sublocation/data/room02.tres" id="5_room02"]
+[ext_resource type="Resource" uid="uid://c8xp4lygy2mgm" path="res://sublocation/data/room05.tres" id="6_room05"]
+[ext_resource type="Resource" uid="uid://b67kj3mnjkesi" path="res://sublocation/data/room06.tres" id="7_room06"]
+[ext_resource type="Resource" uid="uid://uda55snyl5mm" path="res://sublocation/data/room07.tres" id="8_room07"]
+[ext_resource type="Resource" uid="uid://coh4fhg7up5uc" path="res://sublocation/data/room08.tres" id="9_room08"]
+[ext_resource type="Resource" uid="uid://c275lylgbc8hu" path="res://sublocation/data/room09.tres" id="10_room09"]
+[ext_resource type="Resource" uid="uid://duofm4c88ryhm" path="res://sublocation/data/roomx.tres" id="11_roomx"]
 [ext_resource type="Resource" uid="uid://bpgq7colulfjn" path="res://sublocation/data/shack.tres" id="12_shack"]
 [ext_resource type="Resource" path="res://sublocation/data/phoneboot.tres" id="13_phoneboot"]
 [ext_resource type="Resource" path="res://sublocation/data/dumpster.tres" id="14_dumpster"]
+[ext_resource type="Resource" uid="uid://0ne665y18mlj" path="res://ink/time_scheduler.ink.json" id="15_time_scheduler"]
 
 [resource]
 script = ExtResource("1_morlako")
 location_name = "Morlako"
 background = ExtResource("2_bg")
 sublocations = Array[ExtResource("1b_sublocdata")]([ExtResource("3_reception"), ExtResource("4_room01"), ExtResource("5_room02"), ExtResource("6_room05"), ExtResource("7_room06"), ExtResource("8_room07"), ExtResource("9_room08"), ExtResource("10_room09"), ExtResource("11_roomx"), ExtResource("12_shack"), ExtResource("13_phoneboot"), ExtResource("14_dumpster")])
+starting_ink_story = ExtResource("15_time_scheduler")
+starting_knot = "Day01MorningEnd"

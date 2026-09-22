@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djic8oh2scued"
-path="res://.godot/imported/Toshiro_figura_intera.png-dfdd24c851605a5df75987686937246b.ctex"
+uid="uid://ctrrr51ktj6fk"
+path="res://.godot/imported/trisha.png-1d6fc87be3a32362519d3b49a6340474.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/char/full_figure/Toshiro_figura_intera.png"
-dest_files=["res://.godot/imported/Toshiro_figura_intera.png-dfdd24c851605a5df75987686937246b.ctex"]
+source_file="res://assets/char/bubbles/trisha.png"
+dest_files=["res://.godot/imported/trisha.png-1d6fc87be3a32362519d3b49a6340474.ctex"]
 
 [params]
 

@@ -7,5 +7,4 @@ func _ready() -> void:
 	if not manager or manager.subloc_id == WorldState.MAP:
 		visible = false
 		return
-	var state := WorldState.get_state(manager.subloc_id)
-	visible = state != null and state.is_open
+	visible = WorldState.is_open(manager.subloc_id)

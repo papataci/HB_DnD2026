@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dgnjoh6cbtgi8"]
+
+[ext_resource type="Texture2D" uid="uid://bsybs0q2btdbb" path="res://assets/char/bubbles/_noChar.png" id="1_anmng"]
+[ext_resource type="Script" uid="uid://bwk86ucvcd5eg" path="res://drop_zones/char_bubble.gd" id="2_bubble"]
+[ext_resource type="Texture2D" uid="uid://dvr2qrgie18rp" path="res://assets/char/bubbles/unresolved.png" id="2_s8ix0"]
+
+[node name="CharBubble" type="Node2D" unique_id=1875853518]
+script = ExtResource("2_bubble")
+
+[node name="Unresolved" type="Sprite2D" parent="." unique_id=1109274065]
+modulate = Color(1, 0.8613333, 0.36, 1)
+scale = Vector2(0.109, 0.109)
+texture = ExtResource("2_s8ix0")
+
+[node name="CharSprite" type="Sprite2D" parent="." unique_id=1018810709]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_anmng")

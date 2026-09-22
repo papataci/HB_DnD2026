@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcxvjeg8wl0rv"
-path="res://.godot/imported/_templ_Room.png-933d6a4430867f04f378e8537b999b15.ctex"
+uid="uid://dvr2qrgie18rp"
+path="res://.godot/imported/unresolved.png-0549d7939b48df8a8169cb52e9e944f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Locations/bitmaps/_templ_Room.png"
-dest_files=["res://.godot/imported/_templ_Room.png-933d6a4430867f04f378e8537b999b15.ctex"]
+source_file="res://assets/char/bubbles/unresolved.png"
+dest_files=["res://.godot/imported/unresolved.png-0549d7939b48df8a8169cb52e9e944f8.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do2b2k67rfr8p"
-path="res://.godot/imported/Recept_Ext_Day.png-eba046221c2d48b9b739d581e90dc1d4.ctex"
+uid="uid://cfj3ml72bec18"
+path="res://.godot/imported/mr_x.png-1adbf255ba4d3673ed0df7a269c8d25b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Locations/bitmaps/Recept_Ext_Day.png"
-dest_files=["res://.godot/imported/Recept_Ext_Day.png-eba046221c2d48b9b739d581e90dc1d4.ctex"]
+source_file="res://assets/char/bubbles/mr_x.png"
+dest_files=["res://.godot/imported/mr_x.png-1adbf255ba4d3673ed0df7a269c8d25b.ctex"]
 
 [params]
 

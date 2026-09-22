@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="SublocationData" format=3 uid="uid://bynpvxcdx2rdb"]
 
-[ext_resource type="PackedScene" uid="uid://btqc466kisyto" path="res://sublocation/backgrounds/reception.tscn" id="1_8p42u"]
-[ext_resource type="Script" uid="uid://6q5t07fqbll5" path="res://Locations/sublocation_data.gd" id="3_cpogl"]
+[ext_resource type="PackedScene" uid="uid://btqc466kisyto" path="res://sublocation/reception_ext.tscn" id="1_8p42u"]
+[ext_resource type="Script" uid="uid://6q5t07fqbll5" path="res://locations/sublocation_data.gd" id="3_cpogl"]
 [ext_resource type="Resource" uid="uid://dyfaigiacps61" path="res://ink/morlako/room_default.ink.json" id="4_ink"]
 
 [resource]
 script = ExtResource("3_cpogl")
-sublocation_name = "Reception"
+sublocation_name = "Reception Ext"
 sublocation_scene = ExtResource("1_8p42u")
 starting_ink_story = ExtResource("4_ink")
 starting_knot = "ClosedReception"

@@ -5,24 +5,32 @@
     WOM: Room... Bzzz... Needs... Cleaning... Bzz...
 
     Toshiro: いいよ、それから出て行って, I'm meditating...
+    
     // (Ii yo, sore kara dete itte). Questa frase combina "va bene" (いいよ) con "poi smamma" (それから出て行って)
 
     WOM: ありがとうございます Sir... Me quick.
     
-    Toshiro: Please inform your boss i'd like to talk to her...
+    Toshiro: Please tell your boss i want to talk to her...
 
     WOM: かしこまりました、必ず... Bzzz... Sir...
-    //Certamente lo farò - かしこまりました、必ず (Kashikomarimashita, kanarazu) — very formal/deferential, "Understood, certainly [I will]" — fits a servant/butler-type register if that's the voice.
+    
+    //Certamente lo farò - かしこまりました、必ず 
+    
+    //(Kashikomarimashita, kanarazu) — very formal/deferential, "Understood, certainly [I will]" — fits a servant/butler-type register if that's the voice.
     
     @CUTSCENE: wom_cleans
     @SET_KNOT: LeaveMeAlone
-    @SET_KNOT: room01 room_default RoomAlreadyClean
+    @RESOLVE_ROOM:
+    @CLOSE:
     @TELEPORT: Morlako
 
 -> END
 
+
+
 === LeaveMeAlone ===
     Toshiro: どけ、ポンコツ!
+    
     /* Levati dai piedi
     
     - どけ、ポンコツ! (Doke, ponkotsu!)
@@ -31,8 +39,13 @@
     
     More literal alternative: 邪魔だ、鉄くず! (Jama da, tetsukuzu! — "You're in the way, scrap iron!") — works too, but ポンコツ is the more natural/idiomatic insult for a robot in Japanese.
     */
+    
+    @TELEPORT: Morlako
+
 
 -> END
+
+
 
 === ToshiroMeetsHolly ===
     Holly: Good morning sir. How's your stay?

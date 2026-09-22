@@ -8,8 +8,9 @@
     WOM: Master won't be pleased sir...
     
     @SET_KNOT: LeaveMeAlone
-    @SET_KNOT: room08 ruperto_00 RoomRefused
     @CLOSE: room08
+    @RESOLVE_ROOM:
+    @CLOSE:
     @TELEPORT: Morlako
 
 

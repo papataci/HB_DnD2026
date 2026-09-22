@@ -7,4 +7,5 @@ const INK_STORIES: Dictionary[String, Resource] = {
 	"toshiro_00": preload("res://ink/toshiro_00.ink.json"),
 	"ruperto_00": preload("res://ink/ruperto_00.ink.json"),
 	"trisha_00": preload("res://ink/trisha_00.ink.json"),
+	"time_scheduler": preload("res://ink/time_scheduler.ink.json"),
 }

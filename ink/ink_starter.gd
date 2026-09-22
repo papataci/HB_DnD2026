@@ -8,6 +8,12 @@ const ShellMessageScene := preload("res://ui/shell_message.tscn")
 const DialogueBalloonScene := preload("res://ui/dialogue_balloon_autosize.tscn")
 const CharIntroScene := preload("res://ui/char_intro.tscn")
 
+## Emitted once the story reaches -> END with no more choices. Room-attached
+## instances are freed by SublocManager on room swap regardless, so this is
+## for callers that instantiate one directly (see LocationManager's
+## time_scheduler trigger) and need to know when to free it themselves.
+signal story_ended
+
 @export var ink_file: Resource = preload("res://ink/example.ink.json")
 ## Knot/stitch to jump to before the story starts. Leave empty to start
 ## from the beginning of the ink file.
@@ -17,6 +23,11 @@ const CharIntroScene := preload("res://ui/char_intro.tscn")
 ## in a command means this room no matter what navigation does meanwhile.
 ## WorldState.MAP when the story isn't attached to a sublocation.
 var subloc_id: int = WorldState.MAP
+## The location this story belongs to, set by LocationManager, same role as
+## subloc_id but for a location-attached story (e.g. ink/time_scheduler.ink).
+## -1 when the story isn't attached to a location. A story is attached to at
+## most one of subloc_id/location_id.
+var location_id: int = -1
 
 var _ink_player: InkPlayer
 
@@ -84,9 +95,11 @@ func _run_command(command: InkCommands.Parsed) -> void:
 		"SET_KNOT":
 			_set_knot(command.args)
 		"CLOSE":
-			_set_open(command.args[0], false)
+			_set_open(command.args, false)
 		"OPEN":
-			_set_open(command.args[0], true)
+			_set_open(command.args, true)
+		"RESOLVE_ROOM":
+			_resolve_room(command.args)
 	print("Ink: @%s finished" % command.command)
 
 ## "@MCP: <text>" - shows the text in a ShellMessage panel, styled as a
@@ -127,43 +140,67 @@ func _play_char_intro(character_name: String) -> void:
 	intro.cutscene_play()
 	await intro.cutscene_ended
 
-## "@SET_KNOT: <knot>" or "@SET_KNOT: <sublocation> <ink_story> <knot>" -
-## records in WorldState where a sublocation's story resumes from next time
-## it's entered. The 1-argument form targets this story's own sublocation
-## (SELF) and keeps its current ink story. In the 3-argument form
-## <sublocation> is an ENUMS.SUBLOCATIONS key or SELF, <ink_story> a key in
-## InkRegistry.INK_STORIES or "-" to keep the current one, and <knot> the
-## knot name or "-" for InkCommands.DEFAULT_KNOT ("Start"). Since state lives in
-## WorldState rather than on scene nodes, the target doesn't need to be
-## loaded, and this works before or after a @TELEPORT alike.
+## "@SET_KNOT: <knot>" or "@SET_KNOT: <target> <ink_story> <knot>" - records
+## in WorldState where a sublocation's or a location's story resumes from
+## next time it's entered/returned to. The 1-argument form targets this
+## story's own sublocation or location (SELF) and keeps its current ink
+## story. In the 3-argument form <target> is an ENUMS.SUBLOCATIONS key, an
+## ENUMS.LOCATIONS key, or SELF; <ink_story> a key in InkRegistry.INK_STORIES
+## or "-" to keep the current one; and <knot> the knot name or "-" for
+## InkCommands.DEFAULT_KNOT ("Start"). Since state lives in WorldState rather
+## than on scene nodes, the target doesn't need to be loaded, and this works
+## before or after a @TELEPORT alike.
 func _set_knot(args: PackedStringArray) -> void:
-	var subloc_name := "SELF"
+	var target_name := "SELF"
 	var story_name := "-"
 	var knot := args[0]
 	if args.size() == 3:
-		subloc_name = args[0]
+		target_name = args[0]
 		story_name = args[1]
 		knot = args[2]
 	if knot == "-":
 		knot = ""
 
-	var id := _resolve_subloc(subloc_name)
-	if id == WorldState.MAP:
+	var story: Resource = null if story_name == "-" else InkRegistry.INK_STORIES.get(story_name.to_lower())
+
+	if target_name.to_upper() == "SELF":
+		if location_id != -1:
+			WorldState.set_location_story(location_id, knot, story)
+		elif subloc_id != WorldState.MAP:
+			WorldState.set_story(subloc_id, knot, story)
+		else:
+			push_error("Ink: SELF used in a story that isn't attached to a sublocation or location")
 		return
 
-	var story: Resource = null if story_name == "-" else InkRegistry.INK_STORIES.get(story_name.to_lower())
-	WorldState.set_story(id, knot, story)
+	var target_location := Locations.parse_key(target_name)
+	if target_location != -1:
+		WorldState.set_location_story(target_location, knot, story)
+		return
+	WorldState.set_story(Sublocations.parse_key(target_name), knot, story)
 
-## "@CLOSE: <sublocation>" / "@OPEN: <sublocation>" - sets whether
-## <sublocation> is open in WorldState (e.g. room_door_open.gd reads this to
-## show/hide a room's open-door sprite). <sublocation> is an
-## ENUMS.SUBLOCATIONS key or SELF, same as @SET_KNOT's. Synchronous - doesn't
-## pause the story.
-func _set_open(subloc_name: String, open: bool) -> void:
+## "@CLOSE" / "@CLOSE: <sublocation>" / "@OPEN" / "@OPEN: <sublocation>" -
+## sets whether <sublocation> is open in WorldState (e.g. room_door_open.gd
+## reads this to show/hide a room's open-door sprite). <sublocation> is an
+## ENUMS.SUBLOCATIONS key or SELF, same as @SET_KNOT's; defaults to SELF (the
+## current room) when omitted. Synchronous - doesn't pause the story.
+func _set_open(args: PackedStringArray, open: bool) -> void:
+	var subloc_name := args[0] if args.size() == 1 else "SELF"
 	var id := _resolve_subloc(subloc_name)
 	if id == WorldState.MAP:
 		return
 	WorldState.set_open(id, open)
+
+## "@RESOLVE_ROOM" / "@RESOLVE_ROOM: <sublocation>" - clears <sublocation>'s
+## "Unresolved" flag in WorldState (e.g. drop_zones/char_bubble.gd reads this
+## to show/hide a room's Unresolved sprite). <sublocation> is an
+## ENUMS.SUBLOCATIONS key or SELF, same as @SET_KNOT's; defaults to SELF (the
+## current room) when omitted. Synchronous - doesn't pause the story.
+func _resolve_room(args: PackedStringArray) -> void:
+	var subloc_name := args[0] if args.size() == 1 else "SELF"
+	var id := _resolve_subloc(subloc_name)
+	if id == WorldState.MAP:
+		return
+	WorldState.set_unresolved(id, false)
 
 ## Resolves the shared "SELF or ENUMS.SUBLOCATIONS key" command argument to a
 ## sublocation id, or WorldState.MAP (with an error) if SELF was used in a
@@ -238,6 +275,7 @@ func submit_sentence(sentence: String) -> bool:
 
 func _on_ended() -> void:
 	_story_label.text += "\n\n-- The End --"
+	story_ended.emit()
 
 func _clear_choices() -> void:
 	for child in _choices_container.get_children():

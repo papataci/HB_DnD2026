@@ -1,0 +1,15 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+uid="uid://0ne665y18mlj"
+path="res://.godot/imported/time_scheduler.ink.json-bc8524e827874a823e738506306fe84b.res"
+
+[deps]
+
+source_file="res://ink/time_scheduler.ink.json"
+dest_files=["res://.godot/imported/time_scheduler.ink.json-bc8524e827874a823e738506306fe84b.res"]
+
+[params]
+
+compress=true

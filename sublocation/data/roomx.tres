@@ -1,12 +1,13 @@
 [gd_resource type="Resource" script_class="SublocationData" format=3 uid="uid://duofm4c88ryhm"]
 
 [ext_resource type="PackedScene" uid="uid://bba60310o2865" path="res://sublocation/backgrounds/room_x.tscn" id="1_cam5k"]
-[ext_resource type="Script" uid="uid://6q5t07fqbll5" path="res://Locations/sublocation_data.gd" id="1_roomx"]
+[ext_resource type="Script" uid="uid://6q5t07fqbll5" path="res://locations/sublocation_data.gd" id="1_roomx"]
 [ext_resource type="Resource" uid="uid://dyfaigiacps61" path="res://ink/morlako/room_default.ink.json" id="3_ink"]
 
 [resource]
 script = ExtResource("1_roomx")
 sublocation_name = "Room X"
 sublocation_scene = ExtResource("1_cam5k")
+starting_characters = Array[int]([8])
 starting_ink_story = ExtResource("3_ink")
 starting_knot = "ClosedRoomX"

@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cmy6cje0nfa35" path="res://scenes/location.gd" id="0_location"]
 [ext_resource type="Texture2D" uid="uid://dh770k7go0cvg" path="res://assets/locations/morlako_tot_day.png" id="1_gjgjs"]
 [ext_resource type="PackedScene" uid="uid://cxvrn3hs61m4b" path="res://drop_zones/drop_sublocation.tscn" id="3_nnb31"]
+[ext_resource type="PackedScene" uid="uid://dgnjoh6cbtgi8" path="res://drop_zones/char_bubble.tscn" id="4_am70p"]
+[ext_resource type="PackedScene" uid="uid://c7yw11qk3u4vq" path="res://drop_zones/droppable_feedback.tscn" id="5_wk2ld"]
 [ext_resource type="Texture2D" uid="uid://8w4cbryf51na" path="res://assets/ui/HollywppdBauTitle_1k.png" id="15_gdcmo"]
 
 [node name="Location" type="Node2D" unique_id=77529473]
@@ -14,55 +16,180 @@ script = ExtResource("0_location")
 position = Vector2(875, 498)
 scale = Vector2(0.66441417, 0.66344446)
 texture = ExtResource("1_gjgjs")
+metadata/_edit_lock_ = true
 
 [node name="Reception" parent="Morlako" unique_id=1877650446 instance=ExtResource("3_nnb31")]
 position = Vector2(1208, 744)
 scale = Vector2(4.2667336, 2.7743697)
+
+[node name="CharBubble" parent="Morlako/Reception" unique_id=1875853518 instance=ExtResource("4_am70p")]
+position = Vector2(-14.999771, -72.08844)
+scale = Vector2(0.49032202, 0.73713297)
+
+[node name="DroppableFeedback" parent="Morlako/Reception" unique_id=208384481 instance=ExtResource("5_wk2ld")]
+position = Vector2(7.265503, 14.057289)
+scale = Vector2(0.49032202, 0.73713297)
+
+[node name="Polygon2D" type="Polygon2D" parent="Morlako/Reception/DroppableFeedback" unique_id=2101605806]
+scale = Vector2(1, 1.0000001)
+color = Color(1, 0, 1, 0.3254902)
+polygon = PackedVector2Array(12.427795, -17.114243, 25.811646, -24.937897, 25.811646, 4.889801, 12.427795, 13.202423)
 
 [node name="Room01" parent="Morlako" unique_id=68717004 instance=ExtResource("3_nnb31")]
 position = Vector2(1480.0001, 528)
 scale = Vector2(2.0920734, 2.0450795)
 target = 1
 
+[node name="CharBubble" parent="Morlako/Room01" unique_id=2084715317 instance=ExtResource("4_am70p")]
+position = Vector2(-7.647949, -43.030106)
+
+[node name="DroppableFeedback" parent="Morlako/Room01" unique_id=169727375 instance=ExtResource("5_wk2ld")]
+
+[node name="Polygon2D" type="Polygon2D" parent="Morlako/Room01/DroppableFeedback" unique_id=411410516]
+scale = Vector2(1, 1.0000001)
+color = Color(1, 0, 1, 0.3254902)
+polygon = PackedVector2Array(12.427795, -17.114243, 25.811646, -24.937897, 25.811646, 4.889801, 12.427795, 13.202423)
+
 [node name="Room02" parent="Morlako" unique_id=1383656763 instance=ExtResource("3_nnb31")]
 position = Vector2(1632.0001, 456)
 scale = Vector2(2.0920734, 2.0450795)
 target = 2
+
+[node name="CharBubble" parent="Morlako/Room02" unique_id=1580736722 instance=ExtResource("4_am70p")]
+position = Vector2(-22.943802, -39.11828)
+scale = Vector2(1, 1.0000001)
+
+[node name="DroppableFeedback" parent="Morlako/Room02" unique_id=1465873898 instance=ExtResource("5_wk2ld")]
+position = Vector2(-24.855804, 7.8236485)
+scale = Vector2(1, 1.0000001)
+
+[node name="Polygon2D" type="Polygon2D" parent="Morlako/Room02/DroppableFeedback" unique_id=1030629364]
+scale = Vector2(1, 1.0000001)
+color = Color(1, 0, 1, 0.3254902)
+polygon = PackedVector2Array(12.427795, -17.114243, 25.811646, -24.937897, 25.811646, 4.889801, 12.427795, 13.202423)
 
 [node name="Room05" parent="Morlako" unique_id=1212429847 instance=ExtResource("3_nnb31")]
 position = Vector2(608, 512)
 scale = Vector2(2.0920734, 2.0450795)
 target = 3
 
+[node name="CharBubble" parent="Morlako/Room05" unique_id=1780656967 instance=ExtResource("4_am70p")]
+position = Vector2(-11.471832, -43.03011)
+scale = Vector2(1, 1.0000001)
+
+[node name="DroppableFeedback" parent="Morlako/Room05" unique_id=1543964710 instance=ExtResource("5_wk2ld")]
+position = Vector2(-2.8679657, 1.466938)
+scale = Vector2(1, 1.0000002)
+
+[node name="Polygon2D" type="Polygon2D" parent="Morlako/Room05/DroppableFeedback" unique_id=1884271416]
+scale = Vector2(1, 1.0000001)
+color = Color(1, 0, 1, 0.3254902)
+polygon = PackedVector2Array(12.427795, -17.114243, 25.811646, -24.937897, 25.811646, 4.889801, 12.427795, 13.202423)
+
 [node name="Room06" parent="Morlako" unique_id=104571156 instance=ExtResource("3_nnb31")]
 position = Vector2(752.00006, 439.99997)
 scale = Vector2(2.0920734, 2.0450795)
 target = 4
+
+[node name="CharBubble" parent="Morlako/Room06" unique_id=637590507 instance=ExtResource("4_am70p")]
+position = Vector2(-22.943787, -39.118267)
+scale = Vector2(1, 1.0000002)
+
+[node name="DroppableFeedback" parent="Morlako/Room06" unique_id=1543985452 instance=ExtResource("5_wk2ld")]
+position = Vector2(-23.89978, 9.779581)
+scale = Vector2(1, 1.0000004)
+
+[node name="Polygon2D" type="Polygon2D" parent="Morlako/Room06/DroppableFeedback" unique_id=2000553542]
+scale = Vector2(1, 1.0000001)
+color = Color(1, 0, 1, 0.3254902)
+polygon = PackedVector2Array(12.427795, -17.114243, 25.811646, -24.937897, 25.811646, 4.889801, 12.427795, 13.202423)
 
 [node name="Room07" parent="Morlako" unique_id=39410998 instance=ExtResource("3_nnb31")]
 position = Vector2(800.00006, 280)
 scale = Vector2(2.0920734, 2.0450795)
 target = 5
 
+[node name="CharBubble" parent="Morlako/Room07" unique_id=463206331 instance=ExtResource("4_am70p")]
+position = Vector2(19.119781, -43.03012)
+scale = Vector2(1, 1.0000004)
+
+[node name="DroppableFeedback" parent="Morlako/Room07" unique_id=518646737 instance=ExtResource("5_wk2ld")]
+position = Vector2(2.389946, 8.31263)
+scale = Vector2(1, 1.0000005)
+
+[node name="Polygon2D" type="Polygon2D" parent="Morlako/Room07/DroppableFeedback" unique_id=871311124]
+scale = Vector2(1, 1.0000001)
+color = Color(1, 0, 1, 0.3254902)
+polygon = PackedVector2Array(12.427795, -17.114243, 26.7677, -10.268539, 26.7677, 18.581177, 12.427887, 12.224457)
+
 [node name="Room08" parent="Morlako" unique_id=104770816 instance=ExtResource("3_nnb31")]
 position = Vector2(934, 343.99997)
 scale = Vector2(2.0920734, 2.0450795)
 target = 6
+
+[node name="CharBubble" parent="Morlako/Room08" unique_id=2132437796 instance=ExtResource("4_am70p")]
+position = Vector2(20.07579, -46.941925)
+scale = Vector2(1, 1.0000005)
+
+[node name="DroppableFeedback" parent="Morlako/Room08" unique_id=1315057117 instance=ExtResource("5_wk2ld")]
+position = Vector2(-10.037897, 1.4669423)
+scale = Vector2(1, 1.0000006)
+
+[node name="Polygon2D" type="Polygon2D" parent="Morlako/Room08/DroppableFeedback" unique_id=873035531]
+scale = Vector2(1, 1.0000001)
+color = Color(1, 0, 1, 0.3254902)
+polygon = PackedVector2Array(12.427795, -17.114243, 26.7677, -10.268539, 26.7677, 18.581177, 12.427887, 12.224457)
 
 [node name="Room09" parent="Morlako" unique_id=63825760 instance=ExtResource("3_nnb31")]
 position = Vector2(1064.0001, 136)
 scale = Vector2(2.0920734, 2.0450795)
 target = 7
 
+[node name="CharBubble" parent="Morlako/Room09" unique_id=1524594954 instance=ExtResource("4_am70p")]
+position = Vector2(15.295776, -46.941956)
+scale = Vector2(1, 1.0000006)
+
+[node name="DroppableFeedback" parent="Morlako/Room09" unique_id=1032691460 instance=ExtResource("5_wk2ld")]
+position = Vector2(2.389923, 6.8456955)
+scale = Vector2(1, 1.0000007)
+
+[node name="Polygon2D" type="Polygon2D" parent="Morlako/Room09/DroppableFeedback" unique_id=1307787402]
+scale = Vector2(1, 1.0000001)
+color = Color(1, 0, 1, 0.3254902)
+polygon = PackedVector2Array(12.427795, -17.114243, 26.7677, -10.268539, 26.7677, 18.581177, 12.427887, 12.224457)
+
 [node name="RoomX" parent="Morlako" unique_id=1182106277 instance=ExtResource("3_nnb31")]
 position = Vector2(1208, 200)
 scale = Vector2(2.0920734, 2.0450795)
 target = 8
 
+[node name="CharBubble" parent="Morlako/RoomX" unique_id=115319363 instance=ExtResource("4_am70p")]
+position = Vector2(11.47187, -46.94194)
+scale = Vector2(1, 1.0000007)
+
+[node name="DroppableFeedback" parent="Morlako/RoomX" unique_id=237589132 instance=ExtResource("5_wk2ld")]
+position = Vector2(-15.295795, 0)
+scale = Vector2(1, 1.0000008)
+
+[node name="Polygon2D" type="Polygon2D" parent="Morlako/RoomX/DroppableFeedback" unique_id=263314479]
+scale = Vector2(1, 1.0000001)
+color = Color(1, 0, 1, 0.3254902)
+polygon = PackedVector2Array(12.427795, -17.114243, 26.7677, -10.268539, 26.7677, 18.581177, 12.427887, 12.224457)
+
 [node name="Shack" parent="Morlako" unique_id=1850566846 instance=ExtResource("3_nnb31")]
 position = Vector2(1816, 344)
 scale = Vector2(2.0920734, 2.0450795)
 target = 9
+
+[node name="DroppableFeedback" parent="Morlako/Shack" unique_id=1102929710 instance=ExtResource("5_wk2ld")]
+position = Vector2(-28.679672, 10.7575245)
+scale = Vector2(1, 1.0000001)
+
+[node name="Polygon2D" type="Polygon2D" parent="Morlako/Shack/DroppableFeedback" unique_id=1785478534]
+position = Vector2(0.47799468, 0)
+scale = Vector2(1, 1.0000001)
+color = Color(1, 0, 1, 0.3254902)
+polygon = PackedVector2Array(12.427795, -17.114243, 25.811646, -24.937897, 25.811646, 4.889801, 12.427795, 13.202423)
 
 [node name="Phoneboot" parent="Morlako" unique_id=1504334405 instance=ExtResource("3_nnb31")]
 visible = false
